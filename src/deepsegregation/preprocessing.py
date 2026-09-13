@@ -43,13 +43,14 @@ def voxel_downsample(cloud: PointCloud, voxel_size: float) -> PointCloud:
     return PointCloud(points, colors=colors, normals=normals, labels=labels, metadata=dict(cloud.metadata))
 
 
-def remove_statistical_outliers(cloud: PointCloud, neighbors: int = 16, z_threshold: float = 2.5) -> PointCloud:
+def remove_statistical_outliers(cloud: PointCloud, neighbors: int = 16, z_threshold: float = 2.5, min_std: float = 1e-6) -> PointCloud:
     if neighbors < 2 or z_threshold <= 0:
         raise ValueError("neighbors must be >= 2 and z_threshold must be positive")
     from scipy.spatial import cKDTree
     distances, _ = cKDTree(cloud.points).query(cloud.points, k=min(neighbors + 1, len(cloud.points)))
     mean_distance = distances[:, 1:].mean(axis=1)
-    cutoff = np.median(mean_distance) + z_threshold * np.std(mean_distance)
+    std_dist = max(float(np.std(mean_distance)), min_std)
+    cutoff = float(np.median(mean_distance)) + z_threshold * std_dist
     return cloud.select(mean_distance <= cutoff)
 
 
@@ -57,17 +58,16 @@ def estimate_normals(cloud: PointCloud, neighbors: int = 24) -> PointCloud:
     if neighbors < 3:
         raise ValueError("neighbors must be >= 3")
     from scipy.spatial import cKDTree
-    _, indices = cKDTree(cloud.points).query(cloud.points, k=min(neighbors, len(cloud.points)))
-    normals = np.empty_like(cloud.points)
-    for row, neighborhood in enumerate(cloud.points[indices]):
-        centered = neighborhood - neighborhood.mean(axis=0)
-        covariance = centered.T @ centered / max(1, len(centered) - 1)
-        _, _, vh = np.linalg.svd(covariance, full_matrices=False)
-        normal = vh[-1]
-        # Make orientation deterministic relative to the scan centroid.
-        if np.dot(normal, cloud.points[row] - cloud.points.mean(axis=0)) < 0:
-            normal = -normal
-        normals[row] = normal
+    k = min(neighbors, len(cloud.points))
+    _, indices = cKDTree(cloud.points).query(cloud.points, k=k)
+    neighborhoods = cloud.points[indices]
+    centered = neighborhoods - neighborhoods.mean(axis=1, keepdims=True)
+    cov = np.matmul(centered.transpose(0, 2, 1), centered) / max(1, k - 1)
+    eigenvalues, eigenvectors = np.linalg.eigh(cov)
+    normals = eigenvectors[:, :, 0]
+    centroid_offsets = cloud.points - cloud.points.mean(axis=0)
+    dots = np.sum(normals * centroid_offsets, axis=1, keepdims=True)
+    normals = np.where(dots < 0, -normals, normals)
     return PointCloud(cloud.points, cloud.colors, normals, cloud.labels, dict(cloud.metadata))
 
 

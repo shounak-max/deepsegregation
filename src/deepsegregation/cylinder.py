@@ -30,6 +30,7 @@ class CylinderFit:
 
 def fit_cylinder_ransac(points: np.ndarray, *, distance_threshold: float = 0.005,
                         max_trials: int = 500, min_inliers: Optional[int] = None,
+                        min_inlier_ratio: float = 0.3,
                         small_radius_threshold: float = 0.05,
                         random_state: Optional[int] = 0) -> CylinderFit:
     """Fit a cylinder; small-radius hypotheses automatically receive 3x trials."""
@@ -39,11 +40,14 @@ def fit_cylinder_ransac(points: np.ndarray, *, distance_threshold: float = 0.005
     if distance_threshold <= 0 or max_trials < 1:
         raise ValueError("distance_threshold must be positive and max_trials >= 1")
     if min_inliers is None:
-        min_inliers = max(6, int(np.ceil(.5 * len(values))))
+        min_inliers = max(6, int(np.ceil(min_inlier_ratio * len(values))))
     centered = values - values.mean(axis=0)
     _, _, vh = np.linalg.svd(centered, full_matrices=False)
     axis = vh[0]
-    if axis[np.argmax(np.abs(axis))] < 0:
+    # Deterministic canonical axis orientation with tie-break tolerance (e.g. 45-degree pipes)
+    close = np.isclose(np.abs(axis), np.max(np.abs(axis)), atol=1e-2)
+    tie_idx = int(np.where(close)[0][0])
+    if axis[tie_idx] < 0:
         axis = -axis
     radial = values - np.outer(centered @ axis, axis) - values.mean(axis=0)
     # The provisional PCA cross-section gives a stable scale for the RANSAC
@@ -76,15 +80,38 @@ def fit_cylinder_ransac(points: np.ndarray, *, distance_threshold: float = 0.005
     if best is None or best[0][0] < min_inliers:
         raise RuntimeError("RANSAC could not find a cylinder consensus set")
     _, cx, cy, radius, winning_trial = best
-    distances = np.abs(np.hypot(xy[:, 0] - cx, xy[:, 1] - cy) - radius)
-    mask = distances <= distance_threshold
+    best_cx, best_cy, best_radius = cx, cy, radius
+    best_distances = np.abs(np.hypot(xy[:, 0] - cx, xy[:, 1] - cy) - radius)
+    best_mask = best_distances <= distance_threshold
+
+    mask = best_mask.copy()
     for _ in range(4):
-        selected = xy[mask] if mask.any() else xy
+        if int(mask.sum()) < 3:
+            break
+        selected = xy[mask]
         A = np.column_stack((2*selected[:, 0], 2*selected[:, 1], np.ones(len(selected))))
-        solution, _, _, _ = np.linalg.lstsq(A, np.sum(selected**2, axis=1), rcond=None)
-        cx, cy = solution[:2]
-        radius = float(np.sqrt(max(1e-12, solution[2] + cx*cx + cy*cy)))
+        try:
+            solution, _, _, _ = np.linalg.lstsq(A, np.sum(selected**2, axis=1), rcond=None)
+            new_cx, new_cy = solution[:2]
+            new_radius = float(np.sqrt(max(1e-12, solution[2] + new_cx*new_cx + new_cy*new_cy)))
+        except (np.linalg.LinAlgError, ValueError):
+            break
+
+        if abs(new_radius - radius) < 1e-6 and np.hypot(new_cx - cx, new_cy - cy) < 1e-6:
+            cx, cy, radius = new_cx, new_cy, new_radius
+            break
+
+        cx, cy, radius = new_cx, new_cy, new_radius
         distances = np.abs(np.hypot(xy[:, 0]-cx, xy[:, 1]-cy) - radius)
         mask = distances <= distance_threshold
+
+    if int(mask.sum()) < int(best_mask.sum()):
+        cx, cy, radius = best_cx, best_cy, best_radius
+        mask = best_mask
+        distances = best_distances
+    else:
+        distances = np.abs(np.hypot(xy[:, 0]-cx, xy[:, 1]-cy) - radius)
+        mask = distances <= distance_threshold
+
     center = origin + cx*u + cy*v
     return CylinderFit(center, axis, radius, mask, distances, trials, best_trial=winning_trial)

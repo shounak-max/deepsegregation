@@ -106,6 +106,37 @@ class PipelineComponentTests(unittest.TestCase):
         preds = predict_labels(model, features, device="cuda")
         self.assertEqual(preds.shape, (5,))
 
+    def test_estimate_normals_vectorized(self):
+        from deepsegregation.preprocessing import estimate_normals
+        rng = np.random.default_rng(123)
+        # Generate points on a flat XY plane with z=0
+        xy = rng.uniform(-1, 1, (300, 2))
+        points = np.column_stack((xy, np.zeros(300)))
+        cloud = PointCloud(points)
+        computed = estimate_normals(cloud, neighbors=15)
+        self.assertIsNotNone(computed.normals)
+        self.assertEqual(computed.normals.shape, (300, 3))
+        # Normals for flat plane z=0 should be approximately parallel to Z axis [0, 0, 1] or [0, 0, -1]
+        z_abs = np.abs(computed.normals[:, 2])
+        self.assertTrue(np.all(z_abs > 0.95))
+
+    def test_cylinder_fit_45_degree_stable_axis(self):
+        rng = np.random.default_rng(99)
+        # Cylinder aligned along [1, 1, 0] / sqrt(2)
+        t = rng.uniform(-1, 1, 500)
+        theta = rng.uniform(0, 2*np.pi, 500)
+        axis_dir = np.array([1.0, 1.0, 0.0]) / np.sqrt(2)
+        u_dir = np.array([-1.0, 1.0, 0.0]) / np.sqrt(2)
+        v_dir = np.array([0.0, 0.0, 1.0])
+        r = 0.04
+        points = (np.outer(t, axis_dir) +
+                  np.outer(r * np.cos(theta), u_dir) +
+                  np.outer(r * np.sin(theta), v_dir))
+        fit = fit_cylinder_ransac(points, distance_threshold=0.005, random_state=42)
+        self.assertAlmostEqual(fit.radius, 0.04, delta=0.005)
+        # Axis should be deterministically oriented with positive dot product against global Y/X
+        self.assertGreater(float(np.dot(fit.axis, [0, 1, 0])), 0.5)
+
 
 if __name__ == "__main__":
     unittest.main()

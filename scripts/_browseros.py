@@ -25,52 +25,72 @@ def save_session(session_id):
         json.dump({"session_id": session_id}, f)
 
 
-def run_code(js_code, timeout=30):
-    session_id = get_session()
+def _init_session():
     headers = {
         "Content-Type": "application/json",
         "Accept": "application/json, text/event-stream",
     }
-    if session_id:
-        headers["mcp-session-id"] = session_id
-    else:
-        # Initialize
-        init_body = {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "method": "initialize",
-            "params": {
-                "protocolVersion": "2024-11-05",
-                "capabilities": {},
-                "clientInfo": {"name": "antigravity", "version": "1.0"},
-            },
-        }
-        req = urllib.request.Request(
-            MCP_URL, data=json.dumps(init_body).encode("utf-8"), headers=headers
-        )
-        with urllib.request.urlopen(req, timeout=10) as resp:
-            session_id = resp.headers.get("mcp-session-id")
-            save_session(session_id)
-            headers["mcp-session-id"] = session_id
-
-        # Notification
-        notif_body = {"jsonrpc": "2.0", "method": "notifications/initialized"}
-        req = urllib.request.Request(
-            MCP_URL, data=json.dumps(notif_body).encode("utf-8"), headers=headers
-        )
-        urllib.request.urlopen(req, timeout=10)
-
-    # Call run tool
-    call_body = {
+    init_body = {
         "jsonrpc": "2.0",
-        "id": 10,
-        "method": "tools/call",
-        "params": {"name": "run", "arguments": {"code": js_code, "timeout": timeout * 1000}},
+        "id": 1,
+        "method": "initialize",
+        "params": {
+            "protocolVersion": "2024-11-05",
+            "capabilities": {},
+            "clientInfo": {"name": "antigravity", "version": "1.0"},
+        },
     }
     req = urllib.request.Request(
-        MCP_URL, data=json.dumps(call_body).encode("utf-8"), headers=headers
+        MCP_URL, data=json.dumps(init_body).encode("utf-8"), headers=headers
     )
-    with urllib.request.urlopen(req, timeout=timeout + 5) as resp:
+    with urllib.request.urlopen(req, timeout=10) as resp:
+        session_id = resp.headers.get("mcp-session-id")
+        save_session(session_id)
+        headers["mcp-session-id"] = session_id
+
+    notif_body = {"jsonrpc": "2.0", "method": "notifications/initialized"}
+    req = urllib.request.Request(
+        MCP_URL, data=json.dumps(notif_body).encode("utf-8"), headers=headers
+    )
+    urllib.request.urlopen(req, timeout=10)
+    return session_id
+
+
+def run_code(js_code, timeout=30):
+    session_id = get_session()
+    if not session_id:
+        session_id = _init_session()
+
+    def _do_call(sess):
+        hdrs = {
+            "Content-Type": "application/json",
+            "Accept": "application/json, text/event-stream",
+            "mcp-session-id": sess,
+        }
+        call_body = {
+            "jsonrpc": "2.0",
+            "id": 10,
+            "method": "tools/call",
+            "params": {"name": "run", "arguments": {"code": js_code, "timeout": timeout * 1000}},
+        }
+        r = urllib.request.Request(
+            MCP_URL, data=json.dumps(call_body).encode("utf-8"), headers=hdrs
+        )
+        return urllib.request.urlopen(r, timeout=timeout + 5)
+
+    try:
+        resp = _do_call(session_id)
+    except urllib.error.HTTPError as e:
+        if e.code in (400, 404):
+            # Session expired, re-initialize
+            if os.path.exists(SESS_FILE):
+                os.remove(SESS_FILE)
+            session_id = _init_session()
+            resp = _do_call(session_id)
+        else:
+            raise
+
+    with resp:
         session_id = resp.headers.get("mcp-session-id", session_id)
         if session_id:
             save_session(session_id)
