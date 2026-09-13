@@ -5,7 +5,7 @@ from __future__ import annotations
 import numpy as np
 
 
-def predict_labels(model, features: np.ndarray, device: str = "cuda") -> np.ndarray:
+def predict_labels(model, features: np.ndarray, device: str | None = None) -> np.ndarray:
     """Run any compatible torch model and return one semantic label per point.
 
     The adapter accepts models returning either logits directly or a mapping
@@ -16,9 +16,15 @@ def predict_labels(model, features: np.ndarray, device: str = "cuda") -> np.ndar
         import torch
     except ImportError as exc:
         raise RuntimeError("model inference requires PyTorch") from exc
+    if device is None:
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+    elif str(device).startswith("cuda") and not torch.cuda.is_available():
+        device = "cpu"
     array = np.asarray(features, dtype=np.float32)
     if array.ndim != 2:
         raise ValueError("features must have shape (N, F)")
+    if hasattr(model, "to"):
+        model.to(device)
     model.eval()
     with torch.no_grad():
         tensor = torch.from_numpy(array).to(device)

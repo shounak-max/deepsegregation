@@ -20,7 +20,16 @@ class AreaSample:
 
 def iter_area_samples(root: str | Path) -> Iterator[AreaSample]:
     root = Path(root)
-    areas = sorted(p for p in root.glob("Area_*") if p.is_dir())
+
+    def _area_key(p: Path) -> tuple[int, str]:
+        name = p.name
+        if name.startswith("Area_"):
+            suffix = name[5:]
+            if suffix.isdigit():
+                return (int(suffix), name)
+        return (10**9, name)
+
+    areas = sorted((p for p in root.glob("Area_*") if p.is_dir()), key=_area_key)
     if not areas:
         raise FileNotFoundError(f"no Area_N directories found under {root}")
     for area in areas:

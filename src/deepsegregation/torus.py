@@ -20,7 +20,8 @@ class TorusFit:
     minor_radius: float
     inlier_mask: Array
     residuals: Array
-    iterations: int
+    iterations: int  # Total trial budget evaluated
+    best_trial: int = 0  # 1-based index of the best RANSAC trial
 
     @property
     def inlier_count(self) -> int:
@@ -134,8 +135,9 @@ def _fit_for_axis(points: Array, axis: Array, distance_threshold: float,
             best = (score, cx, cy, major, minor, trial + 1)
 
     initial_parameters = []
+    best_trials = 0
     if best is not None:
-        _, cx, cy, major, minor, trials = best
+        _, cx, cy, major, minor, best_trials = best
         initial_parameters.append((cx, cy, major, minor))
     _, _, vh = np.linalg.svd(projected - np.mean(projected, axis=0), full_matrices=False)
     curvature_direction = vh[-1]
@@ -161,7 +163,7 @@ def _fit_for_axis(points: Array, axis: Array, distance_threshold: float,
         inliers = residuals <= distance_threshold
         if int(np.count_nonzero(inliers)) < min_inliers:
             return None
-        return TorusFit(origin + cx*u + cy*v, axis, major, minor, inliers, residuals, trials)
+        return TorusFit(origin + cx*u + cy*v, axis, major, minor, inliers, residuals, max_trials, best_trial=trials)
 
     lower = np.array([-20*extent, -20*extent, 1e-8, 1e-8])
     upper = np.array([20*extent, 20*extent, 20*extent, 2*extent])
@@ -184,7 +186,7 @@ def _fit_for_axis(points: Array, axis: Array, distance_threshold: float,
         inliers = residuals <= distance_threshold
         if int(np.count_nonzero(inliers)) >= min_inliers:
             refined.append(TorusFit(origin + cx*u + cy*v, axis, float(major), float(minor),
-                                     inliers, residuals, max_trials))
+                                     inliers, residuals, max_trials, best_trial=best_trials))
     if not refined:
         return None
 
@@ -219,7 +221,7 @@ def _fit_for_axis(points: Array, axis: Array, distance_threshold: float,
         inliers = residuals <= distance_threshold
         if int(np.count_nonzero(inliers)) >= min_inliers:
             full_refined.append(TorusFit(parameters[:3], candidate_axis, float(parameters[6]),
-                                          float(parameters[7]), inliers, residuals, max_trials))
+                                          float(parameters[7]), inliers, residuals, max_trials, best_trial=best_trials))
     return max(full_refined or refined, key=lambda fit: (fit.inlier_count, -fit.rmse))
 
 

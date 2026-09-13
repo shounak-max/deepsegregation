@@ -15,7 +15,8 @@ class CylinderFit:
     radius: float
     inlier_mask: np.ndarray
     residuals: np.ndarray
-    iterations: int
+    iterations: int  # Total trial budget evaluated
+    best_trial: int = 0  # 1-based index of the best RANSAC trial
 
     @property
     def inlier_count(self) -> int:
@@ -74,8 +75,9 @@ def fit_cylinder_ransac(points: np.ndarray, *, distance_threshold: float = 0.005
             best = (score, cx, cy, radius, trial + 1)
     if best is None or best[0][0] < min_inliers:
         raise RuntimeError("RANSAC could not find a cylinder consensus set")
-    _, cx, cy, radius, _ = best
-    mask = np.zeros(len(values), dtype=bool)
+    _, cx, cy, radius, winning_trial = best
+    distances = np.abs(np.hypot(xy[:, 0] - cx, xy[:, 1] - cy) - radius)
+    mask = distances <= distance_threshold
     for _ in range(4):
         selected = xy[mask] if mask.any() else xy
         A = np.column_stack((2*selected[:, 0], 2*selected[:, 1], np.ones(len(selected))))
@@ -85,4 +87,4 @@ def fit_cylinder_ransac(points: np.ndarray, *, distance_threshold: float = 0.005
         distances = np.abs(np.hypot(xy[:, 0]-cx, xy[:, 1]-cy) - radius)
         mask = distances <= distance_threshold
     center = origin + cx*u + cy*v
-    return CylinderFit(center, axis, radius, mask, distances, trials)
+    return CylinderFit(center, axis, radius, mask, distances, trials, best_trial=winning_trial)

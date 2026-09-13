@@ -60,6 +60,53 @@ class PipelineComponentTests(unittest.TestCase):
         instances = separate_instances(scan.cloud, scan.cloud.labels, eps=.05, min_samples=10, min_points=100)
         self.assertEqual(sorted(x.semantic_class for x in instances), [1, 2])
 
+    def test_cylinder_fit_recovers_radius_with_heavy_outliers(self):
+        rng = np.random.default_rng(42)
+        theta = rng.uniform(0, 2*np.pi, 300)
+        z = rng.uniform(-1, 1, 300)
+        x = 0.05 * np.cos(theta)
+        y = 0.05 * np.sin(theta)
+        inliers = np.column_stack((x, y, z))
+        outliers = rng.uniform(-0.5, 0.5, (245, 3))  # ~45% outliers
+        points = np.vstack((inliers, outliers))
+
+        fit = fit_cylinder_ransac(points, distance_threshold=0.005, min_inliers=100, random_state=42)
+        self.assertAlmostEqual(fit.radius, 0.05, delta=0.005)
+        self.assertGreaterEqual(fit.inlier_count, 280)
+        self.assertGreater(fit.best_trial, 0)
+
+    def test_area_samples_numeric_sort_order(self):
+        cloud = PointCloud(np.array([[0., 1., 2.]]))
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for name in ["Area_10", "Area_2", "Area_1"]:
+                area = root / name
+                area.mkdir()
+                write_ply(area / "scan.ply", cloud)
+            loaded_areas = [s.area for s in iter_area_samples(root)]
+            self.assertEqual(loaded_areas, ["Area_1", "Area_2", "Area_10"])
+
+    def test_voxel_downsample_preserves_colors(self):
+        from deepsegregation.preprocessing import voxel_downsample
+        points = np.array([[0.01, 0.01, 0.01], [0.02, 0.02, 0.02], [1.0, 1.0, 1.0]])
+        colors = np.array([[255, 0, 0], [255, 0, 0], [0, 255, 0]], dtype=np.uint8)
+        cloud = PointCloud(points, colors=colors)
+        downsampled = voxel_downsample(cloud, voxel_size=0.1)
+        self.assertIsNotNone(downsampled.colors)
+        self.assertEqual(len(downsampled.colors), len(downsampled.points))
+        self.assertEqual(len(downsampled.points), 2)
+        np.testing.assert_array_equal(downsampled.colors[0], [255, 0, 0])
+
+    def test_inference_cpu_fallback(self):
+        import torch
+        import torch.nn as nn
+        from deepsegregation.inference import predict_labels
+        model = nn.Linear(3, 4)
+        features = np.ones((5, 3), dtype=np.float32)
+        preds = predict_labels(model, features, device="cuda")
+        self.assertEqual(preds.shape, (5,))
+
 
 if __name__ == "__main__":
     unittest.main()
+

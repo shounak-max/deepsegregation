@@ -19,6 +19,15 @@ def voxel_downsample(cloud: PointCloud, voxel_size: float) -> PointCloud:
     np.add.at(points, inverse, cloud.points)
     sizes = np.bincount(inverse, minlength=count)
     points /= sizes[:, None]
+    colors = None
+    if cloud.colors is not None:
+        colors = np.zeros((count, 3), dtype=np.float64)
+        np.add.at(colors, inverse, cloud.colors)
+        colors /= sizes[:, None]
+        if np.issubdtype(cloud.colors.dtype, np.integer):
+            colors = np.round(colors).astype(cloud.colors.dtype)
+        else:
+            colors = colors.astype(cloud.colors.dtype)
     normals = None
     if cloud.normals is not None:
         normals = np.zeros((count, 3))
@@ -31,7 +40,7 @@ def voxel_downsample(cloud: PointCloud, voxel_size: float) -> PointCloud:
         for index in range(count):
             values, counts = np.unique(cloud.labels[inverse == index], return_counts=True)
             labels[index] = values[np.argmax(counts)]
-    return PointCloud(points, normals=normals, labels=labels, metadata=dict(cloud.metadata))
+    return PointCloud(points, colors=colors, normals=normals, labels=labels, metadata=dict(cloud.metadata))
 
 
 def remove_statistical_outliers(cloud: PointCloud, neighbors: int = 16, z_threshold: float = 2.5) -> PointCloud:
