@@ -117,9 +117,32 @@ Please critique these changes and codebase state thoroughly:
     with open(out_file, "w", encoding="utf-8") as f:
         f.write(critique_text)
     print(f"Critique saved to {out_file}")
+
+    # Check if Claude reached its usage limit
+    low = critique_text.lower()
+    is_limited = (
+        "out of free messages" in low
+        or "reached your limit" in low
+        or "free plan limit" in low
+        or "usage limit" in low
+        or "upgrade to continue" in low
+    )
+    if is_limited:
+        print("\n[Claude Rate Limit Detected]")
+        print("Claude has reached its free message limit. As configured, proceeding after 5 hours.")
+        status_file = critique_dir / "limit_status.json"
+        with open(status_file, "w", encoding="utf-8") as sf:
+            json.dump({
+                "limited": True,
+                "detected_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+                "wait_seconds": 18000,
+                "next_run": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(time.time() + 18000))
+            }, sf, indent=2)
+
     return res
 
 
 if __name__ == "__main__":
     res = ask_claude_for_critique()
     print("Critique fetch completed.")
+

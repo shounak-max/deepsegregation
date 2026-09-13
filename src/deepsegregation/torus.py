@@ -125,7 +125,7 @@ def _fit_for_axis(points: Array, axis: Array, distance_threshold: float,
             continue
         rho = np.sqrt((projected[:, 0] - cx)**2 + (projected[:, 1] - cy)**2)
         minor = float(np.median(np.sqrt((rho - major)**2 + z**2)))
-        if minor <= 1e-9 or minor > 2 * extent:
+        if minor <= 1e-9 or minor > 2 * extent or major <= minor:
             continue
         residuals = np.abs(np.sqrt((rho - major)**2 + z**2) - minor)
         inliers = residuals <= distance_threshold
@@ -182,6 +182,8 @@ def _fit_for_axis(points: Array, axis: Array, distance_threshold: float,
         except (ValueError, np.linalg.LinAlgError):
             continue
         cx, cy, major, minor = solution.x
+        if major <= minor:
+            continue
         residuals = np.abs(residual_function(solution.x))
         inliers = residuals <= distance_threshold
         if int(np.count_nonzero(inliers)) >= min_inliers:
@@ -216,12 +218,15 @@ def _fit_for_axis(points: Array, axis: Array, distance_threshold: float,
         except (ValueError, np.linalg.LinAlgError):
             continue
         parameters = solution.x
+        candidate_major, candidate_minor = float(parameters[6]), float(parameters[7])
+        if candidate_major <= candidate_minor:
+            continue
         candidate_axis = _unit(parameters[3:6])
         residuals = np.abs(full_residual(parameters))
         inliers = residuals <= distance_threshold
         if int(np.count_nonzero(inliers)) >= min_inliers:
-            full_refined.append(TorusFit(parameters[:3], candidate_axis, float(parameters[6]),
-                                          float(parameters[7]), inliers, residuals, max_trials, best_trial=best_trials))
+            full_refined.append(TorusFit(parameters[:3], candidate_axis, candidate_major,
+                                          candidate_minor, inliers, residuals, max_trials, best_trial=best_trials))
     return max(full_refined or refined, key=lambda fit: (fit.inlier_count, -fit.rmse))
 
 

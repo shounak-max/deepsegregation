@@ -89,6 +89,10 @@ class TorusFitTests(unittest.TestCase):
         self.assertGreaterEqual(result.inlier_count, 270)
         self.assertAlmostEqual(result.major_radius, 0.5, delta=0.08)
         self.assertAlmostEqual(result.minor_radius, 0.05, delta=0.015)
+        # Verify basin consistency and axis alignment
+        self.assertGreater(result.major_radius, result.minor_radius)
+        alignment = abs(float(np.dot(result.axis, np.array([0.0, 0.0, 1.0]))))
+        self.assertGreater(alignment, 0.95)
 
 
 if __name__ == "__main__":
