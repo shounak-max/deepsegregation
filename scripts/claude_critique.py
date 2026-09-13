@@ -75,18 +75,51 @@ Please critique these changes and codebase state thoroughly:
     }}
 
     await browser.input(pageId).click(sendBtn.ref);
-    await browser.wait(pageId, {{ value: 8000 }});
+    
+    // Wait for response to generate and complete
+    await browser.wait(pageId, { value: 10000 });
+    for (let i = 0; i < 6; i++) {
+        const checkText = await browser.read(pageId);
+        if (!checkText.includes('Claude is responding') && !checkText.includes('running')) {
+            break;
+        }
+        await browser.wait(pageId, { value: 5000 });
+    }
 
-    // Read response
+    // Read full response
     const text = await browser.read(pageId);
-    return {{ ok: true, textLength: text.length, tail: text.slice(-3000) }};
+    return { ok: true, textLength: text.length, fullText: text };
     """
 
-    res = run_code(js_code, timeout=60)
+    res = run_code(js_code, timeout=90)
     print("Claude critique response received.")
+
+    # Save to critiques/latest_critique.md
+    critique_dir = Path("critiques")
+    critique_dir.mkdir(exist_ok=True)
+    out_file = critique_dir / "latest_critique.md"
+
+    critique_text = ""
+    if isinstance(res, dict):
+        critique_text = res.get("fullText", str(res))
+        # Find latest critique file if saved by BrowserClaw
+        import glob
+        files = sorted(glob.glob(r'C:\Users\shoun\AppData\Local\BrowserClaw\Application\148.0.7988.97\.browseros\tool-output\*'), key=os.path.getmtime, reverse=True)
+        if files:
+            try:
+                with open(files[0], 'r', encoding='utf-8', errors='ignore') as f:
+                    raw = f.read()
+                    if len(raw) > len(critique_text):
+                        critique_text = raw
+            except Exception:
+                pass
+
+    with open(out_file, "w", encoding="utf-8") as f:
+        f.write(critique_text)
+    print(f"Critique saved to {out_file}")
     return res
 
 
 if __name__ == "__main__":
     res = ask_claude_for_critique()
-    print(json.dumps(res, indent=2))
+    print("Critique fetch completed.")
