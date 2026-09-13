@@ -1,0 +1,13 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Large datasets and archives
+*.zip
+data/PSNet/
+vendor/
+
+# Local scratches
+scratch/
+*.log
