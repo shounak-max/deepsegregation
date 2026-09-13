@@ -1,0 +1,2 @@
+[console_scripts]
+deepsegregation = deepsegregation.cli:main

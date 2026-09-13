@@ -1,0 +1,25 @@
+/home/saptarsi/miniconda3/envs/deepseg_k80/lib/python3.9/site-packages/torch/torch_version.py:3: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import packaging  # type: ignore[attr-defined]
+======================================================================
+DeepSegregation Remote Training Pipeline
+Device: cuda:1 (Tesla K80)
+Epochs: 10 | Checkpoint interval: 1
+Targets: mIoU >= 0.45 | Accuracy >= 0.7 | Loss <= 1.5
+Process PID: 412605
+======================================================================
+Loading Real PSNet5 dataset from data/PSNet/real_train.npz and data/PSNet/real_val.npz...
+Real Train Points: 378,071 | Real Val Points: 149,928 | Classes: ['ibeam', 'pipe', 'pump', 'rectangularbeam', 'tank']
+[Epoch 001/010] [IN PROGRESS] Train Loss: 1.6090 | Val Loss: 1.6116 | mIoU: 0.0404 (tgt: 0.45) | Acc: 0.1994 (tgt: 0.7) | Best Val Loss: 1.6116 (Ep 1)
+[Epoch 002/010] [IN PROGRESS] Train Loss: 1.6001 | Val Loss: 1.6097 | mIoU: 0.1103 (tgt: 0.45) | Acc: 0.2987 (tgt: 0.7) | Best Val Loss: 1.6097 (Ep 2)
+[Epoch 003/010] [IN PROGRESS] Train Loss: 1.5899 | Val Loss: 1.6082 | mIoU: 0.0548 (tgt: 0.45) | Acc: 0.1997 (tgt: 0.7) | Best Val Loss: 1.6082 (Ep 3)
+[Epoch 004/010] [IN PROGRESS] Train Loss: 1.5814 | Val Loss: 1.6071 | mIoU: 0.0499 (tgt: 0.45) | Acc: 0.1948 (tgt: 0.7) | Best Val Loss: 1.6071 (Ep 4)
+[Epoch 005/010] [IN PROGRESS] Train Loss: 1.5715 | Val Loss: 1.6063 | mIoU: 0.0486 (tgt: 0.45) | Acc: 0.1945 (tgt: 0.7) | Best Val Loss: 1.6063 (Ep 5)
+[Epoch 006/010] [IN PROGRESS] Train Loss: 1.5678 | Val Loss: 1.6059 | mIoU: 0.0498 (tgt: 0.45) | Acc: 0.1928 (tgt: 0.7) | Best Val Loss: 1.6059 (Ep 6)
+[Epoch 007/010] [IN PROGRESS] Train Loss: 1.5632 | Val Loss: 1.6058 | mIoU: 0.0537 (tgt: 0.45) | Acc: 0.1976 (tgt: 0.7) | Best Val Loss: 1.6058 (Ep 7)
+[Epoch 008/010] [IN PROGRESS] Train Loss: 1.5583 | Val Loss: 1.6061 | mIoU: 0.0548 (tgt: 0.45) | Acc: 0.1983 (tgt: 0.7) | Best Val Loss: 1.6058 (Ep 7)
+[Epoch 009/010] [IN PROGRESS] Train Loss: 1.5536 | Val Loss: 1.6067 | mIoU: 0.0548 (tgt: 0.45) | Acc: 0.1975 (tgt: 0.7) | Best Val Loss: 1.6058 (Ep 7)
+[Epoch 010/010] [IN PROGRESS] Train Loss: 1.5489 | Val Loss: 1.6075 | mIoU: 0.0544 (tgt: 0.45) | Acc: 0.1959 (tgt: 0.7) | Best Val Loss: 1.6058 (Ep 7)
+======================================================================
+Pipeline finished with status: COMPLETED
+Best checkpoint at epoch 7 with val_loss=1.6058
+======================================================================

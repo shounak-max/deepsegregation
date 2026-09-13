@@ -1,0 +1,24 @@
+# Project-side configuration. The upstream ResPointNet++ config remains in
+# vendor/ResPointNet2; this file records the three-class adaptation contract.
+dataset:
+  name: pipe3
+  root: data/pipes
+  classes: [background, pipe, elbow]
+  train_areas: [Area_1, Area_2, Area_3]
+  validation_areas: [Area_4]
+model:
+  reference: vendor/ResPointNet2
+  num_classes: 3
+  input_features: [x, y, z, nx, ny, nz]
+loss:
+  name: boundary_cb
+  beta: 0.999
+  boundary_weight: 2.0
+geometry:
+  dbscan_eps: 0.05
+  dbscan_min_samples: 12
+  ransac_distance_threshold: 0.005
+  small_radius_threshold: 0.05
+compliance:
+  tolerance: 0.05
+  processing_target_seconds: 30
