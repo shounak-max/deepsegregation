@@ -65,6 +65,31 @@ class TorusFitTests(unittest.TestCase):
         self.assertAlmostEqual(result.major_radius, 1.2, delta=0.04)
         self.assertAlmostEqual(result.minor_radius, 0.12, delta=0.02)
 
+    def test_recovers_synthetic_elbow_with_heavy_45_percent_outliers_without_axis(self):
+        rng = np.random.default_rng(42)
+        count = 300
+        bend = np.pi / 2
+        theta = rng.uniform(-bend / 2, bend / 2, count)
+        phi = rng.uniform(0, 2 * np.pi, count)
+        R, r = 0.5, 0.05
+        x = (R + r * np.cos(phi)) * np.cos(theta)
+        y = (R + r * np.cos(phi)) * np.sin(theta)
+        z = r * np.sin(phi)
+        inliers = np.column_stack((x, y, z))
+        outliers = rng.uniform(-1.0, 1.0, (245, 3))  # ~45% outliers
+        points = np.vstack((inliers, outliers))
+
+        result = fit_torus_ransac(
+            points,
+            distance_threshold=0.015,
+            max_trials=1200,
+            random_state=42,
+        )
+
+        self.assertGreaterEqual(result.inlier_count, 270)
+        self.assertAlmostEqual(result.major_radius, 0.5, delta=0.08)
+        self.assertAlmostEqual(result.minor_radius, 0.05, delta=0.015)
+
 
 if __name__ == "__main__":
     unittest.main()

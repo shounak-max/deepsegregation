@@ -226,7 +226,8 @@ def _fit_for_axis(points: Array, axis: Array, distance_threshold: float,
 
 
 def fit_torus_ransac(points: Array, *, distance_threshold: float = 0.01,
-                     max_trials: int = 1000, min_inliers: Optional[int] = None,
+                     max_trials: int = 1200, min_inliers: Optional[int] = None,
+                     min_inlier_ratio: float = 0.3,
                      axis: Optional[Array] = None,
                      random_state: Optional[int] = 0) -> TorusFit:
     """Fit a torus to an elbow point cloud using RANSAC and robust refinement."""
@@ -236,7 +237,7 @@ def fit_torus_ransac(points: Array, *, distance_threshold: float = 0.01,
     if max_trials < 1:
         raise ValueError("max_trials must be positive")
     if min_inliers is None:
-        min_inliers = max(6, int(np.ceil(0.5 * len(values))))
+        min_inliers = max(6, int(np.ceil(min_inlier_ratio * len(values))))
     if min_inliers < 6 or min_inliers > len(values):
         raise ValueError("min_inliers must be between 6 and the number of points")
 
@@ -244,12 +245,23 @@ def fit_torus_ransac(points: Array, *, distance_threshold: float = 0.01,
     if axis is not None:
         axes = [_unit(axis)]
     else:
-        axes = [_pca_axis(values)]
-        subset_size = max(8, int(0.7 * len(values)))
-        for _ in range(5):
-            axes.append(_pca_axis(values[rng.choice(len(values), subset_size, replace=False)]))
+        # Pre-filter point cloud for robust initial axis estimation under outliers
+        try:
+            from .pointcloud import PointCloud
+            from .preprocessing import remove_statistical_outliers
+            cloud = PointCloud(values)
+            k = min(16, max(2, len(values) - 1))
+            filtered = remove_statistical_outliers(cloud, neighbors=k, z_threshold=1.5)
+            clean_pts = filtered.points if len(filtered.points) >= 6 else values
+        except Exception:
+            clean_pts = values
 
-    trials_per_axis = max(1, max_trials // len(axes))
+        axes = [_pca_axis(clean_pts)]
+        subset_size = max(8, int(0.7 * len(clean_pts)))
+        for _ in range(5):
+            axes.append(_pca_axis(clean_pts[rng.choice(len(clean_pts), subset_size, replace=False)]))
+
+    trials_per_axis = max(200, max_trials // len(axes))
     candidates = []
     for candidate_axis in axes:
         candidate = _fit_for_axis(values, candidate_axis, distance_threshold,
