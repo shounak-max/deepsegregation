@@ -1,0 +1,17 @@
+{
+  "study_id": "psnet5_pipe3_publication_v1",
+  "class_names": ["background", "straight_pipe", "elbow"],
+  "split_areas": {"train": ["Area_1", "Area_2"], "validation": ["Area_4"], "test": ["Area_3"]},
+  "block_radius_m": 2.0,
+  "points_per_block": 4096,
+  "seeds": [42, 43, 44],
+  "epochs": 60,
+  "batch_size": 4,
+  "learning_rate": 0.002,
+  "weight_decay": 0.001,
+  "cosine_eta_min": 1e-05,
+  "boundary_cb_beta": 0.999,
+  "boundary_weight": 2.0,
+  "early_stopping_patience": 12,
+  "bootstrap_iterations": 10000
+}

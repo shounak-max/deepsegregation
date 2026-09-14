@@ -5,7 +5,12 @@ import numpy as np
 
 from deepsegregation.cylinder import CylinderFit
 from deepsegregation.clustering import dbscan, estimate_normals
-from deepsegregation.topology import compute_line_intersection, fit_torus_topological
+from deepsegregation.topology import (
+    compute_line_intersection,
+    fit_torus_topological,
+    fit_torus_topological_single_cylinder,
+    ElbowGeometryError,
+)
 from deepsegregation.baselines import compare_elbow_fitting_methods
 
 
@@ -141,16 +146,86 @@ class TopologyAndBaselineTests(unittest.TestCase):
                 elbow_pts.append([x, y, z])
         elbow_pts = np.array(elbow_pts)
 
-        res_u, res_t = compare_elbow_fitting_methods(
+        res_u, res_p, res_t = compare_elbow_fitting_methods(
             elbow_pts, cyl_a, cyl_b,
             ground_truth_major_r=major_R,
             ground_truth_minor_r=minor_r,
         )
 
+        # Topological method should succeed and report accurate geometry
         self.assertTrue(res_t.success)
         self.assertLess(res_t.mean_radius_error_pct, 5.0)
         self.assertLess(res_t.bend_radius_error_pct, 5.0)
-        self.assertEqual(res_t.c1_tangent_error_deg, 0.0)
+        # Honest RMSE: the fitted torus should explain the clean elbow data well
+        self.assertLess(res_t.inlier_rmse, 0.005)
+        # Prior-initialized method also returns a result
+        self.assertIn(res_p.method_name, ["Prior_Initialized_Torus_RANSAC"])
+        # All three result objects have the inlier_rmse field (no circular tangent error)
+        for r in (res_u, res_p, res_t):
+            self.assertTrue(hasattr(r, "inlier_rmse"))
+            self.assertFalse(hasattr(r, "c1_tangent_error_deg"))
+
+
+    def test_shallow_angle_singularity_raises_elbow_geometry_error(self):
+        """Near-parallel cylinders (shallow elbows) must raise ElbowGeometryError."""
+        minor_r = 0.05
+        # Two cylinders that are almost parallel (only 2 degrees apart)
+        cyl_a = CylinderFit(
+            center=np.array([0.0, -0.2, 0.0]),
+            axis=np.array([0.0, 1.0, 0.0]),
+            radius=minor_r,
+            inlier_mask=np.ones(10, dtype=bool),
+            residuals=np.zeros(10),
+            iterations=1,
+        )
+        # Nearly parallel to cyl_a — 2° off
+        angle = np.radians(2.0)
+        cyl_b = CylinderFit(
+            center=np.array([0.0, 0.2, 0.0]),
+            axis=np.array([np.sin(angle), np.cos(angle), 0.0]),
+            radius=minor_r,
+            inlier_mask=np.ones(10, dtype=bool),
+            residuals=np.zeros(10),
+            iterations=1,
+        )
+        # Generate dummy elbow points
+        elbow_pts = np.random.RandomState(0).randn(20, 3) * 0.01 + np.array([0.0, 0.0, 0.05])
+
+        with self.assertRaises(ElbowGeometryError):
+            fit_torus_topological(elbow_pts, cyl_a, cyl_b)
+
+    def test_single_cylinder_fallback(self):
+        """Single-cylinder fallback should not crash and report is_fallback state."""
+        major_R = 0.30
+        minor_r = 0.05
+        cyl_known = CylinderFit(
+            center=np.array([0.3, -0.2, 0.0]),
+            axis=np.array([0.0, 1.0, 0.0]),
+            radius=minor_r,
+            inlier_mask=np.ones(10, dtype=bool),
+            residuals=np.zeros(10),
+            iterations=1,
+        )
+        # Generate some elbow points
+        phi = np.linspace(0, np.pi / 2, 12)
+        theta = np.linspace(0, 2 * np.pi, 10, endpoint=False)
+        elbow_pts = []
+        for p in phi:
+            for t in theta:
+                x = (major_R + minor_r * np.cos(t)) * np.cos(p)
+                y = (major_R + minor_r * np.cos(t)) * np.sin(p)
+                z = minor_r * np.sin(t)
+                elbow_pts.append([x, y, z])
+        elbow_pts = np.array(elbow_pts)
+
+        fit = fit_torus_topological_single_cylinder(elbow_pts, cyl_known)
+        # Fallback should flag that C1 continuity cannot be guaranteed
+        self.assertFalse(fit.c1_continuity_verified)
+        # Bend angle is unknown without second cylinder
+        self.assertTrue(np.isnan(fit.bend_angle_deg))
+        # Should still produce a finite major/minor radius
+        self.assertGreater(fit.major_radius, 0.0)
+        self.assertGreater(fit.minor_radius, 0.0)
 
 
 if __name__ == "__main__":

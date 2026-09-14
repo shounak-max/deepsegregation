@@ -1,0 +1,91 @@
+{
+  "status": "COMPLETED",
+  "pid": 31864,
+  "start_time": 1789316621.5548055,
+  "device": "cpu",
+  "gpu_name": "CPU",
+  "epochs_total": 200,
+  "current_epoch": 200,
+  "targets": {
+    "target_miou": 0.45,
+    "target_accuracy": 0.7,
+    "target_loss": 1.5
+  },
+  "best_val_loss": 1.6341536045074463,
+  "best_epoch": 10,
+  "all_targets_met": false,
+  "latest_metrics": {
+    "accuracy": 0.31006666666666666,
+    "mIoU": 0.17596550747383116,
+    "per_class_recall": [
+      0.20020239500758982,
+      0.5442595673876872,
+      0.2878328277721604,
+      0.508760545100584,
+      0.0
+    ],
+    "per_class_iou": [
+      0.1253431890179514,
+      0.17334393216746158,
+      0.22518127883981542,
+      0.35595913734392737,
+      0.0
+    ],
+    "macro_f1": 0.2821704257697267,
+    "confusion_matrix": [
+      [
+        1187,
+        3205,
+        49,
+        1488,
+        0
+      ],
+      [
+        465,
+        3271,
+        1458,
+        816,
+        0
+      ],
+      [
+        865,
+        3291,
+        1708,
+        70,
+        0
+      ],
+      [
+        1558,
+        1331,
+        139,
+        3136,
+        0
+      ],
+      [
+        653,
+        5033,
+        5,
+        272,
+        0
+      ]
+    ]
+  },
+  "dataset_type": "real_psnet5 (5 classes)",
+  "train_loss": 0.604250693321228,
+  "last_updated": 1789326487.593062,
+  "elapsed_seconds": 9865.13,
+  "val_loss": 2.990299701690674,
+  "targets_evaluation": {
+    "target_miou": 0.45,
+    "current_miou": 0.17596550747383116,
+    "miou_met": false,
+    "target_accuracy": 0.7,
+    "current_accuracy": 0.31006666666666666,
+    "accuracy_met": false,
+    "target_loss": 1.5,
+    "current_loss": 2.990299701690674,
+    "loss_met": false,
+    "all_targets_met": false
+  },
+  "completed_at": 1789326487.594308
+}

@@ -95,8 +95,8 @@ def main():
                 noise_std=noise, occlusion_pct=occ, random_state=42
             )
 
-            # Compare elbow fitting methods
-            res_u, res_t = compare_elbow_fitting_methods(
+            # Compare elbow fitting methods (three-way information-equal ablation)
+            res_u, res_p, res_t = compare_elbow_fitting_methods(
                 elbow_pts, cyl_a, cyl_b,
                 ground_truth_major_r=gt_R,
                 ground_truth_minor_r=gt_r,
@@ -122,14 +122,21 @@ def main():
                     "minor_r_err_pct": res_u.mean_radius_error_pct,
                     "runtime_sec": res_u.runtime_sec,
                     "success": res_u.success,
-                    "c1_tangent_err_deg": res_u.c1_tangent_error_deg,
+                    "inlier_rmse": res_u.inlier_rmse,
+                },
+                "prior_initialized_torus": {
+                    "major_r_err_pct": res_p.bend_radius_error_pct,
+                    "minor_r_err_pct": res_p.mean_radius_error_pct,
+                    "runtime_sec": res_p.runtime_sec,
+                    "success": res_p.success,
+                    "inlier_rmse": res_p.inlier_rmse,
                 },
                 "topological_torus": {
                     "major_r_err_pct": res_t.bend_radius_error_pct,
                     "minor_r_err_pct": res_t.mean_radius_error_pct,
                     "runtime_sec": res_t.runtime_sec,
                     "success": res_t.success,
-                    "c1_tangent_err_deg": res_t.c1_tangent_error_deg,
+                    "inlier_rmse": res_t.inlier_rmse,
                 },
                 "ransac_only_baseline": {
                     "detected_cylinders": len(ransac_fits),
@@ -143,8 +150,9 @@ def main():
             }
             results.append(entry)
 
-            print(f"  Unconstrained Torus RANSAC : Bend Err = {res_u.bend_radius_error_pct:.2f}% | Pipe Err = {res_u.mean_radius_error_pct:.2f}% | Time = {res_u.runtime_sec:.3f}s")
-            print(f"  Topological Graph Torus    : Bend Err = {res_t.bend_radius_error_pct:.2f}% | Pipe Err = {res_t.mean_radius_error_pct:.2f}% | Time = {res_t.runtime_sec:.3f}s | Tangent Err = 0.0 deg")
+            print(f"  Unconstrained Torus RANSAC  : Bend Err = {res_u.bend_radius_error_pct:.2f}% | RMSE = {res_u.inlier_rmse:.4f}m | Time = {res_u.runtime_sec:.3f}s")
+            print(f"  Prior-Initialized RANSAC    : Bend Err = {res_p.bend_radius_error_pct:.2f}% | RMSE = {res_p.inlier_rmse:.4f}m | Time = {res_p.runtime_sec:.3f}s")
+            print(f"  Topological Graph Torus     : Bend Err = {res_t.bend_radius_error_pct:.2f}% | RMSE = {res_t.inlier_rmse:.4f}m | Time = {res_t.runtime_sec:.3f}s")
             print(f"  RANSAC-only detected {len(ransac_fits)} primitives in {t_ransac:.3f}s vs Hybrid Pipeline {len(pipe_res.fits)} primitives in {t_pipeline:.3f}s")
 
     # Save results
@@ -153,18 +161,20 @@ def main():
     with open(out_dir / "ablation_results.json", "w") as f:
         json.dump(results, f, indent=2)
 
-    # Generate Markdown Table
+    # Generate Markdown Table with all three methods + honest RMSE
     md = "# Empirical Baseline & Ablation Study Results\n\n"
-    md += "Comparative evaluation across noise levels and partial occlusions:\n\n"
-    md += "| Noise (mm) | Occlusion | Unconstrained Torus Bend Err | Topological Torus Bend Err | Unconstrained Tangent Err | Topological Tangent Err | Topological Speedup |\n"
-    md += "|---|---|---|---|---|---|---|\n"
+    md += "Three-way information-equal ablation: Unconstrained vs. Prior-Initialized (same axis info, no hard constraint) vs. Topological (same axis info + C1 constraint).\n\n"
+    md += "| Noise (mm) | Occlusion | Unconstrained Bend Err | Prior-Init Bend Err | Topological Bend Err | Unconstrained RMSE | Prior-Init RMSE | Topological RMSE | Speedup (vs Unconstrained) |\n"
+    md += "|---|---|---|---|---|---|---|---|---|\n"
     for r in results:
         u_err = f"{r['unconstrained_torus']['major_r_err_pct']:.2f}%" if r['unconstrained_torus']['major_r_err_pct'] is not None else "FAIL"
+        p_err = f"{r['prior_initialized_torus']['major_r_err_pct']:.2f}%" if r['prior_initialized_torus']['major_r_err_pct'] is not None else "FAIL"
         t_err = f"{r['topological_torus']['major_r_err_pct']:.2f}%"
-        u_tan = f"{r['unconstrained_torus']['c1_tangent_err_deg']:.1f}°" if r['unconstrained_torus']['c1_tangent_err_deg'] is not None else "N/A"
-        t_tan = f"{r['topological_torus']['c1_tangent_err_deg']:.1f}°"
+        u_rmse = f"{r['unconstrained_torus']['inlier_rmse'] * 1000:.3f} mm" if r['unconstrained_torus']['inlier_rmse'] < 1e9 else "N/A"
+        p_rmse = f"{r['prior_initialized_torus']['inlier_rmse'] * 1000:.3f} mm" if r['prior_initialized_torus']['inlier_rmse'] < 1e9 else "N/A"
+        t_rmse = f"{r['topological_torus']['inlier_rmse'] * 1000:.3f} mm"
         speedup = f"{r['unconstrained_torus']['runtime_sec'] / max(1e-4, r['topological_torus']['runtime_sec']):.1f}x"
-        md += f"| {r['noise_mm']:.1f} mm | {r['occlusion_pct']:.0f}% | {u_err} | **{t_err}** | {u_tan} | **{t_tan}** | **{speedup}** |\n"
+        md += f"| {r['noise_mm']:.1f} mm | {r['occlusion_pct']:.0f}% | {u_err} | {p_err} | **{t_err}** | {u_rmse} | {p_rmse} | **{t_rmse}** | **{speedup}** |\n"
 
     with open(out_dir / "ablation_results.md", "w") as f:
         f.write(md)
