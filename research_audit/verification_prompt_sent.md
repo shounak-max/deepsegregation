@@ -1,3 +1,59 @@
+You are the senior reviewer for DeepSegregation. I re-ran local verification today (2026-09-14).
+
+## Local execution (just ran on my machine)
+- unittest: PASS (24 tests)
+- smoke_test.py: PASS — {'points': 2300, 'instances': 2, 'fits': 2, 'reports': 2}
+- run_academic_ablation.py: PASS
+
+Test tail:
+```
+........................
+----------------------------------------------------------------------
+Ran 24 tests in 5.448s
+
+OK
+
+```
+
+Ablation tail:
+```
+ Torus RANSAC  : Bend Err = 0.40% | RMSE = 0.0019m | Time = 0.693s
+  Prior-Initialized RANSAC    : Bend Err = 0.40% | RMSE = 0.0019m | Time = 0.166s
+  Topological Graph Torus     : Bend Err = 0.01% | RMSE = 0.0019m | Time = 0.003s
+  RANSAC-only detected 5 primitives in 0.111s vs Hybrid Pipeline 3 primitives in 0.184s
+
+--- Testing Noise = 5.0mm | Occlusion = 0% ---
+  Unconstrained Torus RANSAC  : Bend Err = 0.06% | RMSE = 0.0046m | Time = 0.498s
+  Prior-Initialized RANSAC    : Bend Err = 0.06% | RMSE = 0.0046m | Time = 0.137s
+  Topological Graph Torus     : Bend Err = 0.08% | RMSE = 0.0047m | Time = 0.005s
+  RANSAC-only detected 5 primitives in 0.106s vs Hybrid Pipeline 3 primitives in 0.188s
+
+--- Testing Noise = 5.0mm | Occlusion = 30% ---
+  Unconstrained Torus RANSAC  : Bend Err = 1.55% | RMSE = 0.0045m | Time = 0.711s
+  Prior-Initialized RANSAC    : Bend Err = 1.55% | RMSE = 0.0045m | Time = 0.172s
+  Topological Graph Torus     : Bend Err = 0.03% | RMSE = 0.0045m | Time = 0.005s
+  RANSAC-only detected 5 primitives in 0.127s vs Hybrid Pipeline 3 primitives in 0.179s
+
+Ablation results successfully saved to research_audit/ablation_results.json and research_audit/ablation_results.md
+
+```
+
+## Current ablation table (information-equal three-way)
+# Empirical Baseline & Ablation Study Results
+
+Three-way information-equal ablation: Unconstrained vs. Prior-Initialized (same axis info, no hard constraint) vs. Topological (same axis info + C1 constraint).
+
+| Noise (mm) | Occlusion | Unconstrained Bend Err | Prior-Init Bend Err | Topological Bend Err | Unconstrained RMSE | Prior-Init RMSE | Topological RMSE | Speedup (vs Unconstrained) |
+|---|---|---|---|---|---|---|---|---|
+| 0.0 mm | 0% | 0.00% | 0.00% | **0.00%** | 0.000 mm | 0.000 mm | **0.000 mm** | **156.6x** |
+| 0.0 mm | 30% | 0.00% | 0.00% | **0.00%** | 0.000 mm | 0.000 mm | **0.000 mm** | **183.4x** |
+| 2.0 mm | 0% | 0.04% | 0.04% | **0.03%** | 1.904 mm | 1.904 mm | **1.915 mm** | **126.5x** |
+| 2.0 mm | 30% | 0.40% | 0.40% | **0.01%** | 1.867 mm | 1.867 mm | **1.873 mm** | **224.6x** |
+| 5.0 mm | 0% | 0.06% | 0.06% | **0.08%** | 4.628 mm | 4.628 mm | **4.662 mm** | **104.7x** |
+| 5.0 mm | 30% | 1.55% | 1.55% | **0.03%** | 4.474 mm | 4.474 mm | **4.486 mm** | **146.4x** |
+
+
+## IMPLEMENTATION_STATUS (repo truth)
 # Roadmap implementation status
 
 This repository now contains the complete CPU-side architecture and interfaces
@@ -82,3 +138,12 @@ training command from the vendored reference on the authorized GPU host.
 ## Test suite
 
 24 tests, all passing: `$env:PYTHONPATH="src"; python -m pytest tests/ -v`
+
+
+## Your task
+1. Confirm which P0/P1 research gaps from the synthesis are **closed in code** vs still **external-only** (PSNet5 download, GPU training, real elbow labels).
+2. State whether the topological graph torus + directional DBSCAN + baselines are sufficient to pivot the paper narrative away from "novel torus RANSAC".
+3. Give a **publication readiness score** (0–10) and the **minimum remaining experiments** before a defensible manuscript.
+4. Output a structured **Compliance & Gap Closure Report** with sections: Executive Summary, Verified Claims, Remaining Gaps, Recommended Evaluation Protocol (2-class vs 3-class on PSNet5), Manuscript Title/Contribution bullets.
+
+Be adversarial but fair. Do not ask follow-up questions — give a complete report in one message.
