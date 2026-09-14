@@ -19,7 +19,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 import numpy as np
 import torch
 
-from deepsegregation.model import build_point_mlp
+from deepsegregation.model import build_point_mlp, build_pointnet2_ssg
 from deepsegregation.inference import predict_labels
 from deepsegregation.pipeline import run_pipeline
 from deepsegregation.synthetic import generate_scene, generate_elbow, generate_scene, PointCloud
@@ -61,7 +61,10 @@ def create_multi_pipe_scene(seed: int = 42):
 
 def main():
     parser = argparse.ArgumentParser(description="Extract individual pipes from a collection of pipes")
-    parser.add_argument("--checkpoint", default="artifacts/point_mlp_k80/best.pt")
+    default_ckpt = "artifacts/point_mlp_3class/best.pt"
+    if not Path(default_ckpt).exists():
+        default_ckpt = "artifacts/point_mlp_k80/best.pt"
+    parser.add_argument("--checkpoint", default=default_ckpt)
     parser.add_argument("--seed", type=int, default=42)
     args = parser.parse_args()
 
@@ -69,13 +72,20 @@ def main():
     if not checkpoint_path.exists():
         sys.exit(f"Checkpoint not found at {checkpoint_path}")
 
-    # Load model trained on GPU
+    # Load model
     checkpoint = torch.load(checkpoint_path, map_location="cpu")
-    model = build_point_mlp()
-    if "model_state" in checkpoint:
-        model.load_state_dict(checkpoint["model_state"])
+    weights = checkpoint.get("model_state", checkpoint.get("model", checkpoint))
+    is_pointnet2 = checkpoint.get("model_name") == "pointnet2_ssg" or any(k.startswith("sa1") for k in weights.keys())
+    if is_pointnet2:
+        model = build_pointnet2_ssg(input_features=3, num_classes=3)
     else:
-        model.load_state_dict(checkpoint["model"])
+        model = build_point_mlp(input_features=3, num_classes=3)
+
+    try:
+        model.load_state_dict(weights)
+    except Exception as exc:
+        print(f"Warning: strict checkpoint loading failed ({exc}), loading with strict=False")
+        model.load_state_dict(weights, strict=False)
     model.eval()
 
     cloud, ground_truth = create_multi_pipe_scene(args.seed)

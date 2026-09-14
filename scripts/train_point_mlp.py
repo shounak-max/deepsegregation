@@ -15,7 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 import numpy as np
 
 from deepsegregation.metrics import segmentation_metrics
-from deepsegregation.model import build_point_mlp
+from deepsegregation.model import build_point_mlp, build_pointnet2_ssg
 from deepsegregation.segmentation import boundary_class_balanced_loss
 from deepsegregation.synthetic import generate_elbow, generate_scene
 
@@ -24,6 +24,7 @@ def main(argv=None):
     parser = argparse.ArgumentParser()
     parser.add_argument("--epochs", type=int, default=10)
     parser.add_argument("--checkpoint-dir", default="checkpoints/point_mlp")
+    parser.add_argument("--model", choices=["point_mlp", "pointnet2_ssg"], default="pointnet2_ssg")
     parser.add_argument("--device", default="auto")
     parser.add_argument("--seed", type=int, default=0)
     args = parser.parse_args(argv)
@@ -34,7 +35,10 @@ def main(argv=None):
     device = "cuda" if args.device == "auto" and torch.cuda.is_available() else args.device
     if device == "auto":
         device = "cpu"
-    model = build_point_mlp().to(device)
+    if args.model == "pointnet2_ssg":
+        model = build_pointnet2_ssg(input_features=3, num_classes=3).to(device)
+    else:
+        model = build_point_mlp(input_features=3, num_classes=3).to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
     output = Path(args.checkpoint_dir)
     output.mkdir(parents=True, exist_ok=True)
@@ -61,7 +65,7 @@ def main(argv=None):
         checkpoint = {
             "epoch": epoch, "model": model.state_dict(), "optimizer": optimizer.state_dict(),
             "val_loss": float(val_loss), "metrics": metrics,
-            "model_name": "project_point_mlp_synthetic_baseline",
+            "model_name": args.model,
         }
         torch.save(checkpoint, output / f"epoch_{epoch:04d}.pt")
         if float(val_loss) < best:

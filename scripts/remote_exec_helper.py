@@ -1,10 +1,15 @@
+import os
 import paramiko
 import sys
 
 def run_remote(cmd):
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    client.connect("10.0.24.7", port=2222, username="saptarsi", password="Z^8mf23", timeout=15)
+    host = os.environ.get("DEEPSEGREGATION_CLUSTER_HOST", "10.0.24.7")
+    port = int(os.environ.get("DEEPSEGREGATION_CLUSTER_PORT", "2222"))
+    user = os.environ.get("DEEPSEGREGATION_CLUSTER_USER", "saptarsi")
+    pwd = os.environ.get("DEEPSEGREGATION_CLUSTER_PASSWORD")
+    client.connect(host, port=port, username=user, password=pwd, timeout=15)
     stdin, stdout, stderr = client.exec_command(cmd)
     out = stdout.read().decode('utf-8', 'replace')
     err = stderr.read().decode('utf-8', 'replace')

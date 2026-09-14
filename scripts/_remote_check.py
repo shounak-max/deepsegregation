@@ -1,7 +1,12 @@
 """Helper: run commands on remote and return output. Used to avoid PowerShell quoting issues."""
 import paramiko
 
-HOST, PORT, USER, PASSWD = '10.0.24.7', 2222, 'saptarsi', 'Z^8mf23'
+import os
+
+HOST = os.environ.get("DEEPSEGREGATION_CLUSTER_HOST", "10.0.24.7")
+PORT = int(os.environ.get("DEEPSEGREGATION_CLUSTER_PORT", "2222"))
+USER = os.environ.get("DEEPSEGREGATION_CLUSTER_USER", "saptarsi")
+PASSWD = os.environ.get("DEEPSEGREGATION_CLUSTER_PASSWORD")
 
 def ssh(cmd, timeout=20):
     c = paramiko.SSHClient()

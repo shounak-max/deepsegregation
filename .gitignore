@@ -11,3 +11,7 @@ vendor/
 # Local scratches
 scratch/
 *.log
+*.pt
+.venv/
+
+

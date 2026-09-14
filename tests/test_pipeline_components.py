@@ -55,6 +55,20 @@ class PipelineComponentTests(unittest.TestCase):
             write_report(path, [result])
             self.assertEqual(json.loads(path.read_text())["pipes"][0]["pipe_id"], "p1")
 
+    def test_metrics_excludes_unobserved_ground_truth_classes_from_headline_mean(self):
+        # Class 2 is predicted once but has no ground-truth examples.  Its
+        # per-class IoU must remain visible as zero, but it cannot be used to
+        # claim that class 2 was evaluated.
+        metrics = segmentation_metrics(
+            np.array([0, 1, 0, 1]), np.array([0, 1, 0, 2]), num_classes=3
+        )
+        self.assertAlmostEqual(metrics["mIoU"], .75)
+        self.assertAlmostEqual(metrics["mIoU_all_classes"], .5)
+        self.assertEqual(metrics["per_class_iou"], [1.0, 0.5, 0.0])
+        self.assertEqual(metrics["per_class_target_support"], [2, 2, 0])
+        self.assertEqual(metrics["per_class_prediction_support"], [2, 1, 1])
+        self.assertEqual(metrics["evaluated_class_indices"], [0, 1])
+
     def test_synthetic_scene_has_separable_semantic_instances(self):
         scan = generate_scene()
         instances = separate_instances(scan.cloud, scan.cloud.labels, eps=.05, min_samples=10, min_points=100)
@@ -140,4 +154,3 @@ class PipelineComponentTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

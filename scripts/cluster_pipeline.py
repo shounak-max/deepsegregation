@@ -34,7 +34,10 @@ def get_client(host=DEFAULT_HOST, port=DEFAULT_PORT, user=DEFAULT_USER, password
     if paramiko is None:
         sys.exit("Error: paramiko must be installed (pip install paramiko)")
     if password is None:
-        password = os.environ.get("DEEPSEGREGATION_CLUSTER_PASSWORD", "Z^8mf23")
+        password = os.environ.get("DEEPSEGREGATION_CLUSTER_PASSWORD")
+    if password is None:
+        import getpass
+        password = getpass.getpass("Cluster password: ")
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     client.connect(host, port=port, username=user, password=password, timeout=15)
@@ -94,6 +97,8 @@ def cmd_start(args):
         time.sleep(2)
 
     early_stop_flag = "--early-stop-on-targets" if args.early_stop_on_targets else ""
+    model_flag = f"--model {args.model}"
+    remap_flag = "--remap-3class" if args.remap_3class else ""
     cmd = (
         f"cd {args.project} && "
         f"nohup {DEFAULT_PYTHON} scripts/remote_train.py "
@@ -104,6 +109,8 @@ def cmd_start(args):
         f"--target-miou {args.target_miou} "
         f"--target-accuracy {args.target_accuracy} "
         f"--target-loss {args.target_loss} "
+        f"{model_flag} "
+        f"{remap_flag} "
         f"{early_stop_flag} "
         f"> train.log 2>&1 & echo $!"
     )
@@ -279,16 +286,18 @@ def main(argv=None):
     p_start.add_argument("--dataset", choices=["real", "synthetic"], default="real", help="Dataset to train on (real PSNet5 or synthetic)")
     p_start.add_argument("--epochs", type=int, default=15)
     p_start.add_argument("--checkpoint-interval", type=int, default=1)
-    p_start.add_argument("--gpu-id", type=int, default=1)
+    p_start.add_argument("--gpu-id", type=int, default=0)
     p_start.add_argument("--target-miou", type=float, default=0.50)
     p_start.add_argument("--target-accuracy", type=float, default=0.75)
     p_start.add_argument("--target-loss", type=float, default=1.50)
+    p_start.add_argument("--model", choices=["point_mlp", "pointnet2_ssg"], default="pointnet2_ssg")
+    p_start.add_argument("--remap-3class", action="store_true", default=True, help="Remap to 3-class contract")
     p_start.add_argument("--early-stop-on-targets", action="store_true")
     p_start.add_argument("--force", action="store_true", help="Stop existing jobs before starting")
 
     # status
     p_status = subparsers.add_parser("status", help="Inspect training progress, checkpoints, and targets")
-    p_status.add_argument("--gpu-id", type=int, default=1)
+    p_status.add_argument("--gpu-id", type=int, default=0)
 
     # stop
     subparsers.add_parser("stop", help="Stop running remote training job")

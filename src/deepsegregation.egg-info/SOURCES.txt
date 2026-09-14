@@ -8,12 +8,14 @@ src/deepsegregation/dataset.py
 src/deepsegregation/experiments.py
 src/deepsegregation/inference.py
 src/deepsegregation/metrics.py
+src/deepsegregation/model.py
 src/deepsegregation/pipeline.py
 src/deepsegregation/pointcloud.py
 src/deepsegregation/preprocessing.py
 src/deepsegregation/reference.py
 src/deepsegregation/report.py
 src/deepsegregation/segmentation.py
+src/deepsegregation/study.py
 src/deepsegregation/synthetic.py
 src/deepsegregation/torus.py
 src/deepsegregation/ui.py
@@ -23,5 +25,6 @@ src/deepsegregation.egg-info/dependency_links.txt
 src/deepsegregation.egg-info/entry_points.txt
 src/deepsegregation.egg-info/requires.txt
 src/deepsegregation.egg-info/top_level.txt
+tests/test_model.py
 tests/test_pipeline_components.py
 tests/test_torus.py

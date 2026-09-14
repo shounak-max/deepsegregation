@@ -19,7 +19,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 import numpy as np
 
 from deepsegregation.metrics import segmentation_metrics
-from deepsegregation.model import build_point_mlp
+from deepsegregation.model import build_point_mlp, build_pointnet2_ssg
 from deepsegregation.segmentation import boundary_class_balanced_loss
 from deepsegregation.synthetic import generate_scene
 
@@ -75,6 +75,7 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description="Remote GPU training with checkpoint evaluation and target setting")
     parser.add_argument("--dataset", choices=["synthetic", "real"], default="real", help="Dataset to train on (real PSNet5 or synthetic)")
     parser.add_argument("--real-train-path", default="data/PSNet/real_train.npz", help="Path to real_train.npz")
+    parser.add_argument("--real-val-path", default="data/PSNet/real_val.npz", help="Path to real_val.npz")
     parser.add_argument("--batch-size", type=int, default=16384, help="Points per training batch for real data")
     parser.add_argument("--steps-per-epoch", type=int, default=25, help="Gradient steps per epoch for real data")
     parser.add_argument("--epochs", type=int, default=20, help="Total training epochs")
@@ -88,6 +89,8 @@ def main(argv=None):
     parser.add_argument("--target-accuracy", type=float, default=0.75, help="Target accuracy threshold")
     parser.add_argument("--target-loss", type=float, default=1.50, help="Target validation loss threshold")
     parser.add_argument("--early-stop-on-targets", action="store_true", help="Stop once all targets are met")
+    parser.add_argument("--model", choices=["point_mlp", "pointnet2_ssg"], default="pointnet2_ssg", help="Model architecture")
+    parser.add_argument("--remap-3class", action="store_true", help="Remap PSNet5 classes to 3-class contract (bg, straight_pipe, elbow)")
     parser.add_argument("--status-file", default="pipeline_status.json", help="Status tracking file")
     args = parser.parse_args(argv)
 
@@ -153,7 +156,14 @@ def main(argv=None):
         all_val_x = val_data["points"]
         all_val_y = val_data["labels"]
         class_names = list(train_data["class_names"])
-        num_classes = len(class_names)
+        if args.remap_3class:
+            pipe_idx = class_names.index("pipe") if "pipe" in class_names else 1
+            all_train_y = np.where(all_train_y == pipe_idx, 1, 0).astype(np.int64)
+            all_val_y = np.where(all_val_y == pipe_idx, 1, 0).astype(np.int64)
+            class_names = ["background", "straight_pipe", "elbow"]
+            num_classes = 3
+            print("Remapped PSNet5 labels to 3-class scheme: {0: 'background', 1: 'straight_pipe', 2: 'elbow'}", flush=True)
+
         print(f"Real Train Points: {len(all_train_x):,d} | Real Val Points: {len(all_val_x):,d} | Classes: {class_names}", flush=True)
 
         # Pre-select validation sample (30,000 points) for quick checkpoint evaluation
@@ -167,8 +177,12 @@ def main(argv=None):
         val_x = torch.from_numpy(val_scene.cloud.points.astype(np.float32)).to(device)
         val_y = torch.from_numpy(val_scene.cloud.labels.astype(np.int64)).to(device)
 
-    model = build_point_mlp(input_features=3, num_classes=num_classes).to(device)
-    optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
+    if args.model == "pointnet2_ssg":
+        model = build_pointnet2_ssg(input_features=3, num_classes=num_classes).to(device)
+    else:
+        model = build_point_mlp(input_features=3, num_classes=num_classes).to(device)
+    optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=1e-3)
+    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=args.epochs, eta_min=1e-5)
 
     best_loss = float("inf")
     best_epoch = None
@@ -190,8 +204,24 @@ def main(argv=None):
         for _ in range(steps_per_epoch):
             if args.dataset == "real":
                 batch_idx = np.random.choice(len(all_train_x), min(args.batch_size, len(all_train_x)), replace=False)
-                train_x = torch.from_numpy(all_train_x[batch_idx]).to(device)
-                train_y = torch.from_numpy(all_train_y[batch_idx]).to(device)
+                batch_pts = all_train_x[batch_idx].copy()
+                batch_lbl = all_train_y[batch_idx]
+
+                # --- Data augmentation ---
+                # Random rotation around Z axis
+                theta = np.random.uniform(0, 2 * np.pi)
+                cos_t, sin_t = np.cos(theta), np.sin(theta)
+                rot = np.array([[cos_t, -sin_t, 0], [sin_t, cos_t, 0], [0, 0, 1]], dtype=np.float32)
+                batch_pts = batch_pts @ rot.T
+                # Gaussian jitter
+                batch_pts += np.random.normal(0, 0.02, batch_pts.shape).astype(np.float32)
+                # Random point dropout (10%)
+                keep_mask = np.random.rand(len(batch_pts)) > 0.1
+                batch_pts = batch_pts[keep_mask]
+                batch_lbl = batch_lbl[keep_mask]
+
+                train_x = torch.from_numpy(batch_pts).to(device)
+                train_y = torch.from_numpy(batch_lbl).to(device)
             else:
                 train_scene = generate_scene(args.seed + epoch)
                 train_x = torch.from_numpy(train_scene.cloud.points.astype(np.float32)).to(device)
@@ -203,6 +233,7 @@ def main(argv=None):
             loss.backward()
             optimizer.step()
             epoch_losses.append(loss.item())
+        scheduler.step()
 
         train_loss_val = float(np.mean(epoch_losses))
 
@@ -238,7 +269,7 @@ def main(argv=None):
                 "val_loss": val_loss,
                 "train_loss": train_loss_val,
                 "targets_evaluation": target_status,
-                "model_name": "project_point_mlp_synthetic_baseline",
+                "model_name": args.model,
             }
             torch.save(checkpoint_payload, checkpoint_dir / f"epoch_{epoch:04d}.pt")
             if is_best:

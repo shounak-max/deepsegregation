@@ -1,0 +1,164 @@
+[
+  {
+    "noise_mm": 0.0,
+    "occlusion_pct": 0.0,
+    "unconstrained_torus": {
+      "major_r_err_pct": 2.220446049250313e-14,
+      "minor_r_err_pct": 0.0,
+      "runtime_sec": 0.3860590999975102,
+      "success": true,
+      "c1_tangent_err_deg": 0.0
+    },
+    "topological_torus": {
+      "major_r_err_pct": 2.220446049250313e-14,
+      "minor_r_err_pct": 2.2551405187698492e-13,
+      "runtime_sec": 0.0029089999879943207,
+      "success": true,
+      "c1_tangent_err_deg": 0.0
+    },
+    "ransac_only_baseline": {
+      "detected_cylinders": 5,
+      "runtime_sec": 0.08863289999135304
+    },
+    "hybrid_topological_pipeline": {
+      "detected_instances": 3,
+      "fitted_primitives": 3,
+      "runtime_sec": 0.12908149999566376
+    }
+  },
+  {
+    "noise_mm": 0.0,
+    "occlusion_pct": 30.0,
+    "unconstrained_torus": {
+      "major_r_err_pct": 0.0,
+      "minor_r_err_pct": 1.3877787807814457e-13,
+      "runtime_sec": 0.5471037000097567,
+      "success": true,
+      "c1_tangent_err_deg": 0.0
+    },
+    "topological_torus": {
+      "major_r_err_pct": 3.1086244689504383e-13,
+      "minor_r_err_pct": 1.6306400674181987e-12,
+      "runtime_sec": 0.0024813000054564327,
+      "success": true,
+      "c1_tangent_err_deg": 0.0
+    },
+    "ransac_only_baseline": {
+      "detected_cylinders": 6,
+      "runtime_sec": 0.08004669999354519
+    },
+    "hybrid_topological_pipeline": {
+      "detected_instances": 3,
+      "fitted_primitives": 3,
+      "runtime_sec": 0.12495599999965634
+    }
+  },
+  {
+    "noise_mm": 2.0,
+    "occlusion_pct": 0.0,
+    "unconstrained_torus": {
+      "major_r_err_pct": 0.040812412477087,
+      "minor_r_err_pct": 0.2451028892362997,
+      "runtime_sec": 0.4282034000061685,
+      "success": true,
+      "c1_tangent_err_deg": 0.07114990334326146
+    },
+    "topological_torus": {
+      "major_r_err_pct": 0.025885959137372794,
+      "minor_r_err_pct": 0.2560897420069048,
+      "runtime_sec": 0.0029417000041576102,
+      "success": true,
+      "c1_tangent_err_deg": 0.0
+    },
+    "ransac_only_baseline": {
+      "detected_cylinders": 5,
+      "runtime_sec": 0.08439029999135528
+    },
+    "hybrid_topological_pipeline": {
+      "detected_instances": 3,
+      "fitted_primitives": 3,
+      "runtime_sec": 0.14274780001142062
+    }
+  },
+  {
+    "noise_mm": 2.0,
+    "occlusion_pct": 30.0,
+    "unconstrained_torus": {
+      "major_r_err_pct": 0.40458000193157595,
+      "minor_r_err_pct": 0.18751947788726853,
+      "runtime_sec": 0.5582177000032971,
+      "success": true,
+      "c1_tangent_err_deg": 0.36037164160722485
+    },
+    "topological_torus": {
+      "major_r_err_pct": 0.008978273341209153,
+      "minor_r_err_pct": 0.18323763800088058,
+      "runtime_sec": 0.003408000004128553,
+      "success": true,
+      "c1_tangent_err_deg": 0.0
+    },
+    "ransac_only_baseline": {
+      "detected_cylinders": 5,
+      "runtime_sec": 0.08064920001197606
+    },
+    "hybrid_topological_pipeline": {
+      "detected_instances": 3,
+      "fitted_primitives": 3,
+      "runtime_sec": 0.14346580000710674
+    }
+  },
+  {
+    "noise_mm": 5.0,
+    "occlusion_pct": 0.0,
+    "unconstrained_torus": {
+      "major_r_err_pct": 0.06088382575253348,
+      "minor_r_err_pct": 0.08831116897648622,
+      "runtime_sec": 0.41550859999551903,
+      "success": true,
+      "c1_tangent_err_deg": 0.1677774077386779
+    },
+    "topological_torus": {
+      "major_r_err_pct": 0.08472722708712244,
+      "minor_r_err_pct": 0.16420263209781724,
+      "runtime_sec": 0.003385300005902536,
+      "success": true,
+      "c1_tangent_err_deg": 0.0
+    },
+    "ransac_only_baseline": {
+      "detected_cylinders": 5,
+      "runtime_sec": 0.08075399999506772
+    },
+    "hybrid_topological_pipeline": {
+      "detected_instances": 3,
+      "fitted_primitives": 3,
+      "runtime_sec": 0.14449180000519846
+    }
+  },
+  {
+    "noise_mm": 5.0,
+    "occlusion_pct": 30.0,
+    "unconstrained_torus": {
+      "major_r_err_pct": 1.5520556036654032,
+      "minor_r_err_pct": 0.9973337876779607,
+      "runtime_sec": 0.5639767999964533,
+      "success": true,
+      "c1_tangent_err_deg": 0.6552845853570499
+    },
+    "topological_torus": {
+      "major_r_err_pct": 0.03020729167155789,
+      "minor_r_err_pct": 0.9588843794561958,
+      "runtime_sec": 0.0030033999937586486,
+      "success": true,
+      "c1_tangent_err_deg": 0.0
+    },
+    "ransac_only_baseline": {
+      "detected_cylinders": 5,
+      "runtime_sec": 0.08268429999588989
+    },
+    "hybrid_topological_pipeline": {
+      "detected_instances": 3,
+      "fitted_primitives": 3,
+      "runtime_sec": 0.14242409999133088
+    }
+  }
+]
