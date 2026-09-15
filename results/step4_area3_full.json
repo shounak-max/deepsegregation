@@ -1,0 +1,34 @@
+{
+  "checkpoint": "checkpoints/step4_cellparity_diag/best.pt",
+  "cache": "data/PSNet/real_area3.npz",
+  "cell_size": 0.5,
+  "device": "cuda:0",
+  "metrics": {
+    "accuracy": 0.6826293304218753,
+    "mIoU": 0.4761901871061667,
+    "per_class_recall": [
+      0.8041981206543987,
+      0.45048827392192586
+    ],
+    "per_class_iou": [
+      0.6244884291878054,
+      0.32789194502452795
+    ],
+    "macro_f1": 0.6313482693659894,
+    "confusion_matrix": [
+      [
+        12913158,
+        3144027
+      ],
+      [
+        4620793,
+        3788114
+      ]
+    ],
+    "point_count": 24466092,
+    "pipe_prevalence": 0.343696369653151,
+    "pipe_precision": 0.5464565709208742,
+    "pipe_recall": 0.45048827392192586,
+    "pipe_f1": 0.49385335343452413
+  }
+}

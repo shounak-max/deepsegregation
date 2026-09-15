@@ -2,10 +2,11 @@
 # vendor/ResPointNet2; this file records the three-class adaptation contract.
 dataset:
   name: pipe3
-  root: data/pipes
+  root: data/PSNet/PSNet5
   classes: [background, pipe, elbow]
-  train_areas: [Area_1, Area_2, Area_3]
+  train_areas: [Area_1, Area_2]
   validation_areas: [Area_4]
+  test_areas: [Area_3]
 model:
   reference: vendor/ResPointNet2
   num_classes: 3

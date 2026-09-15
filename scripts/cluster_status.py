@@ -30,9 +30,9 @@ def main(argv=None):
     client.connect(args.host, port=args.port, username=args.user, password=password, timeout=15)
     command = (
         f"nvidia-smi --query-gpu=index,name,memory.used,memory.total,utilization.gpu "
-        f"--format=csv,noheader; echo JOBS; pgrep -af train_point_mlp.py || true; "
-        f"echo LOG; tail -20 {args.project}/train_point_mlp.log 2>/dev/null || true; "
-        f"echo CHECKPOINTS; ls -lh {args.project}/checkpoints/point_mlp_k80 2>/dev/null || true"
+        f"--format=csv,noheader; echo JOBS; pgrep -af 'scripts/remote_train.py' || true; "
+        f"echo LOG; tail -20 {args.project}/train.log 2>/dev/null || true; "
+        f"echo CHECKPOINTS; ls -lh {args.project}/checkpoints/respointnet2_psnet5 2>/dev/null || true"
     )
     _, output, errors = client.exec_command(command)
     print(output.read().decode(errors="replace"), end="")

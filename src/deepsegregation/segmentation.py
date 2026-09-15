@@ -34,7 +34,8 @@ def boundary_mask_from_labels(points: np.ndarray, labels: np.ndarray, neighbors:
 
 
 def boundary_class_balanced_loss(logits, targets, boundary_mask=None,
-                                 beta: float = 0.999, boundary_weight: float = 2.0):
+                                 beta: float = 0.999, boundary_weight: float = 2.0,
+                                 class_weight=None):
     """Compute class-balanced cross entropy with extra boundary emphasis.
 
     This function is kept torch-lazy so dataset and geometry tools work on
@@ -55,6 +56,11 @@ def boundary_class_balanced_loss(logits, targets, boundary_mask=None,
     effective = 1.0 - torch.pow(torch.tensor(beta, device=logits.device), counts)
     weights = torch.where(counts > 0, (1.0 - beta) / effective, torch.zeros_like(counts))
     weights = weights / weights.sum().clamp_min(torch.finfo(weights.dtype).eps) * classes
+    if class_weight is not None:
+        class_weight = torch.as_tensor(class_weight, dtype=weights.dtype, device=weights.device)
+        if class_weight.ndim != 1 or len(class_weight) != classes or torch.any(class_weight <= 0):
+            raise ValueError("class_weight must contain one positive value per class")
+        weights = weights * class_weight
     loss = F.cross_entropy(logits, targets, weight=weights, reduction="none")
     if boundary_mask is not None:
         boundary_mask = boundary_mask.to(dtype=loss.dtype)

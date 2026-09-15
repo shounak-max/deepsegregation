@@ -61,9 +61,7 @@ def create_multi_pipe_scene(seed: int = 42):
 
 def main():
     parser = argparse.ArgumentParser(description="Extract individual pipes from a collection of pipes")
-    default_ckpt = "artifacts/point_mlp_3class/best.pt"
-    if not Path(default_ckpt).exists():
-        default_ckpt = "artifacts/point_mlp_k80/best.pt"
+    default_ckpt = "artifacts/respointnet2_psnet5/best.pt"
     parser.add_argument("--checkpoint", default=default_ckpt)
     parser.add_argument("--seed", type=int, default=42)
     args = parser.parse_args()

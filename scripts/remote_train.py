@@ -27,6 +27,99 @@ from deepsegregation.synthetic import generate_scene
 _RUNNING = True
 
 
+def normalize_points(points: np.ndarray) -> np.ndarray:
+    """Normalize each sampled cloud so coordinate scale is stable across scenes."""
+    points = np.asarray(points, dtype=np.float32)
+    center = points.mean(axis=0, keepdims=True)
+    scale = np.linalg.norm(points - center, axis=1).max()
+    return (points - center) / max(float(scale), 1e-6)
+
+
+def balanced_indices(labels: np.ndarray, batch_size: int, rng: np.random.Generator) -> np.ndarray:
+    """Draw an equal foreground/background point batch when both classes exist."""
+    if batch_size < 2:
+        raise ValueError("batch_size must be at least 2")
+    classes = [np.flatnonzero(labels == value) for value in (0, 1)]
+    if any(len(indices) == 0 for indices in classes):
+        return rng.choice(len(labels), min(batch_size, len(labels)), replace=False)
+    per_class = batch_size // 2
+    selected = [
+        rng.choice(indices, per_class, replace=len(indices) < per_class)
+        for indices in classes
+    ]
+    result = np.concatenate(selected)
+    rng.shuffle(result)
+    return result
+
+
+def spatial_block_indices(
+    points: np.ndarray,
+    labels: np.ndarray,
+    batch_size: int,
+    rng: np.random.Generator,
+    block_size: float = 0.2,
+) -> np.ndarray:
+    """Sample a balanced local block anchored on a foreground point."""
+    if len(points) != len(labels):
+        raise ValueError("points and labels must have equal length")
+    foreground = np.flatnonzero(labels == 1)
+    if len(foreground) == 0:
+        return balanced_indices(labels, batch_size, rng)
+    anchor = points[rng.choice(foreground)]
+    half_size = block_size / 2.0
+    candidate_mask = np.all(np.abs(points - anchor) <= half_size, axis=1)
+    candidates = np.flatnonzero(candidate_mask)
+    if len(candidates) < max(2, batch_size // 4) or not np.any(labels[candidates] == 0):
+        return balanced_indices(labels, batch_size, rng)
+    local_labels = labels[candidates]
+    local_indices = balanced_indices(local_labels, batch_size, rng)
+    return candidates[local_indices]
+
+
+def spatial_eval_indices(
+    points: np.ndarray,
+    batch_size: int,
+    rng: np.random.Generator,
+    block_size: float,
+) -> np.ndarray:
+    """Sample a fixed local block without changing its natural class prevalence."""
+    anchor = points[rng.integers(len(points))]
+    half_size = block_size / 2.0
+    candidates = np.flatnonzero(
+        np.all(np.abs(points - anchor) <= half_size, axis=1)
+    )
+    if len(candidates) == 0:
+        return rng.choice(len(points), min(batch_size, len(points)), replace=False)
+    return rng.choice(candidates, min(batch_size, len(candidates)), replace=False)
+
+
+def spatial_cell_sample(
+    points: np.ndarray,
+    labels: np.ndarray,
+    batch_size: int,
+    rng: np.random.Generator,
+    block_size: float,
+    balanced: bool,
+) -> tuple[np.ndarray, np.ndarray]:
+    """Sample points from one cell after normalizing the complete cell."""
+    anchor = points[rng.integers(len(points))]
+    half_size = block_size / 2.0
+    candidates = np.flatnonzero(
+        np.all(np.abs(points - anchor) <= half_size, axis=1)
+    )
+    if len(candidates) == 0:
+        candidates = rng.choice(len(points), min(batch_size, len(points)), replace=False)
+
+    cell_points = normalize_points(points[candidates])
+    if balanced and np.any(labels[candidates] == 0) and np.any(labels[candidates] == 1):
+        local_indices = balanced_indices(labels[candidates], batch_size, rng)
+    else:
+        local_indices = rng.choice(
+            len(candidates), min(batch_size, len(candidates)), replace=False
+        )
+    return cell_points[local_indices], labels[candidates][local_indices]
+
+
 def _handle_signal(signum, frame):
     global _RUNNING
     print(f"\nReceived signal {signum}, initiating graceful shutdown...", flush=True)
@@ -40,15 +133,47 @@ def update_status(status_file: Path, data: dict):
     tmp_file.replace(status_file)
 
 
-def evaluate(model, val_x, val_y, num_classes=3):
+def evaluate(model, val_x, val_y, num_classes=3, pipe_weight=None):
     import torch
     model.eval()
     with torch.no_grad():
         val_logits = model(val_x)
-        val_loss = boundary_class_balanced_loss(val_logits, val_y, beta=0.999, boundary_weight=2.0)
+        val_loss = boundary_class_balanced_loss(
+            val_logits, val_y, beta=0.999, boundary_weight=2.0,
+            class_weight=[1.0, pipe_weight] if pipe_weight is not None else None,
+        )
         predictions = val_logits.argmax(dim=1).cpu().numpy()
     metrics = segmentation_metrics(val_y.cpu().numpy(), predictions, num_classes)
     return float(val_loss), metrics, predictions
+
+
+def evaluate_spatial_blocks(model, points, labels, device, num_classes, rng,
+                            batch_size, block_size, pipe_weight=None, blocks=8):
+    """Evaluate independent local blocks and aggregate point-level metrics."""
+    import torch
+    losses = []
+    targets = []
+    predictions = []
+    model.eval()
+    with torch.no_grad():
+        for _ in range(blocks):
+            block_points, block_labels = spatial_cell_sample(
+                points, labels, batch_size, rng, block_size, balanced=False
+            )
+            block_x = torch.from_numpy(block_points).to(device)
+            block_y = torch.from_numpy(block_labels).to(device)
+            logits = model(block_x)
+            losses.append(float(boundary_class_balanced_loss(
+                logits, block_y, beta=0.999, boundary_weight=2.0,
+                class_weight=[1.0, pipe_weight] if pipe_weight is not None else None,
+            )))
+            targets.append(block_y.cpu().numpy())
+            predictions.append(logits.argmax(dim=1).cpu().numpy())
+    target_array = np.concatenate(targets)
+    prediction_array = np.concatenate(predictions)
+    return float(np.mean(losses)), segmentation_metrics(
+        target_array, prediction_array, num_classes
+    ), prediction_array
 
 
 def check_targets(metrics: dict, val_loss: float, target_miou: float | None,
@@ -80,7 +205,7 @@ def main(argv=None):
     parser.add_argument("--steps-per-epoch", type=int, default=25, help="Gradient steps per epoch for real data")
     parser.add_argument("--epochs", type=int, default=20, help="Total training epochs")
     parser.add_argument("--lr", type=float, default=2e-3, help="Learning rate")
-    parser.add_argument("--checkpoint-dir", default="checkpoints/point_mlp_k80", help="Directory to store checkpoints")
+    parser.add_argument("--checkpoint-dir", default="checkpoints/respointnet2_psnet5", help="Directory to store checkpoints")
     parser.add_argument("--checkpoint-interval", type=int, default=1, help="Evaluate and save checkpoint every N epochs")
     parser.add_argument("--gpu-id", type=int, default=1, help="CUDA GPU device index to use (e.g. 1)")
     parser.add_argument("--device", default="auto", help="auto, cuda, cuda:N, or cpu")
@@ -90,6 +215,14 @@ def main(argv=None):
     parser.add_argument("--target-loss", type=float, default=1.50, help="Target validation loss threshold")
     parser.add_argument("--early-stop-on-targets", action="store_true", help="Stop once all targets are met")
     parser.add_argument("--model", choices=["point_mlp", "pointnet2_ssg"], default="pointnet2_ssg", help="Model architecture")
+    parser.add_argument("--label-mode", choices=["binary", "three-class", "original"], default="binary",
+                        help="Real-data labels to train: pipe/background, legacy three-class, or original PSNet5")
+    parser.add_argument("--pipe-weight", type=float, default=4.0,
+                        help="Additional binary loss weight for pipe points")
+    parser.add_argument("--sampling", choices=["random", "spatial"], default="spatial",
+                        help="Binary batch sampler; spatial keeps local neighborhood context")
+    parser.add_argument("--block-size", type=float, default=0.2,
+                        help="Normalized edge length of spatial training blocks")
     parser.add_argument("--remap-3class", action="store_true", help="Remap PSNet5 classes to 3-class contract (bg, straight_pipe, elbow)")
     parser.add_argument("--status-file", default="pipeline_status.json", help="Status tracking file")
     args = parser.parse_args(argv)
@@ -115,6 +248,7 @@ def main(argv=None):
 
     device = torch.device(device_str)
     torch.manual_seed(args.seed)
+    rng = np.random.default_rng(args.seed)
     np.random.seed(args.seed)
 
     gpu_name = torch.cuda.get_device_name(device) if device.type == "cuda" else "CPU"
@@ -156,19 +290,29 @@ def main(argv=None):
         all_val_x = val_data["points"]
         all_val_y = val_data["labels"]
         class_names = list(train_data["class_names"])
-        if args.remap_3class:
+        if args.label_mode == "binary":
+            if "binary_labels" not in train_data or "binary_labels" not in val_data:
+                raise RuntimeError("binary label mode requires binary_labels in both cache files")
+            all_train_y = train_data["binary_labels"]
+            all_val_y = val_data["binary_labels"]
+            class_names = ["background", "pipe"]
+            num_classes = 2
+            print("Using cached binary labels: {0: 'background', 1: 'pipe'}", flush=True)
+        elif args.label_mode == "three-class" or args.remap_3class:
             pipe_idx = class_names.index("pipe") if "pipe" in class_names else 1
             all_train_y = np.where(all_train_y == pipe_idx, 1, 0).astype(np.int64)
             all_val_y = np.where(all_val_y == pipe_idx, 1, 0).astype(np.int64)
             class_names = ["background", "straight_pipe", "elbow"]
             num_classes = 3
             print("Remapped PSNet5 labels to 3-class scheme: {0: 'background', 1: 'straight_pipe', 2: 'elbow'}", flush=True)
+        else:
+            num_classes = len(class_names)
 
         print(f"Real Train Points: {len(all_train_x):,d} | Real Val Points: {len(all_val_x):,d} | Classes: {class_names}", flush=True)
 
         # Pre-select validation sample (30,000 points) for quick checkpoint evaluation
         val_indices = np.random.choice(len(all_val_x), min(30000, len(all_val_x)), replace=False)
-        val_x = torch.from_numpy(all_val_x[val_indices]).to(device)
+        val_x = torch.from_numpy(normalize_points(all_val_x[val_indices])).to(device)
         val_y = torch.from_numpy(all_val_y[val_indices]).to(device)
     else:
         num_classes = 3
@@ -185,13 +329,18 @@ def main(argv=None):
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=args.epochs, eta_min=1e-5)
 
     best_loss = float("inf")
+    best_score = float("-inf")
     best_epoch = None
     eval_history = []
     status_data["status"] = "RUNNING"
-    status_data["dataset_type"] = f"real_psnet5 ({num_classes} classes)" if args.dataset == "real" else "synthetic"
+    status_data["dataset_type"] = (
+        f"real_psnet5 ({args.label_mode}, {num_classes} classes)"
+        if args.dataset == "real" else "synthetic"
+    )
 
     start_time = time.time()
     steps_per_epoch = args.steps_per_epoch if args.dataset == "real" else 1
+    validation_rng = np.random.default_rng(args.seed + 10000)
 
     for epoch in range(1, args.epochs + 1):
         if not _RUNNING:
@@ -203,22 +352,36 @@ def main(argv=None):
         epoch_losses = []
         for _ in range(steps_per_epoch):
             if args.dataset == "real":
-                batch_idx = np.random.choice(len(all_train_x), min(args.batch_size, len(all_train_x)), replace=False)
-                batch_pts = all_train_x[batch_idx].copy()
-                batch_lbl = all_train_y[batch_idx]
+                if args.label_mode == "binary":
+                    if args.sampling == "spatial":
+                        batch_pts, batch_lbl = spatial_cell_sample(
+                            all_train_x, all_train_y, args.batch_size, rng,
+                            args.block_size, balanced=True
+                        )
+                    else:
+                        batch_idx = balanced_indices(all_train_y, args.batch_size, rng)
+                else:
+                    batch_idx = rng.choice(
+                        len(all_train_x), min(args.batch_size, len(all_train_x)), replace=False
+                    )
 
-                # --- Data augmentation ---
-                # Random rotation around Z axis
-                theta = np.random.uniform(0, 2 * np.pi)
-                cos_t, sin_t = np.cos(theta), np.sin(theta)
-                rot = np.array([[cos_t, -sin_t, 0], [sin_t, cos_t, 0], [0, 0, 1]], dtype=np.float32)
-                batch_pts = batch_pts @ rot.T
-                # Gaussian jitter
-                batch_pts += np.random.normal(0, 0.02, batch_pts.shape).astype(np.float32)
-                # Random point dropout (10%)
-                keep_mask = np.random.rand(len(batch_pts)) > 0.1
-                batch_pts = batch_pts[keep_mask]
-                batch_lbl = batch_lbl[keep_mask]
+                if not (args.label_mode == "binary" and args.sampling == "spatial"):
+                    batch_pts = all_train_x[batch_idx].copy()
+                    batch_lbl = all_train_y[batch_idx]
+                    # Augment only the legacy random-sample path. Spatial cells
+                    # must retain the same normalized coordinate distribution as inference.
+                    theta = np.random.uniform(0, 2 * np.pi)
+                    cos_t, sin_t = np.cos(theta), np.sin(theta)
+                    rot = np.array(
+                        [[cos_t, -sin_t, 0], [sin_t, cos_t, 0], [0, 0, 1]],
+                        dtype=np.float32,
+                    )
+                    batch_pts = batch_pts @ rot.T
+                    batch_pts += np.random.normal(0, 0.02, batch_pts.shape).astype(np.float32)
+                    keep_mask = np.random.rand(len(batch_pts)) > 0.1
+                    batch_pts = batch_pts[keep_mask]
+                    batch_lbl = batch_lbl[keep_mask]
+                    batch_pts = normalize_points(batch_pts)
 
                 train_x = torch.from_numpy(batch_pts).to(device)
                 train_y = torch.from_numpy(batch_lbl).to(device)
@@ -229,7 +392,10 @@ def main(argv=None):
 
             optimizer.zero_grad()
             logits = model(train_x)
-            loss = boundary_class_balanced_loss(logits, train_y, beta=0.999, boundary_weight=2.0)
+            loss = boundary_class_balanced_loss(
+                logits, train_y, beta=0.999, boundary_weight=2.0,
+                class_weight=[1.0, args.pipe_weight] if args.label_mode == "binary" else None,
+            )
             loss.backward()
             optimizer.step()
             epoch_losses.append(loss.item())
@@ -239,15 +405,29 @@ def main(argv=None):
 
         is_checkpoint = (epoch % args.checkpoint_interval == 0) or (epoch == args.epochs)
         if is_checkpoint:
-            val_loss, metrics, _ = evaluate(model, val_x, val_y, num_classes=num_classes)
+            if args.dataset == "real" and args.label_mode == "binary" and args.sampling == "spatial":
+                val_loss, metrics, _ = evaluate_spatial_blocks(
+                    model, all_val_x, all_val_y, device, num_classes, validation_rng,
+                    args.batch_size, args.block_size,
+                    pipe_weight=args.pipe_weight, blocks=8,
+                )
+            else:
+                val_loss, metrics, _ = evaluate(
+                    model, val_x, val_y, num_classes=num_classes,
+                    pipe_weight=args.pipe_weight if args.label_mode == "binary" else None,
+                )
             target_status = check_targets(
                 metrics, val_loss, args.target_miou, args.target_accuracy, args.target_loss
             )
 
-            is_best = val_loss < best_loss
+            selection_score = metrics["mIoU"] if (
+                args.dataset == "real" and args.label_mode == "binary"
+            ) else -val_loss
+            is_best = selection_score > best_score
             if is_best:
                 best_loss = val_loss
                 best_epoch = epoch
+                best_score = selection_score
 
             chk_info = {
                 "epoch": epoch,
@@ -294,6 +474,7 @@ def main(argv=None):
                 "val_loss": val_loss,
                 "latest_metrics": metrics,
                 "best_val_loss": best_loss,
+                "best_selection_score": best_score,
                 "best_epoch": best_epoch,
                 "targets_evaluation": target_status,
                 "all_targets_met": target_status["all_targets_met"],

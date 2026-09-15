@@ -1,7 +1,0 @@
-Metadata-Version: 2.4
-Name: deepsegregation
-Version: 0.1.0
-Summary: Point-cloud segregation and pipe geometry estimation
-Requires-Python: >=3.9
-Requires-Dist: numpy>=1.21
-Requires-Dist: scipy>=1.8

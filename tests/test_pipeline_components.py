@@ -12,9 +12,86 @@ from deepsegregation.metrics import segmentation_metrics
 from deepsegregation.pointcloud import PointCloud, read_ply, write_ply
 from deepsegregation.report import compliance, write_report
 from deepsegregation.synthetic import generate_scene
+from deepsegregation.reference import inspect_psnet5_layout
+
+
+def _load_prepare_script():
+    import importlib.util
+    script = Path(__file__).resolve().parents[1] / "scripts" / "prepare_real_dataset.py"
+    spec = importlib.util.spec_from_file_location("prepare_real_dataset", script)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
 
 
 class PipelineComponentTests(unittest.TestCase):
+    def test_psnet5_binary_mapping_preserves_pipe_only(self):
+        prepare = _load_prepare_script()
+        labels = np.array([0, 1, 2, 3, 4])
+        np.testing.assert_array_equal(
+            prepare.to_binary_labels(labels, prepare.CLASS_NAMES),
+            [0, 1, 0, 0, 0],
+        )
+
+    def test_psnet5_binary_mapping_rejects_unknown_class_order(self):
+        prepare = _load_prepare_script()
+        with self.assertRaises(ValueError):
+            prepare.to_binary_labels(np.array([0]), ["pipe"])
+
+    def test_binary_sampling_balances_available_classes(self):
+        import importlib.util
+        script = Path(__file__).resolve().parents[1] / "scripts" / "remote_train.py"
+        spec = importlib.util.spec_from_file_location("remote_train", script)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        labels = np.array([0] * 90 + [1] * 10)
+        indices = module.balanced_indices(labels, 20, np.random.default_rng(7))
+        self.assertEqual(np.sum(labels[indices] == 0), 10)
+        self.assertEqual(np.sum(labels[indices] == 1), 10)
+
+    def test_spatial_sampling_returns_local_balanced_block(self):
+        import importlib.util
+        script = Path(__file__).resolve().parents[1] / "scripts" / "remote_train.py"
+        spec = importlib.util.spec_from_file_location("remote_train_spatial", script)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        rng = np.random.default_rng(9)
+        points = np.vstack([
+            rng.normal(loc=0.0, scale=0.02, size=(60, 3)),
+            rng.normal(loc=1.0, scale=0.02, size=(60, 3)),
+        ]).astype(np.float32)
+        labels = np.array([1] * 60 + [0] * 60)
+        indices = module.spatial_block_indices(points, labels, 20, rng, block_size=0.2)
+        self.assertEqual(len(indices), 20)
+        self.assertEqual(np.sum(labels[indices] == 1), 10)
+        self.assertTrue(np.all(points[indices].max(axis=0) - points[indices].min(axis=0) < 0.2))
+
+    def test_psnet5_layout_requires_all_areas_and_annotations(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for area_name in ("Area_1", "Area_2", "Area_3", "Area_4"):
+                annotations = root / area_name / "Room_1" / "Annotations"
+                annotations.mkdir(parents=True)
+                (annotations / "pipe_1.txt").write_text("0 0 0\n", encoding="utf-8")
+            status = inspect_psnet5_layout(root)
+            self.assertTrue(status.ready_for_preprocessing)
+            self.assertEqual(status.areas, ("Area_1", "Area_2", "Area_3", "Area_4"))
+            self.assertEqual(status.annotation_files, 4)
+
+    def test_psnet5_layout_reports_classes_and_rejects_unknown_prefixes(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for area_name in ("Area_1", "Area_2", "Area_3", "Area_4"):
+                annotations = root / area_name / "Room_1" / "Annotations"
+                annotations.mkdir(parents=True)
+                (annotations / "pipe_1.txt").write_text("0 0 0\n", encoding="utf-8")
+            unknown = root / "Area_1" / "Room_1" / "Annotations" / "valve_1.txt"
+            unknown.write_text("0 0 0\n", encoding="utf-8")
+            status = inspect_psnet5_layout(root)
+            self.assertEqual(dict(status.class_file_counts)["pipe"], 4)
+            self.assertIn("valve", status.unexpected_class_prefixes)
+            self.assertFalse(status.ready_for_preprocessing)
+
     def test_dbscan_separates_two_clusters_and_noise(self):
         first = np.zeros((40, 3)) + np.random.default_rng(2).normal(scale=.01, size=(40, 3))
         second = np.ones((40, 3)) + np.random.default_rng(3).normal(scale=.01, size=(40, 3))

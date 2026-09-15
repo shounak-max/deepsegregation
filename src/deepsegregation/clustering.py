@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Iterable, List
+from typing import Iterable, List, Optional
 
 import numpy as np
 
@@ -132,4 +132,3 @@ def separate_instances(cloud: PointCloud, semantic_labels: np.ndarray,
                                       cloud.select(np.isin(np.arange(len(cloud.points)), member_indices))))
             next_id += 1
     return instances
-

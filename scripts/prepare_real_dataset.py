@@ -1,30 +1,42 @@
-"""Preprocess real PSNet5 industrial point clouds into fast binary training tensors.
+"""Preprocess the original PSNet5 areas into derived training tensors.
 
-Produces real train (Area_1, Area_2, Area_4) and val (Area_3) splits with normalized
-coordinates and ground-truth 5-class annotations (ibeam, pipe, pump, rectangularbeam, tank).
+The raw PSNet5 distribution is expected under ``data/PSNet/PSNet5`` and must
+remain outside version control. This utility reads the full annotation files
+by default; use ``--points-per-class`` only for a deliberate smoke run.
 """
 
 from __future__ import annotations
 
 import argparse
-import glob
 import os
 from pathlib import Path
-import sys
-import time
 
 import numpy as np
 
 CLASS_NAMES = ["ibeam", "pipe", "pump", "rectangularbeam", "tank"]
 NAME_TO_LABEL = {name: i for i, name in enumerate(CLASS_NAMES)}
+BINARY_CLASS_NAMES = ["background", "pipe"]
 
 
-def sample_points_from_file(filepath: str, max_points: int = 50000) -> np.ndarray:
-    """Read a uniform sample of points from an annotation txt file."""
+def to_binary_labels(labels: np.ndarray, class_names: list[str]) -> np.ndarray:
+    """Map original PSNet5 labels to pipe/background without silent fallback."""
+    names = [str(name).lower() for name in class_names]
+    if names != CLASS_NAMES:
+        raise ValueError(
+            f"unexpected PSNet5 class order: {names}; expected {CLASS_NAMES}"
+        )
+    values = np.asarray(labels)
+    if np.any((values < 0) | (values >= len(names))):
+        raise ValueError("labels contain values outside the PSNet5 class range")
+    return (values == NAME_TO_LABEL["pipe"]).astype(np.int64)
+
+
+def sample_points_from_file(filepath: str, max_points: int | None = None) -> np.ndarray:
+    """Read all points, or a deterministic uniform cap for a smoke run."""
     file_size = os.path.getsize(filepath)
     # Estimate line count (~30-35 bytes per line)
     est_lines = max(1, file_size // 32)
-    stride = max(1, est_lines // max_points)
+    stride = 1 if max_points is None or max_points <= 0 else max(1, est_lines // max_points)
 
     points = []
     with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
@@ -36,7 +48,7 @@ def sample_points_from_file(filepath: str, max_points: int = 50000) -> np.ndarra
                         points.append([float(parts[0]), float(parts[1]), float(parts[2])])
                     except ValueError:
                         continue
-                if len(points) >= max_points:
+                if max_points is not None and max_points > 0 and len(points) >= max_points:
                     break
     return np.array(points, dtype=np.float32)
 
@@ -46,7 +58,7 @@ def process_area(area_path: Path, max_per_class: int = 50000):
     all_labels = []
     anno_files = list(area_path.glob("Room_*/Annotations/*.txt"))
     for f in anno_files:
-        cls_name = f.name.split("_")[0]
+        cls_name = f.name.split("_")[0].lower()
         if cls_name not in NAME_TO_LABEL:
             continue
         label = NAME_TO_LABEL[cls_name]
@@ -73,9 +85,9 @@ def build_real_splits(dataset_root: Path, output_dir: Path, points_per_class: in
     output_dir.mkdir(parents=True, exist_ok=True)
     psnet_dir = dataset_root
 
-    # Training areas: Area_1, Area_2, Area_4
-    train_areas = ["Area_1", "Area_2", "Area_4"]
-    val_areas = ["Area_3"]
+    # Keep Area_3 untouched until final held-out evaluation.
+    train_areas = ["Area_1", "Area_2"]
+    val_areas = ["Area_4"]
 
     print("=" * 60)
     print(f"Building Real Dataset Splits from {psnet_dir}")
@@ -92,10 +104,19 @@ def build_real_splits(dataset_root: Path, output_dir: Path, points_per_class: in
         train_pts.append(pts)
         train_lbls.append(lbls)
 
+    if not train_pts:
+        raise RuntimeError("No training areas were found in the original PSNet5 dataset")
     train_points = np.vstack(train_pts)
     train_labels = np.concatenate(train_lbls)
     train_file = output_dir / "real_train.npz"
-    np.savez_compressed(train_file, points=train_points, labels=train_labels, class_names=CLASS_NAMES)
+    np.savez_compressed(
+        train_file,
+        points=train_points,
+        labels=train_labels,
+        class_names=CLASS_NAMES,
+        binary_labels=to_binary_labels(train_labels, CLASS_NAMES),
+        binary_class_names=BINARY_CLASS_NAMES,
+    )
     print(f">> Saved {train_file}: {len(train_points):,d} points across {len(CLASS_NAMES)} classes")
 
     val_pts, val_lbls = [], []
@@ -109,10 +130,19 @@ def build_real_splits(dataset_root: Path, output_dir: Path, points_per_class: in
         val_pts.append(pts)
         val_lbls.append(lbls)
 
+    if not val_pts:
+        raise RuntimeError("No validation area was found in the original PSNet5 dataset")
     val_points = np.vstack(val_pts)
     val_labels = np.concatenate(val_lbls)
     val_file = output_dir / "real_val.npz"
-    np.savez_compressed(val_file, points=val_points, labels=val_labels, class_names=CLASS_NAMES)
+    np.savez_compressed(
+        val_file,
+        points=val_points,
+        labels=val_labels,
+        class_names=CLASS_NAMES,
+        binary_labels=to_binary_labels(val_labels, CLASS_NAMES),
+        binary_class_names=BINARY_CLASS_NAMES,
+    )
     print(f">> Saved {val_file}: {len(val_points):,d} points across {len(CLASS_NAMES)} classes")
     print("=" * 60)
     print("Real dataset preparation complete!")
@@ -123,7 +153,12 @@ def main():
     parser = argparse.ArgumentParser(description="Prepare real PSNet5 dataset for training")
     parser.add_argument("--data-root", default="data/PSNet/PSNet5")
     parser.add_argument("--output-dir", default="data/PSNet")
-    parser.add_argument("--points-per-class", type=int, default=40000)
+    parser.add_argument(
+        "--points-per-class",
+        type=int,
+        default=0,
+        help="Maximum points per class; 0 uses the complete original annotation files",
+    )
     args = parser.parse_args()
 
     build_real_splits(Path(args.data_root), Path(args.output_dir), args.points_per_class)

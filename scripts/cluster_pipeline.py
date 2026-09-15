@@ -98,6 +98,7 @@ def cmd_start(args):
 
     early_stop_flag = "--early-stop-on-targets" if args.early_stop_on_targets else ""
     model_flag = f"--model {args.model}"
+    label_mode_flag = f"--label-mode {args.label_mode}"
     remap_flag = "--remap-3class" if args.remap_3class else ""
     cmd = (
         f"cd {args.project} && "
@@ -110,6 +111,7 @@ def cmd_start(args):
         f"--target-accuracy {args.target_accuracy} "
         f"--target-loss {args.target_loss} "
         f"{model_flag} "
+        f"{label_mode_flag} "
         f"{remap_flag} "
         f"{early_stop_flag} "
         f"> train.log 2>&1 & echo $!"
@@ -246,8 +248,8 @@ def cmd_fetch(args):
     local_dir.mkdir(parents=True, exist_ok=True)
 
     remote_files = [
-        ("checkpoints/point_mlp_k80/best.pt", local_dir / "best.pt"),
-        ("checkpoints/point_mlp_k80/eval_history.json", local_dir / "eval_history.json"),
+        ("checkpoints/respointnet2_psnet5/best.pt", local_dir / "best.pt"),
+        ("checkpoints/respointnet2_psnet5/eval_history.json", local_dir / "eval_history.json"),
         ("pipeline_status.json", local_dir / "pipeline_status.json"),
         ("train.log", local_dir / "train.log"),
     ]
@@ -291,6 +293,7 @@ def main(argv=None):
     p_start.add_argument("--target-accuracy", type=float, default=0.75)
     p_start.add_argument("--target-loss", type=float, default=1.50)
     p_start.add_argument("--model", choices=["point_mlp", "pointnet2_ssg"], default="pointnet2_ssg")
+    p_start.add_argument("--label-mode", choices=["binary", "three-class", "original"], default="binary")
     p_start.add_argument("--remap-3class", action="store_true", default=True, help="Remap to 3-class contract")
     p_start.add_argument("--early-stop-on-targets", action="store_true")
     p_start.add_argument("--force", action="store_true", help="Stop existing jobs before starting")
@@ -304,7 +307,7 @@ def main(argv=None):
 
     # fetch
     p_fetch = subparsers.add_parser("fetch", help="Download checkpoints and logs to local artifacts")
-    p_fetch.add_argument("--dest-dir", default="artifacts/point_mlp_k80")
+    p_fetch.add_argument("--dest-dir", default="artifacts/respointnet2_psnet5")
 
     args = parser.parse_args(argv)
 

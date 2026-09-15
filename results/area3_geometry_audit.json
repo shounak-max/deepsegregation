@@ -1,0 +1,2567 @@
+{
+  "cache": "data/PSNet/real_area3_reversible.npz",
+  "predictions": "area3_pred_labels.npy",
+  "pipe_points": 6930685,
+  "sampled_points": 300000,
+  "clusters": 2544,
+  "accepted_fits": [
+    {
+      "cluster_id": 0,
+      "points": 8609,
+      "inliers": 6625,
+      "inlier_ratio": 0.7695435009873388,
+      "radius": 0.1796079140722173,
+      "rmse": 0.004929876446907869
+    },
+    {
+      "cluster_id": 1,
+      "points": 6099,
+      "inliers": 2237,
+      "inlier_ratio": 0.36678143958025905,
+      "radius": 0.3897023596240821,
+      "rmse": 0.0055575131470783495
+    },
+    {
+      "cluster_id": 3,
+      "points": 22016,
+      "inliers": 7692,
+      "inlier_ratio": 0.34938226744186046,
+      "radius": 0.12751811402721305,
+      "rmse": 0.0052156203633423525
+    },
+    {
+      "cluster_id": 6,
+      "points": 3894,
+      "inliers": 3883,
+      "inlier_ratio": 0.9971751412429378,
+      "radius": 0.30420886434127636,
+      "rmse": 0.0028847814433046242
+    },
+    {
+      "cluster_id": 7,
+      "points": 682,
+      "inliers": 448,
+      "inlier_ratio": 0.656891495601173,
+      "radius": 0.6232526858461053,
+      "rmse": 0.005067962449582909
+    },
+    {
+      "cluster_id": 9,
+      "points": 106,
+      "inliers": 66,
+      "inlier_ratio": 0.6226415094339622,
+      "radius": 0.10127029748348336,
+      "rmse": 0.005627014718827427
+    },
+    {
+      "cluster_id": 10,
+      "points": 2978,
+      "inliers": 1502,
+      "inlier_ratio": 0.5043653458697113,
+      "radius": 0.11888343002449878,
+      "rmse": 0.005608123593133853
+    },
+    {
+      "cluster_id": 11,
+      "points": 2583,
+      "inliers": 1669,
+      "inlier_ratio": 0.646147890050329,
+      "radius": 0.11666260200069947,
+      "rmse": 0.004989784874097809
+    },
+    {
+      "cluster_id": 12,
+      "points": 1527,
+      "inliers": 1296,
+      "inlier_ratio": 0.8487229862475442,
+      "radius": 0.1146845385354046,
+      "rmse": 0.004954672514462838
+    },
+    {
+      "cluster_id": 13,
+      "points": 3439,
+      "inliers": 2604,
+      "inlier_ratio": 0.7571968595521954,
+      "radius": 0.08732376755811284,
+      "rmse": 0.0049099023471152825
+    },
+    {
+      "cluster_id": 15,
+      "points": 1857,
+      "inliers": 1578,
+      "inlier_ratio": 0.8497576736672051,
+      "radius": 0.13617149791690167,
+      "rmse": 0.004699638370912873
+    },
+    {
+      "cluster_id": 17,
+      "points": 6820,
+      "inliers": 5996,
+      "inlier_ratio": 0.8791788856304985,
+      "radius": 0.07522866548802536,
+      "rmse": 0.005118244419038266
+    },
+    {
+      "cluster_id": 18,
+      "points": 369,
+      "inliers": 335,
+      "inlier_ratio": 0.907859078590786,
+      "radius": 0.2936012372370176,
+      "rmse": 0.003963856116265739
+    },
+    {
+      "cluster_id": 19,
+      "points": 171,
+      "inliers": 113,
+      "inlier_ratio": 0.6608187134502924,
+      "radius": 0.025198066231731497,
+      "rmse": 0.005852157471527035
+    },
+    {
+      "cluster_id": 20,
+      "points": 814,
+      "inliers": 696,
+      "inlier_ratio": 0.855036855036855,
+      "radius": 0.6911006457941532,
+      "rmse": 0.0041072580995557394
+    },
+    {
+      "cluster_id": 21,
+      "points": 946,
+      "inliers": 510,
+      "inlier_ratio": 0.5391120507399577,
+      "radius": 0.16994310159344111,
+      "rmse": 0.005585152722455011
+    },
+    {
+      "cluster_id": 22,
+      "points": 305,
+      "inliers": 217,
+      "inlier_ratio": 0.7114754098360656,
+      "radius": 0.19596097517464023,
+      "rmse": 0.004734551895442744
+    },
+    {
+      "cluster_id": 23,
+      "points": 1239,
+      "inliers": 1120,
+      "inlier_ratio": 0.903954802259887,
+      "radius": 0.09272351356498174,
+      "rmse": 0.004589645048136143
+    },
+    {
+      "cluster_id": 24,
+      "points": 4589,
+      "inliers": 1575,
+      "inlier_ratio": 0.3432120287644367,
+      "radius": 0.06182360302804809,
+      "rmse": 0.005566551575778769
+    },
+    {
+      "cluster_id": 25,
+      "points": 3397,
+      "inliers": 1435,
+      "inlier_ratio": 0.4224315572564027,
+      "radius": 0.18742584679060323,
+      "rmse": 0.005254244068015867
+    },
+    {
+      "cluster_id": 27,
+      "points": 408,
+      "inliers": 326,
+      "inlier_ratio": 0.7990196078431373,
+      "radius": 0.1130921721355311,
+      "rmse": 0.004231862120637081
+    },
+    {
+      "cluster_id": 29,
+      "points": 331,
+      "inliers": 318,
+      "inlier_ratio": 0.9607250755287009,
+      "radius": 0.58101680157349,
+      "rmse": 0.005380802083926215
+    },
+    {
+      "cluster_id": 30,
+      "points": 4401,
+      "inliers": 2703,
+      "inlier_ratio": 0.6141785957736878,
+      "radius": 0.09285749269854111,
+      "rmse": 0.0051232465933993025
+    },
+    {
+      "cluster_id": 31,
+      "points": 8403,
+      "inliers": 4101,
+      "inlier_ratio": 0.48803998571938595,
+      "radius": 0.15942451993083565,
+      "rmse": 0.005052210010447144
+    },
+    {
+      "cluster_id": 34,
+      "points": 511,
+      "inliers": 310,
+      "inlier_ratio": 0.6066536203522505,
+      "radius": 0.09578462405141566,
+      "rmse": 0.00506199200021019
+    },
+    {
+      "cluster_id": 35,
+      "points": 261,
+      "inliers": 224,
+      "inlier_ratio": 0.8582375478927203,
+      "radius": 0.14475711259788668,
+      "rmse": 0.005054260719977432
+    },
+    {
+      "cluster_id": 36,
+      "points": 609,
+      "inliers": 456,
+      "inlier_ratio": 0.7487684729064039,
+      "radius": 0.048553493037542673,
+      "rmse": 0.005097275317560012
+    },
+    {
+      "cluster_id": 37,
+      "points": 557,
+      "inliers": 265,
+      "inlier_ratio": 0.4757630161579892,
+      "radius": 0.0621643733665489,
+      "rmse": 0.004708421669190248
+    },
+    {
+      "cluster_id": 38,
+      "points": 362,
+      "inliers": 261,
+      "inlier_ratio": 0.7209944751381215,
+      "radius": 0.04059225813487503,
+      "rmse": 0.005233063249228756
+    },
+    {
+      "cluster_id": 39,
+      "points": 410,
+      "inliers": 241,
+      "inlier_ratio": 0.5878048780487805,
+      "radius": 0.12157059966726268,
+      "rmse": 0.005197576578404127
+    },
+    {
+      "cluster_id": 40,
+      "points": 3666,
+      "inliers": 1646,
+      "inlier_ratio": 0.44899072558647024,
+      "radius": 0.08327667553611602,
+      "rmse": 0.0051215650087912375
+    },
+    {
+      "cluster_id": 41,
+      "points": 2924,
+      "inliers": 1447,
+      "inlier_ratio": 0.4948700410396717,
+      "radius": 0.05849536273187754,
+      "rmse": 0.005413346887344829
+    },
+    {
+      "cluster_id": 42,
+      "points": 719,
+      "inliers": 678,
+      "inlier_ratio": 0.9429763560500696,
+      "radius": 0.0819682212447468,
+      "rmse": 0.0045925590553095
+    },
+    {
+      "cluster_id": 44,
+      "points": 537,
+      "inliers": 525,
+      "inlier_ratio": 0.9776536312849162,
+      "radius": 0.05423648703668948,
+      "rmse": 0.0045716552692266505
+    },
+    {
+      "cluster_id": 45,
+      "points": 754,
+      "inliers": 583,
+      "inlier_ratio": 0.773209549071618,
+      "radius": 0.0982532541556606,
+      "rmse": 0.005279050313915044
+    },
+    {
+      "cluster_id": 48,
+      "points": 177,
+      "inliers": 127,
+      "inlier_ratio": 0.7175141242937854,
+      "radius": 0.05774719609088852,
+      "rmse": 0.004933320691029604
+    },
+    {
+      "cluster_id": 50,
+      "points": 1797,
+      "inliers": 610,
+      "inlier_ratio": 0.3394546466332777,
+      "radius": 0.6511914541479226,
+      "rmse": 0.005310038600066914
+    },
+    {
+      "cluster_id": 52,
+      "points": 160,
+      "inliers": 157,
+      "inlier_ratio": 0.98125,
+      "radius": 0.2274695779103438,
+      "rmse": 0.0037079464640058873
+    },
+    {
+      "cluster_id": 53,
+      "points": 692,
+      "inliers": 634,
+      "inlier_ratio": 0.9161849710982659,
+      "radius": 0.1991948840609855,
+      "rmse": 0.004969075887719679
+    },
+    {
+      "cluster_id": 54,
+      "points": 333,
+      "inliers": 314,
+      "inlier_ratio": 0.9429429429429429,
+      "radius": 0.08806669063076689,
+      "rmse": 0.004201075670257505
+    },
+    {
+      "cluster_id": 56,
+      "points": 501,
+      "inliers": 302,
+      "inlier_ratio": 0.6027944111776448,
+      "radius": 0.3523178018947215,
+      "rmse": 0.005580789730211953
+    },
+    {
+      "cluster_id": 57,
+      "points": 481,
+      "inliers": 349,
+      "inlier_ratio": 0.7255717255717256,
+      "radius": 0.16155575837626676,
+      "rmse": 0.005454422581235502
+    },
+    {
+      "cluster_id": 58,
+      "points": 5301,
+      "inliers": 5292,
+      "inlier_ratio": 0.99830220713073,
+      "radius": 0.3371076880382247,
+      "rmse": 0.002763664115196404
+    },
+    {
+      "cluster_id": 59,
+      "points": 3954,
+      "inliers": 3760,
+      "inlier_ratio": 0.9509357612544259,
+      "radius": 0.1035388662896764,
+      "rmse": 0.004346176860723751
+    },
+    {
+      "cluster_id": 60,
+      "points": 181,
+      "inliers": 175,
+      "inlier_ratio": 0.9668508287292817,
+      "radius": 0.34155023946136825,
+      "rmse": 0.004346254775536295
+    },
+    {
+      "cluster_id": 61,
+      "points": 240,
+      "inliers": 224,
+      "inlier_ratio": 0.9333333333333333,
+      "radius": 0.41474155643741595,
+      "rmse": 0.004578209738175059
+    },
+    {
+      "cluster_id": 62,
+      "points": 448,
+      "inliers": 421,
+      "inlier_ratio": 0.9397321428571429,
+      "radius": 0.2373181886354793,
+      "rmse": 0.004616312670644123
+    },
+    {
+      "cluster_id": 63,
+      "points": 1143,
+      "inliers": 861,
+      "inlier_ratio": 0.7532808398950132,
+      "radius": 0.18492739266500466,
+      "rmse": 0.00473378285008348
+    },
+    {
+      "cluster_id": 64,
+      "points": 561,
+      "inliers": 463,
+      "inlier_ratio": 0.8253119429590018,
+      "radius": 0.20828914820936012,
+      "rmse": 0.004908590212083286
+    },
+    {
+      "cluster_id": 65,
+      "points": 1310,
+      "inliers": 1214,
+      "inlier_ratio": 0.9267175572519084,
+      "radius": 0.05410949630316293,
+      "rmse": 0.0037515406184148174
+    },
+    {
+      "cluster_id": 66,
+      "points": 375,
+      "inliers": 326,
+      "inlier_ratio": 0.8693333333333333,
+      "radius": 0.44159087518948725,
+      "rmse": 0.00397060481222915
+    },
+    {
+      "cluster_id": 68,
+      "points": 678,
+      "inliers": 245,
+      "inlier_ratio": 0.3613569321533923,
+      "radius": 0.5200871849960369,
+      "rmse": 0.00537445909528343
+    },
+    {
+      "cluster_id": 73,
+      "points": 416,
+      "inliers": 306,
+      "inlier_ratio": 0.7355769230769231,
+      "radius": 0.06638175140000056,
+      "rmse": 0.0051308694653414465
+    },
+    {
+      "cluster_id": 74,
+      "points": 420,
+      "inliers": 233,
+      "inlier_ratio": 0.5547619047619048,
+      "radius": 0.09131564133220398,
+      "rmse": 0.0056794015637118885
+    },
+    {
+      "cluster_id": 77,
+      "points": 1279,
+      "inliers": 508,
+      "inlier_ratio": 0.3971853010164191,
+      "radius": 0.21385491627199554,
+      "rmse": 0.0057180357508961445
+    },
+    {
+      "cluster_id": 79,
+      "points": 2729,
+      "inliers": 2001,
+      "inlier_ratio": 0.7332356174422866,
+      "radius": 0.07971531503939897,
+      "rmse": 0.005060228231367624
+    },
+    {
+      "cluster_id": 80,
+      "points": 278,
+      "inliers": 259,
+      "inlier_ratio": 0.9316546762589928,
+      "radius": 0.09782043548599301,
+      "rmse": 0.005315802665930222
+    },
+    {
+      "cluster_id": 81,
+      "points": 181,
+      "inliers": 175,
+      "inlier_ratio": 0.9668508287292817,
+      "radius": 0.34229564050087125,
+      "rmse": 0.0036368212118314076
+    },
+    {
+      "cluster_id": 82,
+      "points": 369,
+      "inliers": 177,
+      "inlier_ratio": 0.4796747967479675,
+      "radius": 0.10258551387500091,
+      "rmse": 0.005710668176146755
+    },
+    {
+      "cluster_id": 83,
+      "points": 104,
+      "inliers": 91,
+      "inlier_ratio": 0.875,
+      "radius": 0.22225974949811636,
+      "rmse": 0.004743345462473902
+    },
+    {
+      "cluster_id": 85,
+      "points": 134,
+      "inliers": 119,
+      "inlier_ratio": 0.8880597014925373,
+      "radius": 0.06019860133405891,
+      "rmse": 0.005268580053136134
+    },
+    {
+      "cluster_id": 89,
+      "points": 1108,
+      "inliers": 539,
+      "inlier_ratio": 0.48646209386281586,
+      "radius": 0.12184654781117095,
+      "rmse": 0.0052157766070666505
+    },
+    {
+      "cluster_id": 90,
+      "points": 1164,
+      "inliers": 1118,
+      "inlier_ratio": 0.9604810996563574,
+      "radius": 0.10961455033302787,
+      "rmse": 0.00403108952652837
+    },
+    {
+      "cluster_id": 92,
+      "points": 116,
+      "inliers": 105,
+      "inlier_ratio": 0.9051724137931034,
+      "radius": 0.09528942176452264,
+      "rmse": 0.004660838006318849
+    },
+    {
+      "cluster_id": 94,
+      "points": 395,
+      "inliers": 379,
+      "inlier_ratio": 0.959493670886076,
+      "radius": 0.104408071309409,
+      "rmse": 0.004534591180846558
+    },
+    {
+      "cluster_id": 95,
+      "points": 286,
+      "inliers": 278,
+      "inlier_ratio": 0.972027972027972,
+      "radius": 0.133917537790413,
+      "rmse": 0.0038159127607932416
+    },
+    {
+      "cluster_id": 96,
+      "points": 219,
+      "inliers": 137,
+      "inlier_ratio": 0.6255707762557078,
+      "radius": 0.19368124819457644,
+      "rmse": 0.005262680557921999
+    },
+    {
+      "cluster_id": 100,
+      "points": 1991,
+      "inliers": 1314,
+      "inlier_ratio": 0.6599698643897539,
+      "radius": 0.09790610011060226,
+      "rmse": 0.0053474004922589614
+    },
+    {
+      "cluster_id": 102,
+      "points": 689,
+      "inliers": 576,
+      "inlier_ratio": 0.8359941944847605,
+      "radius": 0.014984732405344812,
+      "rmse": 0.005027861458391196
+    },
+    {
+      "cluster_id": 104,
+      "points": 275,
+      "inliers": 158,
+      "inlier_ratio": 0.5745454545454546,
+      "radius": 0.09557215952348286,
+      "rmse": 0.004496216275733447
+    },
+    {
+      "cluster_id": 105,
+      "points": 363,
+      "inliers": 220,
+      "inlier_ratio": 0.6060606060606061,
+      "radius": 0.051133884409590796,
+      "rmse": 0.005584485269076157
+    },
+    {
+      "cluster_id": 107,
+      "points": 166,
+      "inliers": 150,
+      "inlier_ratio": 0.9036144578313253,
+      "radius": 0.01453831418083465,
+      "rmse": 0.004694498814555968
+    },
+    {
+      "cluster_id": 108,
+      "points": 285,
+      "inliers": 231,
+      "inlier_ratio": 0.8105263157894737,
+      "radius": 0.47278090332254097,
+      "rmse": 0.003987262087119682
+    },
+    {
+      "cluster_id": 112,
+      "points": 527,
+      "inliers": 503,
+      "inlier_ratio": 0.9544592030360531,
+      "radius": 0.10332842251237725,
+      "rmse": 0.004260699674914883
+    },
+    {
+      "cluster_id": 113,
+      "points": 370,
+      "inliers": 153,
+      "inlier_ratio": 0.4135135135135135,
+      "radius": 0.039675794594859065,
+      "rmse": 0.0054405616392127695
+    },
+    {
+      "cluster_id": 114,
+      "points": 826,
+      "inliers": 643,
+      "inlier_ratio": 0.7784503631961259,
+      "radius": 0.807583101292666,
+      "rmse": 0.005400758697249459
+    },
+    {
+      "cluster_id": 115,
+      "points": 1704,
+      "inliers": 700,
+      "inlier_ratio": 0.4107981220657277,
+      "radius": 0.2007871546086638,
+      "rmse": 0.005379929365642182
+    },
+    {
+      "cluster_id": 117,
+      "points": 413,
+      "inliers": 259,
+      "inlier_ratio": 0.6271186440677966,
+      "radius": 0.05491147924752547,
+      "rmse": 0.00577870428031759
+    },
+    {
+      "cluster_id": 119,
+      "points": 2188,
+      "inliers": 750,
+      "inlier_ratio": 0.34277879341864714,
+      "radius": 0.2269165089825415,
+      "rmse": 0.005561981297714861
+    },
+    {
+      "cluster_id": 121,
+      "points": 179,
+      "inliers": 116,
+      "inlier_ratio": 0.6480446927374302,
+      "radius": 0.21191212632282672,
+      "rmse": 0.005000221583273023
+    },
+    {
+      "cluster_id": 122,
+      "points": 1768,
+      "inliers": 560,
+      "inlier_ratio": 0.3167420814479638,
+      "radius": 1.6236653922618236,
+      "rmse": 0.005351064349523562
+    },
+    {
+      "cluster_id": 124,
+      "points": 175,
+      "inliers": 110,
+      "inlier_ratio": 0.6285714285714286,
+      "radius": 0.18665610817076614,
+      "rmse": 0.004845636933085325
+    },
+    {
+      "cluster_id": 126,
+      "points": 752,
+      "inliers": 693,
+      "inlier_ratio": 0.9215425531914894,
+      "radius": 0.09473131453991882,
+      "rmse": 0.003639558477594126
+    },
+    {
+      "cluster_id": 127,
+      "points": 282,
+      "inliers": 232,
+      "inlier_ratio": 0.8226950354609929,
+      "radius": 0.4684477088525544,
+      "rmse": 0.004608436939128321
+    },
+    {
+      "cluster_id": 130,
+      "points": 237,
+      "inliers": 215,
+      "inlier_ratio": 0.9071729957805907,
+      "radius": 0.12124949966595895,
+      "rmse": 0.004841215889877584
+    },
+    {
+      "cluster_id": 131,
+      "points": 177,
+      "inliers": 175,
+      "inlier_ratio": 0.9887005649717514,
+      "radius": 0.15244908108285973,
+      "rmse": 0.004435820695988724
+    },
+    {
+      "cluster_id": 133,
+      "points": 146,
+      "inliers": 142,
+      "inlier_ratio": 0.9726027397260274,
+      "radius": 0.11120886944623887,
+      "rmse": 0.0038670801406676687
+    },
+    {
+      "cluster_id": 135,
+      "points": 164,
+      "inliers": 139,
+      "inlier_ratio": 0.8475609756097561,
+      "radius": 0.09303581293955442,
+      "rmse": 0.00503325081845114
+    },
+    {
+      "cluster_id": 137,
+      "points": 647,
+      "inliers": 627,
+      "inlier_ratio": 0.9690880989180835,
+      "radius": 0.02933321241418987,
+      "rmse": 0.004020380342256763
+    },
+    {
+      "cluster_id": 138,
+      "points": 348,
+      "inliers": 343,
+      "inlier_ratio": 0.985632183908046,
+      "radius": 0.23397717784811353,
+      "rmse": 0.004500996934966526
+    },
+    {
+      "cluster_id": 139,
+      "points": 496,
+      "inliers": 269,
+      "inlier_ratio": 0.5423387096774194,
+      "radius": 0.12439793524985993,
+      "rmse": 0.005563110886469332
+    },
+    {
+      "cluster_id": 140,
+      "points": 1073,
+      "inliers": 1006,
+      "inlier_ratio": 0.9375582479030755,
+      "radius": 0.09979059188616493,
+      "rmse": 0.004391496544047029
+    },
+    {
+      "cluster_id": 143,
+      "points": 130,
+      "inliers": 73,
+      "inlier_ratio": 0.5615384615384615,
+      "radius": 0.041462640221672384,
+      "rmse": 0.004935918666005833
+    },
+    {
+      "cluster_id": 144,
+      "points": 514,
+      "inliers": 306,
+      "inlier_ratio": 0.5953307392996109,
+      "radius": 0.04089248760633559,
+      "rmse": 0.005476748831651212
+    },
+    {
+      "cluster_id": 145,
+      "points": 460,
+      "inliers": 302,
+      "inlier_ratio": 0.6565217391304348,
+      "radius": 0.033153254740373526,
+      "rmse": 0.0056480142310337345
+    },
+    {
+      "cluster_id": 146,
+      "points": 342,
+      "inliers": 159,
+      "inlier_ratio": 0.4649122807017544,
+      "radius": 0.13343398322506503,
+      "rmse": 0.005249860777512943
+    },
+    {
+      "cluster_id": 147,
+      "points": 1182,
+      "inliers": 1082,
+      "inlier_ratio": 0.9153976311336718,
+      "radius": 0.07801535709005604,
+      "rmse": 0.0048066672578401075
+    },
+    {
+      "cluster_id": 153,
+      "points": 393,
+      "inliers": 131,
+      "inlier_ratio": 0.3333333333333333,
+      "radius": 0.45956568343093096,
+      "rmse": 0.005356626412524757
+    },
+    {
+      "cluster_id": 154,
+      "points": 154,
+      "inliers": 108,
+      "inlier_ratio": 0.7012987012987013,
+      "radius": 0.039711161008804695,
+      "rmse": 0.005714880354615275
+    },
+    {
+      "cluster_id": 155,
+      "points": 297,
+      "inliers": 162,
+      "inlier_ratio": 0.5454545454545454,
+      "radius": 0.03582574404392905,
+      "rmse": 0.005791343590220079
+    },
+    {
+      "cluster_id": 157,
+      "points": 1789,
+      "inliers": 1789,
+      "inlier_ratio": 1.0,
+      "radius": 0.07637767668125091,
+      "rmse": 0.0016187362167698332
+    },
+    {
+      "cluster_id": 158,
+      "points": 515,
+      "inliers": 437,
+      "inlier_ratio": 0.8485436893203884,
+      "radius": 0.0472732131260595,
+      "rmse": 0.00510874490871326
+    },
+    {
+      "cluster_id": 162,
+      "points": 131,
+      "inliers": 127,
+      "inlier_ratio": 0.9694656488549618,
+      "radius": 0.23393830139053845,
+      "rmse": 0.0033775883563883953
+    },
+    {
+      "cluster_id": 167,
+      "points": 359,
+      "inliers": 190,
+      "inlier_ratio": 0.5292479108635098,
+      "radius": 0.03302792816756511,
+      "rmse": 0.006148578090997135
+    },
+    {
+      "cluster_id": 169,
+      "points": 104,
+      "inliers": 104,
+      "inlier_ratio": 1.0,
+      "radius": 0.1277544929901144,
+      "rmse": 0.0032040365866498085
+    },
+    {
+      "cluster_id": 170,
+      "points": 484,
+      "inliers": 208,
+      "inlier_ratio": 0.4297520661157025,
+      "radius": 0.38616430964532605,
+      "rmse": 0.005247851185913374
+    },
+    {
+      "cluster_id": 171,
+      "points": 506,
+      "inliers": 180,
+      "inlier_ratio": 0.3557312252964427,
+      "radius": 0.15443926041758937,
+      "rmse": 0.005119055182937286
+    },
+    {
+      "cluster_id": 172,
+      "points": 817,
+      "inliers": 304,
+      "inlier_ratio": 0.37209302325581395,
+      "radius": 0.5679741751776755,
+      "rmse": 0.005301404429194983
+    },
+    {
+      "cluster_id": 173,
+      "points": 152,
+      "inliers": 107,
+      "inlier_ratio": 0.7039473684210527,
+      "radius": 0.05818329493314122,
+      "rmse": 0.0051561720575538416
+    },
+    {
+      "cluster_id": 174,
+      "points": 614,
+      "inliers": 511,
+      "inlier_ratio": 0.8322475570032574,
+      "radius": 0.10326931745020741,
+      "rmse": 0.004277867691897503
+    },
+    {
+      "cluster_id": 178,
+      "points": 165,
+      "inliers": 121,
+      "inlier_ratio": 0.7333333333333333,
+      "radius": 0.029641621857988326,
+      "rmse": 0.005876399789782706
+    },
+    {
+      "cluster_id": 179,
+      "points": 191,
+      "inliers": 84,
+      "inlier_ratio": 0.4397905759162304,
+      "radius": 0.036766819562385436,
+      "rmse": 0.005245817365515187
+    },
+    {
+      "cluster_id": 181,
+      "points": 702,
+      "inliers": 469,
+      "inlier_ratio": 0.6680911680911681,
+      "radius": 0.04127682227357592,
+      "rmse": 0.005419107775829869
+    },
+    {
+      "cluster_id": 182,
+      "points": 317,
+      "inliers": 286,
+      "inlier_ratio": 0.9022082018927445,
+      "radius": 0.07918621880705777,
+      "rmse": 0.005191039108228918
+    },
+    {
+      "cluster_id": 184,
+      "points": 316,
+      "inliers": 295,
+      "inlier_ratio": 0.9335443037974683,
+      "radius": 0.6486940228215862,
+      "rmse": 0.004336774558802465
+    },
+    {
+      "cluster_id": 185,
+      "points": 321,
+      "inliers": 250,
+      "inlier_ratio": 0.778816199376947,
+      "radius": 0.11472288637937032,
+      "rmse": 0.005227066752160996
+    },
+    {
+      "cluster_id": 186,
+      "points": 287,
+      "inliers": 148,
+      "inlier_ratio": 0.5156794425087108,
+      "radius": 0.3829111593908214,
+      "rmse": 0.005571227102906016
+    },
+    {
+      "cluster_id": 187,
+      "points": 605,
+      "inliers": 538,
+      "inlier_ratio": 0.8892561983471075,
+      "radius": 0.052082936196654446,
+      "rmse": 0.004906290092602932
+    },
+    {
+      "cluster_id": 190,
+      "points": 119,
+      "inliers": 100,
+      "inlier_ratio": 0.8403361344537815,
+      "radius": 0.0532169366579433,
+      "rmse": 0.004768136878538769
+    },
+    {
+      "cluster_id": 191,
+      "points": 456,
+      "inliers": 446,
+      "inlier_ratio": 0.9780701754385965,
+      "radius": 0.05276359564712195,
+      "rmse": 0.0035503439795872976
+    },
+    {
+      "cluster_id": 192,
+      "points": 295,
+      "inliers": 116,
+      "inlier_ratio": 0.39322033898305087,
+      "radius": 0.04015773907947105,
+      "rmse": 0.005868464574194215
+    },
+    {
+      "cluster_id": 193,
+      "points": 792,
+      "inliers": 696,
+      "inlier_ratio": 0.8787878787878788,
+      "radius": 0.1227421659539219,
+      "rmse": 0.004261055763447507
+    },
+    {
+      "cluster_id": 194,
+      "points": 156,
+      "inliers": 150,
+      "inlier_ratio": 0.9615384615384616,
+      "radius": 0.4096301406924874,
+      "rmse": 0.003922434017457358
+    },
+    {
+      "cluster_id": 195,
+      "points": 189,
+      "inliers": 183,
+      "inlier_ratio": 0.9682539682539683,
+      "radius": 0.3394668481755389,
+      "rmse": 0.0036911625736179665
+    },
+    {
+      "cluster_id": 196,
+      "points": 210,
+      "inliers": 148,
+      "inlier_ratio": 0.7047619047619048,
+      "radius": 0.2851000527903478,
+      "rmse": 0.00485855955068072
+    },
+    {
+      "cluster_id": 200,
+      "points": 103,
+      "inliers": 102,
+      "inlier_ratio": 0.9902912621359223,
+      "radius": 0.20709430786200228,
+      "rmse": 0.003941846029003971
+    },
+    {
+      "cluster_id": 201,
+      "points": 312,
+      "inliers": 311,
+      "inlier_ratio": 0.9967948717948718,
+      "radius": 0.2698945751861225,
+      "rmse": 0.0030462272469340542
+    },
+    {
+      "cluster_id": 202,
+      "points": 196,
+      "inliers": 196,
+      "inlier_ratio": 1.0,
+      "radius": 0.0797814745744029,
+      "rmse": 0.0023769925589662484
+    },
+    {
+      "cluster_id": 203,
+      "points": 418,
+      "inliers": 235,
+      "inlier_ratio": 0.562200956937799,
+      "radius": 0.03275966863753189,
+      "rmse": 0.005703698233852387
+    },
+    {
+      "cluster_id": 207,
+      "points": 250,
+      "inliers": 135,
+      "inlier_ratio": 0.54,
+      "radius": 0.3258856620830512,
+      "rmse": 0.005403216976396574
+    },
+    {
+      "cluster_id": 210,
+      "points": 381,
+      "inliers": 148,
+      "inlier_ratio": 0.3884514435695538,
+      "radius": 0.0828931351735611,
+      "rmse": 0.005812722717865502
+    },
+    {
+      "cluster_id": 211,
+      "points": 260,
+      "inliers": 225,
+      "inlier_ratio": 0.8653846153846154,
+      "radius": 0.10640437786044414,
+      "rmse": 0.005430497126368651
+    },
+    {
+      "cluster_id": 215,
+      "points": 181,
+      "inliers": 107,
+      "inlier_ratio": 0.5911602209944752,
+      "radius": 0.04569540765124255,
+      "rmse": 0.00542179772075612
+    },
+    {
+      "cluster_id": 220,
+      "points": 202,
+      "inliers": 140,
+      "inlier_ratio": 0.693069306930693,
+      "radius": 0.28798781356339015,
+      "rmse": 0.0057907426331853685
+    },
+    {
+      "cluster_id": 221,
+      "points": 554,
+      "inliers": 322,
+      "inlier_ratio": 0.5812274368231047,
+      "radius": 0.14218276738401864,
+      "rmse": 0.004994545822638894
+    },
+    {
+      "cluster_id": 225,
+      "points": 149,
+      "inliers": 139,
+      "inlier_ratio": 0.9328859060402684,
+      "radius": 0.012086861505962228,
+      "rmse": 0.0044978303509398835
+    },
+    {
+      "cluster_id": 226,
+      "points": 193,
+      "inliers": 111,
+      "inlier_ratio": 0.5751295336787565,
+      "radius": 0.303930179409026,
+      "rmse": 0.005570585133446857
+    },
+    {
+      "cluster_id": 227,
+      "points": 760,
+      "inliers": 575,
+      "inlier_ratio": 0.756578947368421,
+      "radius": 0.23275009394543048,
+      "rmse": 0.00495254065602065
+    },
+    {
+      "cluster_id": 229,
+      "points": 199,
+      "inliers": 144,
+      "inlier_ratio": 0.7236180904522613,
+      "radius": 0.17126932997111327,
+      "rmse": 0.005057701196724005
+    },
+    {
+      "cluster_id": 231,
+      "points": 217,
+      "inliers": 217,
+      "inlier_ratio": 1.0,
+      "radius": 0.20262974648847673,
+      "rmse": 0.0025126698148149117
+    },
+    {
+      "cluster_id": 235,
+      "points": 323,
+      "inliers": 319,
+      "inlier_ratio": 0.9876160990712074,
+      "radius": 0.26559058400442026,
+      "rmse": 0.002684099964336592
+    },
+    {
+      "cluster_id": 240,
+      "points": 417,
+      "inliers": 324,
+      "inlier_ratio": 0.7769784172661871,
+      "radius": 0.16223678560857088,
+      "rmse": 0.0054293064828663355
+    },
+    {
+      "cluster_id": 241,
+      "points": 144,
+      "inliers": 92,
+      "inlier_ratio": 0.6388888888888888,
+      "radius": 0.22053977951626466,
+      "rmse": 0.0054965258822371734
+    },
+    {
+      "cluster_id": 242,
+      "points": 287,
+      "inliers": 121,
+      "inlier_ratio": 0.42160278745644597,
+      "radius": 0.03574409821618005,
+      "rmse": 0.005797351458150759
+    },
+    {
+      "cluster_id": 244,
+      "points": 115,
+      "inliers": 106,
+      "inlier_ratio": 0.9217391304347826,
+      "radius": 0.11245421735796894,
+      "rmse": 0.004612465539907814
+    },
+    {
+      "cluster_id": 245,
+      "points": 102,
+      "inliers": 102,
+      "inlier_ratio": 1.0,
+      "radius": 0.10168165016483374,
+      "rmse": 0.0024925834029573563
+    },
+    {
+      "cluster_id": 246,
+      "points": 788,
+      "inliers": 503,
+      "inlier_ratio": 0.6383248730964467,
+      "radius": 0.07325615555991906,
+      "rmse": 0.005260282074154081
+    },
+    {
+      "cluster_id": 249,
+      "points": 468,
+      "inliers": 192,
+      "inlier_ratio": 0.41025641025641024,
+      "radius": 0.2641345491107185,
+      "rmse": 0.005479938255094164
+    },
+    {
+      "cluster_id": 250,
+      "points": 155,
+      "inliers": 103,
+      "inlier_ratio": 0.6645161290322581,
+      "radius": 0.214576850689249,
+      "rmse": 0.005180154004550505
+    },
+    {
+      "cluster_id": 251,
+      "points": 695,
+      "inliers": 530,
+      "inlier_ratio": 0.762589928057554,
+      "radius": 0.43679977582218754,
+      "rmse": 0.004449728511626537
+    },
+    {
+      "cluster_id": 253,
+      "points": 201,
+      "inliers": 144,
+      "inlier_ratio": 0.7164179104477612,
+      "radius": 0.025789528228835377,
+      "rmse": 0.005611775229324692
+    },
+    {
+      "cluster_id": 254,
+      "points": 353,
+      "inliers": 338,
+      "inlier_ratio": 0.9575070821529745,
+      "radius": 0.4997032788524409,
+      "rmse": 0.004130324440846947
+    },
+    {
+      "cluster_id": 255,
+      "points": 372,
+      "inliers": 153,
+      "inlier_ratio": 0.4112903225806452,
+      "radius": 0.3983543851631883,
+      "rmse": 0.0056589809372217265
+    },
+    {
+      "cluster_id": 258,
+      "points": 588,
+      "inliers": 521,
+      "inlier_ratio": 0.8860544217687075,
+      "radius": 0.1185951357430529,
+      "rmse": 0.004681658576356002
+    },
+    {
+      "cluster_id": 260,
+      "points": 260,
+      "inliers": 226,
+      "inlier_ratio": 0.8692307692307693,
+      "radius": 0.3603771355692962,
+      "rmse": 0.005024853270427135
+    },
+    {
+      "cluster_id": 265,
+      "points": 271,
+      "inliers": 182,
+      "inlier_ratio": 0.6715867158671587,
+      "radius": 0.13414477864932436,
+      "rmse": 0.005229087724096261
+    },
+    {
+      "cluster_id": 267,
+      "points": 281,
+      "inliers": 146,
+      "inlier_ratio": 0.5195729537366548,
+      "radius": 0.06305117656000403,
+      "rmse": 0.005473339842556909
+    },
+    {
+      "cluster_id": 270,
+      "points": 268,
+      "inliers": 206,
+      "inlier_ratio": 0.7686567164179104,
+      "radius": 0.1008118291138695,
+      "rmse": 0.00492689001229117
+    },
+    {
+      "cluster_id": 271,
+      "points": 540,
+      "inliers": 503,
+      "inlier_ratio": 0.9314814814814815,
+      "radius": 0.04123289913573488,
+      "rmse": 0.004422570950856079
+    },
+    {
+      "cluster_id": 274,
+      "points": 287,
+      "inliers": 286,
+      "inlier_ratio": 0.9965156794425087,
+      "radius": 0.2611620890070058,
+      "rmse": 0.005277242224879245
+    },
+    {
+      "cluster_id": 277,
+      "points": 152,
+      "inliers": 152,
+      "inlier_ratio": 1.0,
+      "radius": 0.02535175742137796,
+      "rmse": 0.002743713085809306
+    },
+    {
+      "cluster_id": 278,
+      "points": 339,
+      "inliers": 261,
+      "inlier_ratio": 0.7699115044247787,
+      "radius": 0.2035097660706731,
+      "rmse": 0.004626054629987339
+    },
+    {
+      "cluster_id": 279,
+      "points": 138,
+      "inliers": 138,
+      "inlier_ratio": 1.0,
+      "radius": 0.11290487750620425,
+      "rmse": 0.0016759880487191789
+    },
+    {
+      "cluster_id": 280,
+      "points": 436,
+      "inliers": 405,
+      "inlier_ratio": 0.9288990825688074,
+      "radius": 0.08902723622134376,
+      "rmse": 0.004054251126082891
+    },
+    {
+      "cluster_id": 281,
+      "points": 131,
+      "inliers": 131,
+      "inlier_ratio": 1.0,
+      "radius": 0.14319177556776458,
+      "rmse": 0.002429809288617523
+    },
+    {
+      "cluster_id": 283,
+      "points": 108,
+      "inliers": 106,
+      "inlier_ratio": 0.9814814814814815,
+      "radius": 0.16291567152911782,
+      "rmse": 0.00425526136395715
+    },
+    {
+      "cluster_id": 289,
+      "points": 346,
+      "inliers": 213,
+      "inlier_ratio": 0.615606936416185,
+      "radius": 0.021063641836354917,
+      "rmse": 0.006079882283624724
+    },
+    {
+      "cluster_id": 291,
+      "points": 163,
+      "inliers": 150,
+      "inlier_ratio": 0.9202453987730062,
+      "radius": 0.1471317021826043,
+      "rmse": 0.003917074870888267
+    },
+    {
+      "cluster_id": 292,
+      "points": 408,
+      "inliers": 379,
+      "inlier_ratio": 0.928921568627451,
+      "radius": 0.0301385020403947,
+      "rmse": 0.00470436878938262
+    },
+    {
+      "cluster_id": 293,
+      "points": 308,
+      "inliers": 233,
+      "inlier_ratio": 0.7564935064935064,
+      "radius": 0.09266297563401538,
+      "rmse": 0.004996559002777832
+    },
+    {
+      "cluster_id": 297,
+      "points": 176,
+      "inliers": 157,
+      "inlier_ratio": 0.8920454545454546,
+      "radius": 0.07976439022524312,
+      "rmse": 0.004638761459325989
+    },
+    {
+      "cluster_id": 299,
+      "points": 600,
+      "inliers": 441,
+      "inlier_ratio": 0.735,
+      "radius": 0.05002038438348071,
+      "rmse": 0.005315646430708179
+    },
+    {
+      "cluster_id": 300,
+      "points": 104,
+      "inliers": 90,
+      "inlier_ratio": 0.8653846153846154,
+      "radius": 0.23683084906660792,
+      "rmse": 0.004541469935826292
+    },
+    {
+      "cluster_id": 303,
+      "points": 119,
+      "inliers": 81,
+      "inlier_ratio": 0.680672268907563,
+      "radius": 0.027792041940312057,
+      "rmse": 0.00518974886918541
+    },
+    {
+      "cluster_id": 304,
+      "points": 166,
+      "inliers": 129,
+      "inlier_ratio": 0.7771084337349398,
+      "radius": 0.06463751382414064,
+      "rmse": 0.004506736465216045
+    },
+    {
+      "cluster_id": 306,
+      "points": 302,
+      "inliers": 245,
+      "inlier_ratio": 0.8112582781456954,
+      "radius": 0.047708862881168414,
+      "rmse": 0.005301639477370291
+    },
+    {
+      "cluster_id": 307,
+      "points": 216,
+      "inliers": 215,
+      "inlier_ratio": 0.9953703703703703,
+      "radius": 0.2212334497829238,
+      "rmse": 0.003291880103157518
+    },
+    {
+      "cluster_id": 314,
+      "points": 265,
+      "inliers": 262,
+      "inlier_ratio": 0.9886792452830189,
+      "radius": 0.45073262189902835,
+      "rmse": 0.004092797872910493
+    },
+    {
+      "cluster_id": 317,
+      "points": 488,
+      "inliers": 455,
+      "inlier_ratio": 0.9323770491803278,
+      "radius": 0.46373430005563615,
+      "rmse": 0.004642276780358916
+    },
+    {
+      "cluster_id": 318,
+      "points": 651,
+      "inliers": 494,
+      "inlier_ratio": 0.7588325652841782,
+      "radius": 0.15806273658790232,
+      "rmse": 0.005109540067021207
+    },
+    {
+      "cluster_id": 321,
+      "points": 239,
+      "inliers": 222,
+      "inlier_ratio": 0.9288702928870293,
+      "radius": 0.019167430974463787,
+      "rmse": 0.0039902525030463005
+    },
+    {
+      "cluster_id": 322,
+      "points": 180,
+      "inliers": 179,
+      "inlier_ratio": 0.9944444444444445,
+      "radius": 0.22121544268370397,
+      "rmse": 0.004393827193297483
+    },
+    {
+      "cluster_id": 325,
+      "points": 219,
+      "inliers": 219,
+      "inlier_ratio": 1.0,
+      "radius": 0.1635650982252585,
+      "rmse": 0.002755954233796297
+    },
+    {
+      "cluster_id": 328,
+      "points": 218,
+      "inliers": 174,
+      "inlier_ratio": 0.7981651376146789,
+      "radius": 0.3633841802087694,
+      "rmse": 0.003864169093596663
+    },
+    {
+      "cluster_id": 329,
+      "points": 303,
+      "inliers": 289,
+      "inlier_ratio": 0.9537953795379538,
+      "radius": 0.41379709643507073,
+      "rmse": 0.003935143447725239
+    },
+    {
+      "cluster_id": 330,
+      "points": 207,
+      "inliers": 207,
+      "inlier_ratio": 1.0,
+      "radius": 0.0792375464655011,
+      "rmse": 0.002274181963471591
+    },
+    {
+      "cluster_id": 333,
+      "points": 155,
+      "inliers": 152,
+      "inlier_ratio": 0.9806451612903225,
+      "radius": 0.08242415497892037,
+      "rmse": 0.003749731030854532
+    },
+    {
+      "cluster_id": 334,
+      "points": 151,
+      "inliers": 150,
+      "inlier_ratio": 0.9933774834437086,
+      "radius": 0.231547578128749,
+      "rmse": 0.0034253033028675737
+    },
+    {
+      "cluster_id": 340,
+      "points": 102,
+      "inliers": 83,
+      "inlier_ratio": 0.8137254901960784,
+      "radius": 0.2183650943333462,
+      "rmse": 0.005063700786122261
+    },
+    {
+      "cluster_id": 343,
+      "points": 103,
+      "inliers": 95,
+      "inlier_ratio": 0.9223300970873787,
+      "radius": 0.2743480952238226,
+      "rmse": 0.00464792197012957
+    },
+    {
+      "cluster_id": 344,
+      "points": 138,
+      "inliers": 105,
+      "inlier_ratio": 0.7608695652173914,
+      "radius": 0.14075576617483349,
+      "rmse": 0.0059626557501227875
+    },
+    {
+      "cluster_id": 349,
+      "points": 137,
+      "inliers": 132,
+      "inlier_ratio": 0.9635036496350365,
+      "radius": 0.1437975742891333,
+      "rmse": 0.003462976636132265
+    },
+    {
+      "cluster_id": 350,
+      "points": 140,
+      "inliers": 140,
+      "inlier_ratio": 1.0,
+      "radius": 0.2540846625342232,
+      "rmse": 0.0031232164879758007
+    },
+    {
+      "cluster_id": 352,
+      "points": 496,
+      "inliers": 166,
+      "inlier_ratio": 0.3346774193548387,
+      "radius": 0.04802595258223909,
+      "rmse": 0.005428347094641524
+    },
+    {
+      "cluster_id": 354,
+      "points": 204,
+      "inliers": 167,
+      "inlier_ratio": 0.8186274509803921,
+      "radius": 0.032027934698335314,
+      "rmse": 0.0042646561293685535
+    },
+    {
+      "cluster_id": 355,
+      "points": 310,
+      "inliers": 291,
+      "inlier_ratio": 0.9387096774193548,
+      "radius": 0.4194481998652057,
+      "rmse": 0.004540574073941966
+    },
+    {
+      "cluster_id": 357,
+      "points": 165,
+      "inliers": 139,
+      "inlier_ratio": 0.8424242424242424,
+      "radius": 0.2550803760529417,
+      "rmse": 0.005019944997405742
+    },
+    {
+      "cluster_id": 358,
+      "points": 104,
+      "inliers": 104,
+      "inlier_ratio": 1.0,
+      "radius": 0.12120353247990168,
+      "rmse": 0.0027064842725029307
+    },
+    {
+      "cluster_id": 361,
+      "points": 267,
+      "inliers": 264,
+      "inlier_ratio": 0.9887640449438202,
+      "radius": 0.24991561217724306,
+      "rmse": 0.0031126422554542395
+    },
+    {
+      "cluster_id": 362,
+      "points": 775,
+      "inliers": 726,
+      "inlier_ratio": 0.9367741935483871,
+      "radius": 0.09576779015039248,
+      "rmse": 0.004296292219914736
+    },
+    {
+      "cluster_id": 364,
+      "points": 103,
+      "inliers": 86,
+      "inlier_ratio": 0.8349514563106796,
+      "radius": 0.02083802371655276,
+      "rmse": 0.005013714389065086
+    },
+    {
+      "cluster_id": 365,
+      "points": 198,
+      "inliers": 195,
+      "inlier_ratio": 0.9848484848484849,
+      "radius": 0.021843486601781918,
+      "rmse": 0.004292366493070417
+    },
+    {
+      "cluster_id": 366,
+      "points": 130,
+      "inliers": 130,
+      "inlier_ratio": 1.0,
+      "radius": 0.06226648534387699,
+      "rmse": 0.0030926640112599883
+    },
+    {
+      "cluster_id": 369,
+      "points": 140,
+      "inliers": 140,
+      "inlier_ratio": 1.0,
+      "radius": 0.12708767047817102,
+      "rmse": 0.0025992668093555295
+    },
+    {
+      "cluster_id": 370,
+      "points": 144,
+      "inliers": 143,
+      "inlier_ratio": 0.9930555555555556,
+      "radius": 0.07936204802428662,
+      "rmse": 0.003819014957197206
+    },
+    {
+      "cluster_id": 373,
+      "points": 160,
+      "inliers": 144,
+      "inlier_ratio": 0.9,
+      "radius": 0.04227061574669932,
+      "rmse": 0.004525282639359941
+    },
+    {
+      "cluster_id": 375,
+      "points": 121,
+      "inliers": 121,
+      "inlier_ratio": 1.0,
+      "radius": 0.22905017889040835,
+      "rmse": 0.0033143529114178943
+    },
+    {
+      "cluster_id": 379,
+      "points": 157,
+      "inliers": 81,
+      "inlier_ratio": 0.5159235668789809,
+      "radius": 0.0240763981302462,
+      "rmse": 0.005852835946931337
+    },
+    {
+      "cluster_id": 382,
+      "points": 237,
+      "inliers": 123,
+      "inlier_ratio": 0.5189873417721519,
+      "radius": 0.08314453284226968,
+      "rmse": 0.005161609268067686
+    },
+    {
+      "cluster_id": 385,
+      "points": 100,
+      "inliers": 100,
+      "inlier_ratio": 1.0,
+      "radius": 0.08798851740944888,
+      "rmse": 0.0024641908447131135
+    },
+    {
+      "cluster_id": 391,
+      "points": 117,
+      "inliers": 90,
+      "inlier_ratio": 0.7692307692307693,
+      "radius": 0.031661564455115435,
+      "rmse": 0.005638890860991484
+    },
+    {
+      "cluster_id": 392,
+      "points": 461,
+      "inliers": 420,
+      "inlier_ratio": 0.911062906724512,
+      "radius": 0.09144393702684664,
+      "rmse": 0.0044382331550656155
+    },
+    {
+      "cluster_id": 393,
+      "points": 155,
+      "inliers": 88,
+      "inlier_ratio": 0.567741935483871,
+      "radius": 0.041638494307657425,
+      "rmse": 0.00603653227981554
+    },
+    {
+      "cluster_id": 409,
+      "points": 110,
+      "inliers": 78,
+      "inlier_ratio": 0.7090909090909091,
+      "radius": 0.25624762643617494,
+      "rmse": 0.005875881542595476
+    },
+    {
+      "cluster_id": 410,
+      "points": 206,
+      "inliers": 193,
+      "inlier_ratio": 0.9368932038834952,
+      "radius": 0.3408926397479743,
+      "rmse": 0.005035031061256708
+    },
+    {
+      "cluster_id": 412,
+      "points": 220,
+      "inliers": 202,
+      "inlier_ratio": 0.9181818181818182,
+      "radius": 0.44945742741860983,
+      "rmse": 0.0041650548887393465
+    },
+    {
+      "cluster_id": 413,
+      "points": 185,
+      "inliers": 175,
+      "inlier_ratio": 0.9459459459459459,
+      "radius": 0.0695201707765007,
+      "rmse": 0.0042785600089101745
+    },
+    {
+      "cluster_id": 415,
+      "points": 645,
+      "inliers": 606,
+      "inlier_ratio": 0.9395348837209302,
+      "radius": 0.12150526301599751,
+      "rmse": 0.004144479400193397
+    },
+    {
+      "cluster_id": 416,
+      "points": 342,
+      "inliers": 252,
+      "inlier_ratio": 0.7368421052631579,
+      "radius": 0.047891923546331296,
+      "rmse": 0.005191909398732602
+    },
+    {
+      "cluster_id": 420,
+      "points": 136,
+      "inliers": 122,
+      "inlier_ratio": 0.8970588235294118,
+      "radius": 0.035615332165251035,
+      "rmse": 0.004863685693548717
+    },
+    {
+      "cluster_id": 421,
+      "points": 389,
+      "inliers": 386,
+      "inlier_ratio": 0.9922879177377892,
+      "radius": 0.2421308301383705,
+      "rmse": 0.0028941509346379415
+    },
+    {
+      "cluster_id": 424,
+      "points": 250,
+      "inliers": 236,
+      "inlier_ratio": 0.944,
+      "radius": 0.08926607624588564,
+      "rmse": 0.004105143464577991
+    },
+    {
+      "cluster_id": 425,
+      "points": 269,
+      "inliers": 242,
+      "inlier_ratio": 0.8996282527881041,
+      "radius": 0.3984168246329448,
+      "rmse": 0.004033375646980482
+    },
+    {
+      "cluster_id": 428,
+      "points": 207,
+      "inliers": 191,
+      "inlier_ratio": 0.9227053140096618,
+      "radius": 0.04968510444068903,
+      "rmse": 0.0035082563039459786
+    },
+    {
+      "cluster_id": 435,
+      "points": 145,
+      "inliers": 125,
+      "inlier_ratio": 0.8620689655172413,
+      "radius": 0.17140767335159368,
+      "rmse": 0.005270271977664148
+    },
+    {
+      "cluster_id": 438,
+      "points": 529,
+      "inliers": 497,
+      "inlier_ratio": 0.9395085066162571,
+      "radius": 0.0724049355057097,
+      "rmse": 0.004311209975320202
+    },
+    {
+      "cluster_id": 442,
+      "points": 336,
+      "inliers": 130,
+      "inlier_ratio": 0.3869047619047619,
+      "radius": 0.6797295917912117,
+      "rmse": 0.005377927527526529
+    },
+    {
+      "cluster_id": 444,
+      "points": 126,
+      "inliers": 91,
+      "inlier_ratio": 0.7222222222222222,
+      "radius": 0.10460147034605995,
+      "rmse": 0.004834120785063608
+    },
+    {
+      "cluster_id": 451,
+      "points": 405,
+      "inliers": 295,
+      "inlier_ratio": 0.7283950617283951,
+      "radius": 0.2016476804118784,
+      "rmse": 0.005030301131128197
+    },
+    {
+      "cluster_id": 454,
+      "points": 158,
+      "inliers": 128,
+      "inlier_ratio": 0.810126582278481,
+      "radius": 0.07341801931260344,
+      "rmse": 0.005811157499255605
+    },
+    {
+      "cluster_id": 456,
+      "points": 193,
+      "inliers": 188,
+      "inlier_ratio": 0.9740932642487047,
+      "radius": 0.03541922469500605,
+      "rmse": 0.004103462965444085
+    },
+    {
+      "cluster_id": 457,
+      "points": 136,
+      "inliers": 123,
+      "inlier_ratio": 0.9044117647058824,
+      "radius": 0.017539202698807137,
+      "rmse": 0.004813167989036567
+    },
+    {
+      "cluster_id": 471,
+      "points": 138,
+      "inliers": 138,
+      "inlier_ratio": 1.0,
+      "radius": 0.058718779924009167,
+      "rmse": 0.003492814312567818
+    },
+    {
+      "cluster_id": 472,
+      "points": 133,
+      "inliers": 72,
+      "inlier_ratio": 0.5413533834586466,
+      "radius": 0.13366707563790575,
+      "rmse": 0.0053031058149845345
+    },
+    {
+      "cluster_id": 475,
+      "points": 191,
+      "inliers": 191,
+      "inlier_ratio": 1.0,
+      "radius": 0.1995086143231442,
+      "rmse": 0.0026422703626572644
+    },
+    {
+      "cluster_id": 476,
+      "points": 355,
+      "inliers": 244,
+      "inlier_ratio": 0.6873239436619718,
+      "radius": 0.1156057417601434,
+      "rmse": 0.005259653595957701
+    },
+    {
+      "cluster_id": 477,
+      "points": 289,
+      "inliers": 254,
+      "inlier_ratio": 0.8788927335640139,
+      "radius": 0.5272625533385892,
+      "rmse": 0.004844821918778636
+    },
+    {
+      "cluster_id": 481,
+      "points": 142,
+      "inliers": 125,
+      "inlier_ratio": 0.8802816901408451,
+      "radius": 0.24649897078854033,
+      "rmse": 0.005152141685653103
+    },
+    {
+      "cluster_id": 482,
+      "points": 270,
+      "inliers": 208,
+      "inlier_ratio": 0.7703703703703704,
+      "radius": 0.2513462984368564,
+      "rmse": 0.004927710735492995
+    },
+    {
+      "cluster_id": 488,
+      "points": 406,
+      "inliers": 157,
+      "inlier_ratio": 0.3866995073891626,
+      "radius": 0.1849715056677177,
+      "rmse": 0.00570300744894909
+    },
+    {
+      "cluster_id": 492,
+      "points": 103,
+      "inliers": 88,
+      "inlier_ratio": 0.8543689320388349,
+      "radius": 0.12545609182784143,
+      "rmse": 0.004984129050936129
+    },
+    {
+      "cluster_id": 493,
+      "points": 119,
+      "inliers": 99,
+      "inlier_ratio": 0.8319327731092437,
+      "radius": 0.016313384097832503,
+      "rmse": 0.005464534952360634
+    },
+    {
+      "cluster_id": 498,
+      "points": 104,
+      "inliers": 81,
+      "inlier_ratio": 0.7788461538461539,
+      "radius": 0.058258054281901256,
+      "rmse": 0.005396245814673518
+    },
+    {
+      "cluster_id": 501,
+      "points": 137,
+      "inliers": 98,
+      "inlier_ratio": 0.7153284671532847,
+      "radius": 0.2957074716454048,
+      "rmse": 0.005443411063793186
+    },
+    {
+      "cluster_id": 502,
+      "points": 271,
+      "inliers": 240,
+      "inlier_ratio": 0.8856088560885609,
+      "radius": 0.22440064750894165,
+      "rmse": 0.004377294248857824
+    },
+    {
+      "cluster_id": 503,
+      "points": 156,
+      "inliers": 155,
+      "inlier_ratio": 0.9935897435897436,
+      "radius": 0.3288592257105914,
+      "rmse": 0.003468996686411091
+    },
+    {
+      "cluster_id": 505,
+      "points": 162,
+      "inliers": 162,
+      "inlier_ratio": 1.0,
+      "radius": 0.29306661938312195,
+      "rmse": 0.0031710011281398105
+    },
+    {
+      "cluster_id": 511,
+      "points": 105,
+      "inliers": 96,
+      "inlier_ratio": 0.9142857142857143,
+      "radius": 0.20297872406428458,
+      "rmse": 0.00479206025473228
+    },
+    {
+      "cluster_id": 515,
+      "points": 102,
+      "inliers": 102,
+      "inlier_ratio": 1.0,
+      "radius": 0.127636245794351,
+      "rmse": 0.0029505078461620235
+    },
+    {
+      "cluster_id": 518,
+      "points": 217,
+      "inliers": 156,
+      "inlier_ratio": 0.7188940092165899,
+      "radius": 0.01741397654921052,
+      "rmse": 0.005433000015498281
+    },
+    {
+      "cluster_id": 531,
+      "points": 381,
+      "inliers": 380,
+      "inlier_ratio": 0.9973753280839895,
+      "radius": 0.2124199834944411,
+      "rmse": 0.004080730904351654
+    },
+    {
+      "cluster_id": 540,
+      "points": 106,
+      "inliers": 59,
+      "inlier_ratio": 0.5566037735849056,
+      "radius": 0.2712995012874781,
+      "rmse": 0.005219874525008609
+    },
+    {
+      "cluster_id": 552,
+      "points": 226,
+      "inliers": 224,
+      "inlier_ratio": 0.9911504424778761,
+      "radius": 0.17244958691549897,
+      "rmse": 0.0034927556889724543
+    },
+    {
+      "cluster_id": 554,
+      "points": 387,
+      "inliers": 314,
+      "inlier_ratio": 0.8113695090439277,
+      "radius": 0.07720218914287463,
+      "rmse": 0.004682407547200192
+    },
+    {
+      "cluster_id": 555,
+      "points": 106,
+      "inliers": 106,
+      "inlier_ratio": 1.0,
+      "radius": 0.09870574057594811,
+      "rmse": 0.0023476810545891634
+    },
+    {
+      "cluster_id": 558,
+      "points": 101,
+      "inliers": 100,
+      "inlier_ratio": 0.9900990099009901,
+      "radius": 0.02098975882451945,
+      "rmse": 0.00425225306192147
+    },
+    {
+      "cluster_id": 575,
+      "points": 220,
+      "inliers": 100,
+      "inlier_ratio": 0.45454545454545453,
+      "radius": 0.030979070185744143,
+      "rmse": 0.005927171257006219
+    },
+    {
+      "cluster_id": 576,
+      "points": 279,
+      "inliers": 244,
+      "inlier_ratio": 0.8745519713261649,
+      "radius": 0.4905046152838288,
+      "rmse": 0.004848510147927346
+    },
+    {
+      "cluster_id": 577,
+      "points": 123,
+      "inliers": 116,
+      "inlier_ratio": 0.943089430894309,
+      "radius": 0.3147195393436569,
+      "rmse": 0.003909176050729834
+    },
+    {
+      "cluster_id": 581,
+      "points": 162,
+      "inliers": 117,
+      "inlier_ratio": 0.7222222222222222,
+      "radius": 0.19899684279862404,
+      "rmse": 0.005518200787230635
+    },
+    {
+      "cluster_id": 585,
+      "points": 138,
+      "inliers": 138,
+      "inlier_ratio": 1.0,
+      "radius": 0.12795539040849388,
+      "rmse": 0.003254776626186576
+    },
+    {
+      "cluster_id": 588,
+      "points": 105,
+      "inliers": 71,
+      "inlier_ratio": 0.6761904761904762,
+      "radius": 0.189717104555104,
+      "rmse": 0.005651020616301144
+    },
+    {
+      "cluster_id": 589,
+      "points": 252,
+      "inliers": 250,
+      "inlier_ratio": 0.9920634920634921,
+      "radius": 0.0638075902981164,
+      "rmse": 0.0034661951615252776
+    },
+    {
+      "cluster_id": 590,
+      "points": 118,
+      "inliers": 84,
+      "inlier_ratio": 0.711864406779661,
+      "radius": 0.02588888348160796,
+      "rmse": 0.005102673266948528
+    },
+    {
+      "cluster_id": 596,
+      "points": 103,
+      "inliers": 102,
+      "inlier_ratio": 0.9902912621359223,
+      "radius": 0.0544210244092303,
+      "rmse": 0.003210168204770859
+    },
+    {
+      "cluster_id": 601,
+      "points": 105,
+      "inliers": 105,
+      "inlier_ratio": 1.0,
+      "radius": 0.07266764031920962,
+      "rmse": 0.002938868031367197
+    },
+    {
+      "cluster_id": 612,
+      "points": 194,
+      "inliers": 111,
+      "inlier_ratio": 0.5721649484536082,
+      "radius": 0.03156569399482697,
+      "rmse": 0.005599887583148875
+    },
+    {
+      "cluster_id": 613,
+      "points": 252,
+      "inliers": 249,
+      "inlier_ratio": 0.9880952380952381,
+      "radius": 0.04561812219787431,
+      "rmse": 0.004212239923545604
+    },
+    {
+      "cluster_id": 617,
+      "points": 151,
+      "inliers": 90,
+      "inlier_ratio": 0.5960264900662252,
+      "radius": 0.02187687491608648,
+      "rmse": 0.00528203183315244
+    },
+    {
+      "cluster_id": 620,
+      "points": 193,
+      "inliers": 193,
+      "inlier_ratio": 1.0,
+      "radius": 0.3172628558765119,
+      "rmse": 0.0029596477801403565
+    },
+    {
+      "cluster_id": 621,
+      "points": 203,
+      "inliers": 203,
+      "inlier_ratio": 1.0,
+      "radius": 0.17734205572320016,
+      "rmse": 0.0025570497779262846
+    },
+    {
+      "cluster_id": 623,
+      "points": 100,
+      "inliers": 100,
+      "inlier_ratio": 1.0,
+      "radius": 0.14863807730642764,
+      "rmse": 0.001873061607316921
+    },
+    {
+      "cluster_id": 625,
+      "points": 123,
+      "inliers": 121,
+      "inlier_ratio": 0.983739837398374,
+      "radius": 0.010733344708635,
+      "rmse": 0.004917514601664476
+    },
+    {
+      "cluster_id": 626,
+      "points": 132,
+      "inliers": 73,
+      "inlier_ratio": 0.553030303030303,
+      "radius": 0.029452751968248796,
+      "rmse": 0.005591252442047403
+    },
+    {
+      "cluster_id": 627,
+      "points": 165,
+      "inliers": 87,
+      "inlier_ratio": 0.5272727272727272,
+      "radius": 0.050570190877429734,
+      "rmse": 0.005448851583089525
+    },
+    {
+      "cluster_id": 630,
+      "points": 164,
+      "inliers": 120,
+      "inlier_ratio": 0.7317073170731707,
+      "radius": 0.30716774770490884,
+      "rmse": 0.00518643051367469
+    },
+    {
+      "cluster_id": 645,
+      "points": 141,
+      "inliers": 126,
+      "inlier_ratio": 0.8936170212765957,
+      "radius": 0.0385712350145162,
+      "rmse": 0.004889459663953707
+    },
+    {
+      "cluster_id": 647,
+      "points": 145,
+      "inliers": 145,
+      "inlier_ratio": 1.0,
+      "radius": 0.2573611220778242,
+      "rmse": 0.0029938647442053607
+    },
+    {
+      "cluster_id": 649,
+      "points": 164,
+      "inliers": 163,
+      "inlier_ratio": 0.9939024390243902,
+      "radius": 0.1743386412867798,
+      "rmse": 0.004658057989948944
+    },
+    {
+      "cluster_id": 652,
+      "points": 157,
+      "inliers": 156,
+      "inlier_ratio": 0.9936305732484076,
+      "radius": 0.2137784483681167,
+      "rmse": 0.002621453177418899
+    },
+    {
+      "cluster_id": 668,
+      "points": 218,
+      "inliers": 217,
+      "inlier_ratio": 0.9954128440366973,
+      "radius": 0.15742595797890588,
+      "rmse": 0.0034472505712472698
+    },
+    {
+      "cluster_id": 676,
+      "points": 172,
+      "inliers": 172,
+      "inlier_ratio": 1.0,
+      "radius": 0.21211207213770153,
+      "rmse": 0.0036197171574143907
+    },
+    {
+      "cluster_id": 677,
+      "points": 151,
+      "inliers": 151,
+      "inlier_ratio": 1.0,
+      "radius": 0.14106553297218766,
+      "rmse": 0.003142331337341824
+    },
+    {
+      "cluster_id": 686,
+      "points": 173,
+      "inliers": 167,
+      "inlier_ratio": 0.9653179190751445,
+      "radius": 0.20151965606768077,
+      "rmse": 0.003154316564956281
+    },
+    {
+      "cluster_id": 692,
+      "points": 112,
+      "inliers": 112,
+      "inlier_ratio": 1.0,
+      "radius": 0.3058141998830694,
+      "rmse": 0.002469812084234807
+    },
+    {
+      "cluster_id": 693,
+      "points": 118,
+      "inliers": 114,
+      "inlier_ratio": 0.9661016949152542,
+      "radius": 0.11907144900010219,
+      "rmse": 0.004084667774613841
+    },
+    {
+      "cluster_id": 695,
+      "points": 260,
+      "inliers": 117,
+      "inlier_ratio": 0.45,
+      "radius": 0.13036635834445082,
+      "rmse": 0.005134749632160259
+    },
+    {
+      "cluster_id": 700,
+      "points": 100,
+      "inliers": 100,
+      "inlier_ratio": 1.0,
+      "radius": 0.04691088501910287,
+      "rmse": 0.0038427421459977323
+    },
+    {
+      "cluster_id": 701,
+      "points": 149,
+      "inliers": 142,
+      "inlier_ratio": 0.9530201342281879,
+      "radius": 0.040068271043225245,
+      "rmse": 0.004490587634656453
+    },
+    {
+      "cluster_id": 710,
+      "points": 222,
+      "inliers": 189,
+      "inlier_ratio": 0.8513513513513513,
+      "radius": 0.42335773749981925,
+      "rmse": 0.004772439511763696
+    },
+    {
+      "cluster_id": 714,
+      "points": 112,
+      "inliers": 105,
+      "inlier_ratio": 0.9375,
+      "radius": 0.09730531820689657,
+      "rmse": 0.005079532793904144
+    },
+    {
+      "cluster_id": 718,
+      "points": 108,
+      "inliers": 108,
+      "inlier_ratio": 1.0,
+      "radius": 0.26159793955284977,
+      "rmse": 0.0033037175758450867
+    },
+    {
+      "cluster_id": 721,
+      "points": 118,
+      "inliers": 110,
+      "inlier_ratio": 0.9322033898305084,
+      "radius": 0.03962175912795376,
+      "rmse": 0.004840425802690376
+    },
+    {
+      "cluster_id": 723,
+      "points": 132,
+      "inliers": 109,
+      "inlier_ratio": 0.8257575757575758,
+      "radius": 0.0987178539352535,
+      "rmse": 0.00524305058128618
+    },
+    {
+      "cluster_id": 731,
+      "points": 153,
+      "inliers": 118,
+      "inlier_ratio": 0.7712418300653595,
+      "radius": 0.13890905967877287,
+      "rmse": 0.00549634976968979
+    },
+    {
+      "cluster_id": 734,
+      "points": 146,
+      "inliers": 83,
+      "inlier_ratio": 0.5684931506849316,
+      "radius": 0.2756236309126396,
+      "rmse": 0.005128618586453894
+    },
+    {
+      "cluster_id": 739,
+      "points": 146,
+      "inliers": 110,
+      "inlier_ratio": 0.7534246575342466,
+      "radius": 0.03124220476084837,
+      "rmse": 0.005359789463162544
+    },
+    {
+      "cluster_id": 762,
+      "points": 137,
+      "inliers": 135,
+      "inlier_ratio": 0.9854014598540146,
+      "radius": 0.34154975250937375,
+      "rmse": 0.0037735341649096205
+    },
+    {
+      "cluster_id": 796,
+      "points": 155,
+      "inliers": 125,
+      "inlier_ratio": 0.8064516129032258,
+      "radius": 0.10879485227671032,
+      "rmse": 0.004903414290561734
+    },
+    {
+      "cluster_id": 802,
+      "points": 128,
+      "inliers": 96,
+      "inlier_ratio": 0.75,
+      "radius": 0.2772608710016857,
+      "rmse": 0.004924938291997275
+    },
+    {
+      "cluster_id": 806,
+      "points": 177,
+      "inliers": 174,
+      "inlier_ratio": 0.9830508474576272,
+      "radius": 0.09083894685684125,
+      "rmse": 0.003327539127598712
+    },
+    {
+      "cluster_id": 829,
+      "points": 156,
+      "inliers": 141,
+      "inlier_ratio": 0.9038461538461539,
+      "radius": 0.3067941577807399,
+      "rmse": 0.00451262867099882
+    },
+    {
+      "cluster_id": 850,
+      "points": 107,
+      "inliers": 104,
+      "inlier_ratio": 0.9719626168224299,
+      "radius": 0.2992947939761265,
+      "rmse": 0.004281494772687663
+    },
+    {
+      "cluster_id": 868,
+      "points": 136,
+      "inliers": 136,
+      "inlier_ratio": 1.0,
+      "radius": 0.04316863466843203,
+      "rmse": 0.0024388909634548857
+    },
+    {
+      "cluster_id": 884,
+      "points": 194,
+      "inliers": 169,
+      "inlier_ratio": 0.8711340206185567,
+      "radius": 0.06848978225477682,
+      "rmse": 0.005297871914718627
+    },
+    {
+      "cluster_id": 886,
+      "points": 101,
+      "inliers": 79,
+      "inlier_ratio": 0.7821782178217822,
+      "radius": 0.13002376202146218,
+      "rmse": 0.005346278873908873
+    },
+    {
+      "cluster_id": 902,
+      "points": 177,
+      "inliers": 175,
+      "inlier_ratio": 0.9887005649717514,
+      "radius": 0.10157301279527914,
+      "rmse": 0.003985041067483194
+    },
+    {
+      "cluster_id": 918,
+      "points": 118,
+      "inliers": 78,
+      "inlier_ratio": 0.6610169491525424,
+      "radius": 0.025037863513693456,
+      "rmse": 0.005624115214203595
+    },
+    {
+      "cluster_id": 922,
+      "points": 150,
+      "inliers": 146,
+      "inlier_ratio": 0.9733333333333334,
+      "radius": 0.23073736085868163,
+      "rmse": 0.004131109014838266
+    },
+    {
+      "cluster_id": 925,
+      "points": 121,
+      "inliers": 121,
+      "inlier_ratio": 1.0,
+      "radius": 0.23153152386143647,
+      "rmse": 0.0027966604892947808
+    },
+    {
+      "cluster_id": 943,
+      "points": 122,
+      "inliers": 119,
+      "inlier_ratio": 0.9754098360655737,
+      "radius": 0.28256543698028047,
+      "rmse": 0.0044307844108374414
+    },
+    {
+      "cluster_id": 977,
+      "points": 114,
+      "inliers": 110,
+      "inlier_ratio": 0.9649122807017544,
+      "radius": 0.10492116336074461,
+      "rmse": 0.004518133554226055
+    },
+    {
+      "cluster_id": 997,
+      "points": 117,
+      "inliers": 95,
+      "inlier_ratio": 0.811965811965812,
+      "radius": 0.23190546057078668,
+      "rmse": 0.004258644306420246
+    },
+    {
+      "cluster_id": 1010,
+      "points": 133,
+      "inliers": 109,
+      "inlier_ratio": 0.8195488721804511,
+      "radius": 0.1868302202741409,
+      "rmse": 0.004654386604340675
+    },
+    {
+      "cluster_id": 1024,
+      "points": 173,
+      "inliers": 110,
+      "inlier_ratio": 0.6358381502890174,
+      "radius": 0.14056052711155345,
+      "rmse": 0.005146285019053383
+    },
+    {
+      "cluster_id": 1045,
+      "points": 108,
+      "inliers": 108,
+      "inlier_ratio": 1.0,
+      "radius": 0.11173093287575439,
+      "rmse": 0.0020362495518205397
+    },
+    {
+      "cluster_id": 1060,
+      "points": 136,
+      "inliers": 130,
+      "inlier_ratio": 0.9558823529411765,
+      "radius": 0.12448529666356734,
+      "rmse": 0.003196840631707685
+    },
+    {
+      "cluster_id": 1074,
+      "points": 129,
+      "inliers": 127,
+      "inlier_ratio": 0.9844961240310077,
+      "radius": 0.15965619589757318,
+      "rmse": 0.004805832277906488
+    },
+    {
+      "cluster_id": 1253,
+      "points": 126,
+      "inliers": 122,
+      "inlier_ratio": 0.9682539682539683,
+      "radius": 0.1554641704299843,
+      "rmse": 0.004065818071880237
+    }
+  ],
+  "scene_scale": 31.690318153930665,
+  "scene_center": [
+    175.54774475097656,
+    87.77387237548828,
+    2.477357864379883
+  ]
+}
