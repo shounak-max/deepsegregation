@@ -1,0 +1,58 @@
+{
+  "status": "COMPLETED",
+  "pid": 1946342,
+  "start_time": 1789470683.0004508,
+  "device": "cuda:0",
+  "gpu_name": "Tesla K80",
+  "epochs_total": 10,
+  "current_epoch": 10,
+  "targets": {
+    "target_miou": 0.5,
+    "target_accuracy": 0.75,
+    "target_loss": 1.5
+  },
+  "best_val_loss": 0.7022726163268089,
+  "best_epoch": 1,
+  "all_targets_met": false,
+  "latest_metrics": {
+    "accuracy": 0.5338897705078125,
+    "mIoU": 0.3231500371999495,
+    "per_class_recall": [
+      0.17303466796875,
+      0.894744873046875
+    ],
+    "per_class_iou": [
+      0.1565563133335174,
+      0.48974376106638157
+    ],
+    "macro_f1": 0.46410781694790615,
+    "confusion_matrix": [
+      [
+        5670,
+        27098
+      ],
+      [
+        3449,
+        29319
+      ]
+    ]
+  },
+  "dataset_type": "real_psnet5 (binary, 2 classes)",
+  "train_loss": 0.6481836700439453,
+  "val_loss": 0.8188826143741608,
+  "targets_evaluation": {
+    "target_miou": 0.5,
+    "current_miou": 0.3231500371999495,
+    "miou_met": false,
+    "target_accuracy": 0.75,
+    "current_accuracy": 0.5338897705078125,
+    "accuracy_met": false,
+    "target_loss": 1.5,
+    "current_loss": 0.8188826143741608,
+    "loss_met": true,
+    "all_targets_met": false
+  },
+  "last_updated": 1789471934.2582266,
+  "elapsed_seconds": 1235.29,
+  "completed_at": 1789471934.258664
+}

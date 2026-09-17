@@ -1,0 +1,1479 @@
+{
+  "fetched_at": "2026-09-16T12:05:15Z",
+  "cluster_host": "10.0.24.7",
+  "remote_project": "/home/saptarsi/deepsegregation",
+  "total_files": 210,
+  "total_bytes": 1613254866,
+  "files": [
+    {
+      "category": "log",
+      "remote_path": "/home/saptarsi/deepsegregation/step4_spatial_v2.log",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\logs\\step4_spatial_v2.log",
+      "size_bytes": 2605,
+      "sha256": "776109d85b560654ec3347583dd9d20e81209032c36590154b0f9934f972b5e3"
+    },
+    {
+      "category": "log",
+      "remote_path": "/home/saptarsi/deepsegregation/binary_smoke.log",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\logs\\binary_smoke.log",
+      "size_bytes": 1652,
+      "sha256": "02fbd0802ce7d52ecd1b4f1ddb10686dbc1d913adbc060c2217da516d518f918"
+    },
+    {
+      "category": "log",
+      "remote_path": "/home/saptarsi/deepsegregation/binary_blockeval.log",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\logs\\binary_blockeval.log",
+      "size_bytes": 1652,
+      "sha256": "f7ef8530afb3f52361d2cea4c7d8d0816851776765e6252a63959dab442ce888"
+    },
+    {
+      "category": "log",
+      "remote_path": "/home/saptarsi/deepsegregation/step4_cellparity_diag.log",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\logs\\step4_cellparity_diag.log",
+      "size_bytes": 1250,
+      "sha256": "eb4eec07e534108d997cbf910ffb5277b8e03bc6b4f75b907c9683305c123252"
+    },
+    {
+      "category": "log",
+      "remote_path": "/home/saptarsi/deepsegregation/binary_balanced.log",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\logs\\binary_balanced.log",
+      "size_bytes": 1954,
+      "sha256": "35ffccb2db60138651d8e9890b1bd0731a01c3d87252a9152c4e7dd6beb25e3d"
+    },
+    {
+      "category": "log",
+      "remote_path": "/home/saptarsi/deepsegregation/train.log",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\logs\\train.log",
+      "size_bytes": 2758,
+      "sha256": "19bc9f2cbe4a5101c33f8b0a35851a07995cb2f74d2cbdeffbae34b86905daa7"
+    },
+    {
+      "category": "log",
+      "remote_path": "/home/saptarsi/deepsegregation/binary_fixedval.log",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\logs\\binary_fixedval.log",
+      "size_bytes": 1652,
+      "sha256": "18aa21ce17dc05b3706bf3f9a75c64642737ea11fe372dcbb8cd0b20a486153a"
+    },
+    {
+      "category": "log",
+      "remote_path": "/home/saptarsi/deepsegregation/binary_spatial.log",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\logs\\binary_spatial.log",
+      "size_bytes": 1954,
+      "sha256": "0eca9e9fa36f8e3f278fcc3566783a3e78b61f0b1db50348fb355bd7f52cd84b"
+    },
+    {
+      "category": "log",
+      "remote_path": "/home/saptarsi/deepsegregation/binary_normalized.log",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\logs\\binary_normalized.log",
+      "size_bytes": 1954,
+      "sha256": "6a06b6de0edebef0628a96f2519651bd2e36570f1da9044bbedefc46f573a694"
+    },
+    {
+      "category": "log",
+      "remote_path": "/home/saptarsi/deepsegregation/binary_tuned.log",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\logs\\binary_tuned.log",
+      "size_bytes": 2765,
+      "sha256": "d2b099e90c172fce95767f726142eed2b1a17258ef4f66f0a73dc565f5d84458"
+    },
+    {
+      "category": "log",
+      "remote_path": "/home/saptarsi/deepsegregation/binary_spatial_long.log",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\logs\\binary_spatial_long.log",
+      "size_bytes": 2710,
+      "sha256": "af49e61fc3b3db215fefa7365f85c7ca2711bbcb3ceba63a8b223973773c9905"
+    },
+    {
+      "category": "log",
+      "remote_path": "/home/saptarsi/deepsegregation/binary_weighted.log",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\logs\\binary_weighted.log",
+      "size_bytes": 1954,
+      "sha256": "3a8f982844822be4d9810e3440ba8802f86f303d2d93ceb99fc6bcef55e0b898"
+    },
+    {
+      "category": "log",
+      "remote_path": "/home/saptarsi/deepsegregation/binary_miouselect.log",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\logs\\binary_miouselect.log",
+      "size_bytes": 2710,
+      "sha256": "d6f282585ae318d81e769ba4e34f273401de6ba1c89722445a8b5f42e3c0f569"
+    },
+    {
+      "category": "result_json",
+      "remote_path": "/home/saptarsi/deepsegregation/binary_tuned_status.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\results\\binary_tuned_status.json",
+      "size_bytes": 1288,
+      "sha256": "e96cee8a7da1a076dec51c19de2648e2c5df8d87489265ca644b0960037c1c6d"
+    },
+    {
+      "category": "result_json",
+      "remote_path": "/home/saptarsi/deepsegregation/psnet5_manifest.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\results\\psnet5_manifest.json",
+      "size_bytes": 478,
+      "sha256": "a398a707f822d0d20271aac77932195dcaffe18eed5fd4e60c583c523f9cf263"
+    },
+    {
+      "category": "result_json",
+      "remote_path": "/home/saptarsi/deepsegregation/binary_normalized_status.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\results\\binary_normalized_status.json",
+      "size_bytes": 1233,
+      "sha256": "8cda198beab2bd986f1a54a9fdd50a88016bc57699fefd8130d135ed623c3a25"
+    },
+    {
+      "category": "result_json",
+      "remote_path": "/home/saptarsi/deepsegregation/binary_miouselect_status.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\results\\binary_miouselect_status.json",
+      "size_bytes": 1382,
+      "sha256": "1f61e2f410d3e994d50309c267363ce5c7605181daf16f01931ecc560f4370c0"
+    },
+    {
+      "category": "result_json",
+      "remote_path": "/home/saptarsi/deepsegregation/pipeline_status.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\results\\pipeline_status.json",
+      "size_bytes": 1393,
+      "sha256": "482ac6d0ad66ffa41bd2e60df16e57f21376682f232294d6e5eb4beb9f94c2ad"
+    },
+    {
+      "category": "result_json",
+      "remote_path": "/home/saptarsi/deepsegregation/binary_fixedval_status.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\results\\binary_fixedval_status.json",
+      "size_bytes": 1383,
+      "sha256": "3a71c2f367c4f951c3b4a97c10c825b2a2477df16217ba8f9ea2c2baf244b087"
+    },
+    {
+      "category": "result_json",
+      "remote_path": "/home/saptarsi/deepsegregation/area3_geometry_audit.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\results\\area3_geometry_audit.json",
+      "size_bytes": 61798,
+      "sha256": "6a02de5d776ddf1d8ddcab07719eab9a07564e36655004e5f397fcec7d8bb111"
+    },
+    {
+      "category": "result_json",
+      "remote_path": "/home/saptarsi/deepsegregation/binary_balanced_status.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\results\\binary_balanced_status.json",
+      "size_bytes": 1331,
+      "sha256": "ddfa95071f2392c1297ec3daaff75ec44a658216ce9194d86c23364a43448b49"
+    },
+    {
+      "category": "result_json",
+      "remote_path": "/home/saptarsi/deepsegregation/step4_cellparity_diag_area3_full.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\results\\step4_cellparity_diag_area3_full.json",
+      "size_bytes": 758,
+      "sha256": "4255e286f657cf9a97964c7fb7a02b58036c70aba1518a57e340f63a97ff0988"
+    },
+    {
+      "category": "result_json",
+      "remote_path": "/home/saptarsi/deepsegregation/area4_full_eval_cellnorm.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\results\\area4_full_eval_cellnorm.json",
+      "size_bytes": 766,
+      "sha256": "01a75672f4ea07ffa146bea1d2d2726896354ad1fe836807596a259b95cf6584"
+    },
+    {
+      "category": "result_json",
+      "remote_path": "/home/saptarsi/deepsegregation/step4_cellparity_diag_area4_full.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\results\\step4_cellparity_diag_area4_full.json",
+      "size_bytes": 753,
+      "sha256": "f18d38527c230e5651269dab28574c6909e533884364c993a042edaf18a23b60"
+    },
+    {
+      "category": "result_json",
+      "remote_path": "/home/saptarsi/deepsegregation/binary_weighted_status.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\results\\binary_weighted_status.json",
+      "size_bytes": 1331,
+      "sha256": "32f933d4d1cf9d0acedc36e4fea3110bc678b9beb0b60f7d5832c2a7aad35600"
+    },
+    {
+      "category": "result_json",
+      "remote_path": "/home/saptarsi/deepsegregation/step4_spatial_v2_status.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\results\\step4_spatial_v2_status.json",
+      "size_bytes": 1383,
+      "sha256": "cca19dd82cbab161f1b1bb8942744a55de1fea8686765156c4d5f22a4f88c4f4"
+    },
+    {
+      "category": "result_json",
+      "remote_path": "/home/saptarsi/deepsegregation/step4_spatial_v2_area4_full.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\results\\step4_spatial_v2_area4_full.json",
+      "size_bytes": 647,
+      "sha256": "d2c54c2908d30bb010e52988d8e8486e610bbaede8d672b69decb7ed9182a960"
+    },
+    {
+      "category": "result_json",
+      "remote_path": "/home/saptarsi/deepsegregation/binary_smoke_status.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\results\\binary_smoke_status.json",
+      "size_bytes": 1286,
+      "sha256": "fac02b1b21d1b4370461ae6c10de383d6bd46d5adff4365df224f8996c34fdb7"
+    },
+    {
+      "category": "result_json",
+      "remote_path": "/home/saptarsi/deepsegregation/binary_spatial_long_status.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\results\\binary_spatial_long_status.json",
+      "size_bytes": 1334,
+      "sha256": "4b090ceeac7a2db89db23a5520fd47c1cacc17b0f88cd7edba0b5356cdd61a01"
+    },
+    {
+      "category": "result_json",
+      "remote_path": "/home/saptarsi/deepsegregation/binary_blockeval_status.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\results\\binary_blockeval_status.json",
+      "size_bytes": 1310,
+      "sha256": "a3678aeaedc6c51ac313424d54149674ae3c554e89dee7a45d5bd5befb5fbecc"
+    },
+    {
+      "category": "result_json",
+      "remote_path": "/home/saptarsi/deepsegregation/binary_spatial_status.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\results\\binary_spatial_status.json",
+      "size_bytes": 1287,
+      "sha256": "84bc2a2f63c5f6b818341ebd1b9537a6b7c3120208d12a1ebbfbb8d7e1523a6c"
+    },
+    {
+      "category": "result_json",
+      "remote_path": "/home/saptarsi/deepsegregation/area4_full_eval.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\results\\area4_full_eval.json",
+      "size_bytes": 772,
+      "sha256": "38fcda458f824a4032ff120fedcc3f0b3d2dd4da84976bb7f77af4069f9aa484"
+    },
+    {
+      "category": "result_json",
+      "remote_path": "/home/saptarsi/deepsegregation/step4_cellparity_diag_status.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\results\\step4_cellparity_diag_status.json",
+      "size_bytes": 1374,
+      "sha256": "8f0d77eb9f03183f1d59e25b58b083d15b25a23398602a20f8ee435040304153"
+    },
+    {
+      "category": "prediction_npy",
+      "remote_path": "/home/saptarsi/deepsegregation/area4_pred_labels.npy",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\results\\area4_pred_labels.npy",
+      "size_bytes": 92687808,
+      "sha256": "1d605c19ecbfe1ee08eced258ce5de34d7d73a4a99a2f4b2b8ae782eda456467"
+    },
+    {
+      "category": "prediction_npy",
+      "remote_path": "/home/saptarsi/deepsegregation/area3_pred_labels.npy",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\results\\area3_pred_labels.npy",
+      "size_bytes": 24466220,
+      "sha256": "9bbfd69082c1dfc5300eeaf3f68a3ca34cf10b8f22c0cfded9b531105e4c77b7"
+    },
+    {
+      "category": "script",
+      "remote_path": "/home/saptarsi/deepsegregation/diag.py",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\scripts\\remote_archive\\diag.py",
+      "size_bytes": 1944,
+      "sha256": "235b39c39d27375af06f336629e7532632280d6974cc4492e663668196d4b1d4"
+    },
+    {
+      "category": "script",
+      "remote_path": "/home/saptarsi/deepsegregation/scripts/train_pointnet_remote.py",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\scripts\\remote_archive\\train_pointnet_remote.py",
+      "size_bytes": 23396,
+      "sha256": "6ec4625ad8c1bd5798e7b6f865eb8e85c59dc372bdae954c50813511d7fc743d"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_balanced",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_balanced/best.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_balanced\\best.pt",
+      "size_bytes": 3095573,
+      "sha256": "12989be86481b14d2f21a03c2285efa4673f1c4534b89bc1c9f3371eee2ca5a7"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_balanced",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_balanced/epoch_0001.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_balanced\\epoch_0001.pt",
+      "size_bytes": 3095573,
+      "sha256": "a0168efe0c639a82f37d3cdbe128d070b4cfd5f020bf5187786730c50524d37f"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_balanced",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_balanced/epoch_0002.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_balanced\\epoch_0002.pt",
+      "size_bytes": 3095573,
+      "sha256": "462ed0b7206cd48a6af28b99b4984dd6b354076eed1226ce4a36a58c4226346f"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_balanced",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_balanced/epoch_0003.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_balanced\\epoch_0003.pt",
+      "size_bytes": 3095573,
+      "sha256": "12989be86481b14d2f21a03c2285efa4673f1c4534b89bc1c9f3371eee2ca5a7"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_balanced",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_balanced/epoch_0004.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_balanced\\epoch_0004.pt",
+      "size_bytes": 3095573,
+      "sha256": "58cc26454926efc8d021cb7bf7f6e8cbe0cc3e765df566dd0ad0db5bc6dc1457"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_balanced",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_balanced/epoch_0005.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_balanced\\epoch_0005.pt",
+      "size_bytes": 3095573,
+      "sha256": "523c69498493c8214af80ca8873f9b3d1f635bcc79be2433340a5bdf996e756c"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_balanced",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_balanced/eval_history.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_balanced\\eval_history.json",
+      "size_bytes": 4663,
+      "sha256": "73cd47457b16dd5d15f11935e20bf1c8b600ae9fb5eb7d859009bbd6e033253d"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_blockeval",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_blockeval/best.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_blockeval\\best.pt",
+      "size_bytes": 3095573,
+      "sha256": "2b3122ef6fcf35f1eddec7466aa1283fb13e5c4c76ed78e9427af9107c04c868"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_blockeval",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_blockeval/epoch_0001.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_blockeval\\epoch_0001.pt",
+      "size_bytes": 3095573,
+      "sha256": "2b3122ef6fcf35f1eddec7466aa1283fb13e5c4c76ed78e9427af9107c04c868"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_blockeval",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_blockeval/epoch_0002.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_blockeval\\epoch_0002.pt",
+      "size_bytes": 3095573,
+      "sha256": "405f570484bc0dce77a6df6b4d674f3ce336c986e0bd5da72c4a222f2548a11d"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_blockeval",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_blockeval/epoch_0003.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_blockeval\\epoch_0003.pt",
+      "size_bytes": 3095573,
+      "sha256": "e9241246109cd392e927a256a2f792f63d542d56b445f895fe543bfa6f3584da"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_blockeval",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_blockeval/eval_history.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_blockeval\\eval_history.json",
+      "size_bytes": 2750,
+      "sha256": "ddf6f9debfdc6817dae774f08d88281ef3f030d9a396a300bd58605efd2f58dc"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_fixedval",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_fixedval/best.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_fixedval\\best.pt",
+      "size_bytes": 3095573,
+      "sha256": "572c43675ca6241a4f2303cf1993f3a0a76f468c0e3be044d6ff0dfb739ebd10"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_fixedval",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_fixedval/epoch_0001.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_fixedval\\epoch_0001.pt",
+      "size_bytes": 3095573,
+      "sha256": "572c43675ca6241a4f2303cf1993f3a0a76f468c0e3be044d6ff0dfb739ebd10"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_fixedval",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_fixedval/epoch_0002.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_fixedval\\epoch_0002.pt",
+      "size_bytes": 3095573,
+      "sha256": "aa78885dc335ea860c35125942e610fb36c6eb6690d926ce528023fbd94d7994"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_fixedval",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_fixedval/epoch_0003.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_fixedval\\epoch_0003.pt",
+      "size_bytes": 3095573,
+      "sha256": "8c9efa3e3194d0b878293f1c89da80d6082af021006e6b7c9f6c8ec9b204f2cf"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_fixedval",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_fixedval/eval_history.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_fixedval\\eval_history.json",
+      "size_bytes": 2854,
+      "sha256": "992cafd45e935ccede51e31c940643c2cfe5680be2f7499fbbfb3297627e2b2e"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_miouselect",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_miouselect/best.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_miouselect\\best.pt",
+      "size_bytes": 3095573,
+      "sha256": "f84a69e63767c669adfd51f97a1502c2bc9dc4b257ae84ebb467409fff37ada7"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_miouselect",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_miouselect/epoch_0001.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_miouselect\\epoch_0001.pt",
+      "size_bytes": 3095573,
+      "sha256": "632bb829f4947a045cd84aa21d342b9d26c467a9c362db504da207b59ba81ee5"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_miouselect",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_miouselect/epoch_0002.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_miouselect\\epoch_0002.pt",
+      "size_bytes": 3095573,
+      "sha256": "67e284da21f2ad93336e7a73f7fb911c3dd8762ce5ee8f9b2ab60590fc9ceeb4"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_miouselect",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_miouselect/epoch_0003.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_miouselect\\epoch_0003.pt",
+      "size_bytes": 3095573,
+      "sha256": "bb65256a4cb41043297b72fe63af87cd1c7b5670375216e5e7523aa2c61f4f9e"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_miouselect",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_miouselect/epoch_0004.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_miouselect\\epoch_0004.pt",
+      "size_bytes": 3095573,
+      "sha256": "51af884b4022157be67b2391ce794d0fa216242ba8ed250b08cd33cf96adbd4c"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_miouselect",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_miouselect/epoch_0005.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_miouselect\\epoch_0005.pt",
+      "size_bytes": 3095573,
+      "sha256": "88b970c540e8d71df931ba98eed39c5d475bb36792e286e3d1c7017dc83d95b4"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_miouselect",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_miouselect/epoch_0006.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_miouselect\\epoch_0006.pt",
+      "size_bytes": 3095573,
+      "sha256": "db398dc5db89f3b4532e55a08481b0c98fcf977b888f505f577aec42fe3c08ee"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_miouselect",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_miouselect/epoch_0007.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_miouselect\\epoch_0007.pt",
+      "size_bytes": 3095573,
+      "sha256": "ced97c52c4a7f56f87e365bd0af8466e475e605c18583bb04105517066532e41"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_miouselect",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_miouselect/epoch_0008.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_miouselect\\epoch_0008.pt",
+      "size_bytes": 3095573,
+      "sha256": "f84a69e63767c669adfd51f97a1502c2bc9dc4b257ae84ebb467409fff37ada7"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_miouselect",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_miouselect/epoch_0009.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_miouselect\\epoch_0009.pt",
+      "size_bytes": 3095573,
+      "sha256": "8a84c0a859e7b10c69a49dafa76b371fe2bdab6c5225541930c8ee9f5d65fd84"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_miouselect",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_miouselect/epoch_0010.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_miouselect\\epoch_0010.pt",
+      "size_bytes": 3095573,
+      "sha256": "3bebde9381de21183c836dd8844a9faffc4951b29c3bc884a233e410bde5e6cb"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_miouselect",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_miouselect/eval_history.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_miouselect\\eval_history.json",
+      "size_bytes": 9498,
+      "sha256": "f7bd5b09ed62f668201297e16f6a012c25d998c8d19f5056d698b2199b9509d8"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_normalized",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_normalized/best.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_normalized\\best.pt",
+      "size_bytes": 3095573,
+      "sha256": "22440855ca65f298e605a7c61eca48871cbaf370f82f0cb37b829237312c1fc6"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_normalized",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_normalized/epoch_0001.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_normalized\\epoch_0001.pt",
+      "size_bytes": 3095573,
+      "sha256": "2c6f3ef87c69bd6142a35f5c336f9ecdbbd81fed2b2e314fa154fea0c7d55b60"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_normalized",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_normalized/epoch_0002.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_normalized\\epoch_0002.pt",
+      "size_bytes": 3095573,
+      "sha256": "843e8cdf9cfbc9ac25ee1d122e6972bb4e076aa2b958ebaeb120cefb868048e9"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_normalized",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_normalized/epoch_0003.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_normalized\\epoch_0003.pt",
+      "size_bytes": 3095573,
+      "sha256": "22440855ca65f298e605a7c61eca48871cbaf370f82f0cb37b829237312c1fc6"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_normalized",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_normalized/epoch_0004.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_normalized\\epoch_0004.pt",
+      "size_bytes": 3095573,
+      "sha256": "18e0ebe032ca9f2c1559612bb594c9b7e62c08849981723c9ad1f346a5738774"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_normalized",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_normalized/epoch_0005.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_normalized\\epoch_0005.pt",
+      "size_bytes": 3095573,
+      "sha256": "eea0bdda4d5633b359ae413603d7c7dde7e2ed07f9f5950811decc7d6c3cb6ee"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_normalized",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_normalized/eval_history.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_normalized\\eval_history.json",
+      "size_bytes": 4601,
+      "sha256": "79f44cf1968e20c5837d9149336d7766c540615af100716f910e21b5086a5d69"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_smoke",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_smoke/best.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_smoke\\best.pt",
+      "size_bytes": 3095573,
+      "sha256": "c1f01469fccc1b1da20586ef0f04d8368f7e0a2c1c2f34525ccaf5db84147624"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_smoke",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_smoke/epoch_0001.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_smoke\\epoch_0001.pt",
+      "size_bytes": 3095573,
+      "sha256": "c1f01469fccc1b1da20586ef0f04d8368f7e0a2c1c2f34525ccaf5db84147624"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_smoke",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_smoke/epoch_0002.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_smoke\\epoch_0002.pt",
+      "size_bytes": 3095573,
+      "sha256": "6cf81d9f4072e4e4c847c8bc4c8582fc53e40a2b914d4b64e7cecd7e49665c7f"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_smoke",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_smoke/epoch_0003.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_smoke\\epoch_0003.pt",
+      "size_bytes": 3095573,
+      "sha256": "90776ba9714742e3125d2877a05aff8dc7cb03ea666d8dcee799728b35a08441"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_smoke",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_smoke/eval_history.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_smoke\\eval_history.json",
+      "size_bytes": 2752,
+      "sha256": "f10e021bc7b956444dde8f49b2aef4347f8a30c8ef3ad3038856062df090ed69"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_spatial",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_spatial/best.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_spatial\\best.pt",
+      "size_bytes": 3095573,
+      "sha256": "73e7f60a68a2ecb569f206015267647e7b36b1baf09f53887aa47b70bb4579f6"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_spatial",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_spatial/epoch_0001.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_spatial\\epoch_0001.pt",
+      "size_bytes": 3095573,
+      "sha256": "e0906470ea97b85467478291d432d826c10bfc76534af9baae615cc0debf5ff7"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_spatial",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_spatial/epoch_0002.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_spatial\\epoch_0002.pt",
+      "size_bytes": 3095573,
+      "sha256": "73e7f60a68a2ecb569f206015267647e7b36b1baf09f53887aa47b70bb4579f6"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_spatial",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_spatial/epoch_0003.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_spatial\\epoch_0003.pt",
+      "size_bytes": 3095573,
+      "sha256": "de8009fab524800c0d5036c5ee3cd36fc26e226537c01339ef73bb00801b0b5b"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_spatial",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_spatial/epoch_0004.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_spatial\\epoch_0004.pt",
+      "size_bytes": 3095573,
+      "sha256": "00ab4c382c6a035b0a1fcc71e697a5f6f6dfffdcccd032bdf9e2e2f333ef304d"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_spatial",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_spatial/epoch_0005.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_spatial\\epoch_0005.pt",
+      "size_bytes": 3095573,
+      "sha256": "2fa7191b0a0c1728ec5f91cb64b0867b5bba8af367a972805d29a25362fe78e9"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_spatial",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_spatial/eval_history.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_spatial\\eval_history.json",
+      "size_bytes": 4662,
+      "sha256": "3758f1c8a1cd8b6f4e57debf47d4e8c4aa4b3e73f5f70c7071abe5a359db09c4"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_spatial_long",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_spatial_long/best.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_spatial_long\\best.pt",
+      "size_bytes": 3095573,
+      "sha256": "f64fb29eea39c93ce724cae23df4a596bb3cc4c09dc8c266f963e28d95578f3b"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_spatial_long",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_spatial_long/epoch_0001.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_spatial_long\\epoch_0001.pt",
+      "size_bytes": 3095573,
+      "sha256": "f64fb29eea39c93ce724cae23df4a596bb3cc4c09dc8c266f963e28d95578f3b"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_spatial_long",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_spatial_long/epoch_0002.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_spatial_long\\epoch_0002.pt",
+      "size_bytes": 3095573,
+      "sha256": "c80172df69fa4acbcae70877ddc7d57902fb83e48891bee6bc1509ea8dfbd54b"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_spatial_long",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_spatial_long/epoch_0003.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_spatial_long\\epoch_0003.pt",
+      "size_bytes": 3095573,
+      "sha256": "05f220edec1aca854a02694093f9dd4fc6e90fc2aeadd72a105d73797a87c49e"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_spatial_long",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_spatial_long/epoch_0004.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_spatial_long\\epoch_0004.pt",
+      "size_bytes": 3095573,
+      "sha256": "798fbc5323bdc6372251fe8b869d043c922a068d81c32763788f8b04120805db"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_spatial_long",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_spatial_long/epoch_0005.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_spatial_long\\epoch_0005.pt",
+      "size_bytes": 3095573,
+      "sha256": "c120321d8b831bebc3acbba69822ba84d4e3470cd8dd3870cb86c5e68475e48f"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_spatial_long",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_spatial_long/epoch_0006.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_spatial_long\\epoch_0006.pt",
+      "size_bytes": 3095573,
+      "sha256": "66b9689af872f6afddcc62af04d5c15caea500bfc269d5f4d3b4ac7325414ba3"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_spatial_long",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_spatial_long/epoch_0007.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_spatial_long\\epoch_0007.pt",
+      "size_bytes": 3095573,
+      "sha256": "f0f9916083c44fd78ec378d947023d8d12e6e2ad02c3e1268c106bb2c8b8dbb8"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_spatial_long",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_spatial_long/epoch_0008.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_spatial_long\\epoch_0008.pt",
+      "size_bytes": 3095573,
+      "sha256": "f30bd742b2b24c1cc9e64f98593e1318d270409640a10ddb046f08c8d9597b5c"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_spatial_long",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_spatial_long/epoch_0009.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_spatial_long\\epoch_0009.pt",
+      "size_bytes": 3095573,
+      "sha256": "428a743f0b576170d2eba1668702c3498894d628e25d17abeb3d05246a1f7ece"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_spatial_long",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_spatial_long/epoch_0010.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_spatial_long\\epoch_0010.pt",
+      "size_bytes": 3095573,
+      "sha256": "1144792930e5a46cab40042af2c31968a14e9b9ea7da658ca27f54b60f4b6e42"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_spatial_long",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_spatial_long/eval_history.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_spatial_long\\eval_history.json",
+      "size_bytes": 9521,
+      "sha256": "99b76aa6740775d27b7f1a53cd8a32d47127f85110ab5b84b3201dc13ee08ff3"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_tuned",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_tuned/best.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_tuned\\best.pt",
+      "size_bytes": 3095573,
+      "sha256": "6bbb591b33ac50bdf5fabd536810ab23510e486f6314f41911e7f434bca7b0ad"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_tuned",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_tuned/epoch_0001.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_tuned\\epoch_0001.pt",
+      "size_bytes": 3095573,
+      "sha256": "0d769d131cca97cf3688780a03f97ba46c759287e15e697dd937b5ca719ff75d"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_tuned",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_tuned/epoch_0002.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_tuned\\epoch_0002.pt",
+      "size_bytes": 3095573,
+      "sha256": "6bbb591b33ac50bdf5fabd536810ab23510e486f6314f41911e7f434bca7b0ad"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_tuned",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_tuned/epoch_0003.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_tuned\\epoch_0003.pt",
+      "size_bytes": 3095573,
+      "sha256": "fdb4ff10d7bed7e2b3ab7e8913cb99f8c5f67fc3617d6e2bbab7d8bf0334693b"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_tuned",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_tuned/epoch_0004.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_tuned\\epoch_0004.pt",
+      "size_bytes": 3095573,
+      "sha256": "0ad1c117de44873d11874756131f67cb4460b63f8484e10fe365fe46c4e15a84"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_tuned",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_tuned/epoch_0005.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_tuned\\epoch_0005.pt",
+      "size_bytes": 3095573,
+      "sha256": "040d1449ad8eed7fe2131e99833bc006384e50a3cdddd80ecc0032d26fb234d7"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_tuned",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_tuned/epoch_0006.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_tuned\\epoch_0006.pt",
+      "size_bytes": 3095573,
+      "sha256": "db7b6c38a18a3867c6fb6a9b01694daff998fd5f67e0e298e90b685e7cddbd8d"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_tuned",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_tuned/epoch_0007.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_tuned\\epoch_0007.pt",
+      "size_bytes": 3095573,
+      "sha256": "7f8bb54de2c1dcb7cdd673b1b0a6b2dbe9044fd792b2089684ca05aeb78af463"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_tuned",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_tuned/epoch_0008.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_tuned\\epoch_0008.pt",
+      "size_bytes": 3095573,
+      "sha256": "2127b19e479bac0761c419af64d18e2f7cea0666e18548dee7f7bf7fdda3d21c"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_tuned",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_tuned/epoch_0009.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_tuned\\epoch_0009.pt",
+      "size_bytes": 3095573,
+      "sha256": "f71508fed9ecdaa2ac54b4ec2890180903b2a9c2f5ee341a98131aec025e2b8f"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_tuned",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_tuned/epoch_0010.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_tuned\\epoch_0010.pt",
+      "size_bytes": 3095573,
+      "sha256": "5a1818b53f0754d1dab33153a3f3908cfff056900f25d33efa5cf1d30ae192e9"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_tuned",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_tuned/eval_history.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_tuned\\eval_history.json",
+      "size_bytes": 9221,
+      "sha256": "d65d41b715ad750ff63ae5101ca151f0722c6e8adce73cbbe9db07eacad9945e"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_weighted",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_weighted/best.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_weighted\\best.pt",
+      "size_bytes": 3095573,
+      "sha256": "bdb120210882c50e1713260ef4c2d1af7a00ded1e1ea0c07c10e4b60a1d5e13f"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_weighted",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_weighted/epoch_0001.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_weighted\\epoch_0001.pt",
+      "size_bytes": 3095573,
+      "sha256": "bdb120210882c50e1713260ef4c2d1af7a00ded1e1ea0c07c10e4b60a1d5e13f"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_weighted",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_weighted/epoch_0002.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_weighted\\epoch_0002.pt",
+      "size_bytes": 3095573,
+      "sha256": "8de456eec6bacd76e8a1528583c61e56188c04aa01948fb0595eced7669b69c0"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_weighted",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_weighted/epoch_0003.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_weighted\\epoch_0003.pt",
+      "size_bytes": 3095573,
+      "sha256": "eaa88052a5ade29d9c1fd51e56321a80ff100cfda006e7816348229148431c6c"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_weighted",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_weighted/epoch_0004.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_weighted\\epoch_0004.pt",
+      "size_bytes": 3095573,
+      "sha256": "bccef7b46ffbe8dff365bec8fbed6f552299e0c8f827ac10b824c0f4b42d1a4b"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_weighted",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_weighted/epoch_0005.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_weighted\\epoch_0005.pt",
+      "size_bytes": 3095573,
+      "sha256": "22ab748e58bee272bc0518a17b886f21c32f3222ebd40b874a41e1bf01086f1d"
+    },
+    {
+      "category": "checkpoint_binary_pointnet2_weighted",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/binary_pointnet2_weighted/eval_history.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\binary_pointnet2_weighted\\eval_history.json",
+      "size_bytes": 4657,
+      "sha256": "45c7c6f3dc9278efbdf3ce8eef75aa267f1697dbd11eae504e10137c00b5d5f3"
+    },
+    {
+      "category": "checkpoint_point_mlp_k80",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/point_mlp_k80/best.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\point_mlp_k80\\best.pt",
+      "size_bytes": 3096341,
+      "sha256": "9d54f9a57619fa13eb0ea8d3b6923831b9a83020447bc827c2919890b06dba67"
+    },
+    {
+      "category": "checkpoint_point_mlp_k80",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/point_mlp_k80/epoch_0001.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\point_mlp_k80\\epoch_0001.pt",
+      "size_bytes": 3096341,
+      "sha256": "b7eedf7d82c196d99bf04822cba60ebcc65cbaa8e854ea1d3827638ed47319ca"
+    },
+    {
+      "category": "checkpoint_point_mlp_k80",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/point_mlp_k80/epoch_0002.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\point_mlp_k80\\epoch_0002.pt",
+      "size_bytes": 3096341,
+      "sha256": "9777d25ef88ff5a01cbb8b38ea59bdce2598f25455f779b50f755e62e8f10809"
+    },
+    {
+      "category": "checkpoint_point_mlp_k80",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/point_mlp_k80/epoch_0003.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\point_mlp_k80\\epoch_0003.pt",
+      "size_bytes": 3096341,
+      "sha256": "ae5c8c842edcd5b991416fbdd53c0f57890dabe95629f81a6a59c58f54fec75c"
+    },
+    {
+      "category": "checkpoint_point_mlp_k80",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/point_mlp_k80/epoch_0004.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\point_mlp_k80\\epoch_0004.pt",
+      "size_bytes": 3096341,
+      "sha256": "fe39b46c3cf508b7d7c375d0c2a6cc19ede4ae2d16899bcf51ac6a388b57037a"
+    },
+    {
+      "category": "checkpoint_point_mlp_k80",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/point_mlp_k80/epoch_0005.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\point_mlp_k80\\epoch_0005.pt",
+      "size_bytes": 3096341,
+      "sha256": "2f0a59521aec5e4710ae541e1c7c49173b16ffe6331989155fa0007be8b8aaef"
+    },
+    {
+      "category": "checkpoint_point_mlp_k80",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/point_mlp_k80/epoch_0006.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\point_mlp_k80\\epoch_0006.pt",
+      "size_bytes": 3096341,
+      "sha256": "75b66ca13b1cff7a4acb72e510a58bf0e91f8e3d0daaed3a0782bfb8c5a23bf0"
+    },
+    {
+      "category": "checkpoint_point_mlp_k80",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/point_mlp_k80/epoch_0007.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\point_mlp_k80\\epoch_0007.pt",
+      "size_bytes": 3096341,
+      "sha256": "f4468873ccdd09583341086fda710c1abcfe4087c528ac2425c4f256e0fbd63e"
+    },
+    {
+      "category": "checkpoint_point_mlp_k80",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/point_mlp_k80/epoch_0008.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\point_mlp_k80\\epoch_0008.pt",
+      "size_bytes": 3096341,
+      "sha256": "4fc529658ce355657e35ddd4013dfb6776f42d84e76f17e8d93958ed4deb4563"
+    },
+    {
+      "category": "checkpoint_point_mlp_k80",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/point_mlp_k80/epoch_0009.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\point_mlp_k80\\epoch_0009.pt",
+      "size_bytes": 3096341,
+      "sha256": "104d3c9d0b0ad48b9d4b3bf9c0317c1f65da2821ed553aba792cbe6d74b8af11"
+    },
+    {
+      "category": "checkpoint_point_mlp_k80",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/point_mlp_k80/epoch_0010.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\point_mlp_k80\\epoch_0010.pt",
+      "size_bytes": 3096341,
+      "sha256": "9d54f9a57619fa13eb0ea8d3b6923831b9a83020447bc827c2919890b06dba67"
+    },
+    {
+      "category": "checkpoint_point_mlp_k80",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/point_mlp_k80/epoch_0012.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\point_mlp_k80\\epoch_0012.pt",
+      "size_bytes": 113455,
+      "sha256": "4b88a754148398d90a53cdf06d47d5f7f1503df1fd45c88db33bd44276664413"
+    },
+    {
+      "category": "checkpoint_point_mlp_k80",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/point_mlp_k80/eval_history.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\point_mlp_k80\\eval_history.json",
+      "size_bytes": 10562,
+      "sha256": "0d20ca8f1a27c1234e5da8f88aec6890b616bac2293f234cfbc80455b389a41c"
+    },
+    {
+      "category": "checkpoint_pointnet_k80",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_k80/best.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_k80\\best.pt",
+      "size_bytes": 20244707,
+      "sha256": "f33d1caf3019de5d7347b18d57bc4f3055c7d73861d8da73121b9b7623d18151"
+    },
+    {
+      "category": "checkpoint_pointnet_k80",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_k80/epoch_0005.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_k80\\epoch_0005.pt",
+      "size_bytes": 20244643,
+      "sha256": "1c2ac967c614cde697c0014b6476bfb91d4dfd51ffbf0e77b1c30b09efcaa1cf"
+    },
+    {
+      "category": "checkpoint_pointnet_k80",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_k80/epoch_0010.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_k80\\epoch_0010.pt",
+      "size_bytes": 20244707,
+      "sha256": "ed55d96bcbe200aa1ac8a40b60c8d797260d60f06d493e8e3b0eed466623db50"
+    },
+    {
+      "category": "checkpoint_pointnet_k80",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_k80/epoch_0015.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_k80\\epoch_0015.pt",
+      "size_bytes": 20244707,
+      "sha256": "f7679ffe1a32e656d83d81d79461cdbd5d0d458655681cd2ed98d81e2f511b46"
+    },
+    {
+      "category": "checkpoint_pointnet_k80",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_k80/epoch_0020.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_k80\\epoch_0020.pt",
+      "size_bytes": 20244707,
+      "sha256": "b5ffb0881b5247536e09ecea497aa013468779275fddc9595ec8b1bf324b9dd5"
+    },
+    {
+      "category": "checkpoint_pointnet_k80",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_k80/epoch_0025.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_k80\\epoch_0025.pt",
+      "size_bytes": 20244707,
+      "sha256": "f33d1caf3019de5d7347b18d57bc4f3055c7d73861d8da73121b9b7623d18151"
+    },
+    {
+      "category": "checkpoint_pointnet_k80",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_k80/epoch_0030.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_k80\\epoch_0030.pt",
+      "size_bytes": 20244707,
+      "sha256": "28eedf6eda2ad21531e6d9fc8c4eb5fc81a903421bfe29721c4670f62390bd50"
+    },
+    {
+      "category": "checkpoint_pointnet_k80",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_k80/epoch_0035.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_k80\\epoch_0035.pt",
+      "size_bytes": 20244707,
+      "sha256": "bdf59e8d16d545b0b11fa132cb087e2b6319b027fa98d7da8728b5c3b8bfc908"
+    },
+    {
+      "category": "checkpoint_pointnet_k80",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_k80/epoch_0040.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_k80\\epoch_0040.pt",
+      "size_bytes": 20244707,
+      "sha256": "f45ca0320312a6e1682afd92cd208d3fdddf8aed6b0c43826352b36dc23796e8"
+    },
+    {
+      "category": "checkpoint_pointnet_k80",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_k80/epoch_0045.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_k80\\epoch_0045.pt",
+      "size_bytes": 20244707,
+      "sha256": "573b75a378de02d3d9c9f61dc6c2623550afff65a2b9396b922130e7bcc518e7"
+    },
+    {
+      "category": "checkpoint_pointnet_k80",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_k80/epoch_0050.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_k80\\epoch_0050.pt",
+      "size_bytes": 20244707,
+      "sha256": "8c6aab2fa2a5466369cbdc1393d7a7b17a9c26603909171d67e8e89a6ee6163b"
+    },
+    {
+      "category": "checkpoint_pointnet_k80",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_k80/epoch_0055.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_k80\\epoch_0055.pt",
+      "size_bytes": 20244707,
+      "sha256": "9fb7fa5774845605283e7791ca49ea5705ce89fc80bb85ab663f440b33d38ec0"
+    },
+    {
+      "category": "checkpoint_pointnet_k80",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_k80/epoch_0060.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_k80\\epoch_0060.pt",
+      "size_bytes": 20244707,
+      "sha256": "b39f8f0e96cca2508f3b03fb2c01d4e82424be1dd8bba9451cdc93c861ec994b"
+    },
+    {
+      "category": "checkpoint_pointnet_k80",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_k80/epoch_0065.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_k80\\epoch_0065.pt",
+      "size_bytes": 20244707,
+      "sha256": "a6047576624d3fdb1178fafb746f3d8aca2c4e4355d4a95f73a936e80377c14a"
+    },
+    {
+      "category": "checkpoint_pointnet_k80",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_k80/epoch_0070.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_k80\\epoch_0070.pt",
+      "size_bytes": 20244707,
+      "sha256": "eefc218ff75df2a12a698e8e88e954761d50c3811bd03b04d0d353c1bbfae020"
+    },
+    {
+      "category": "checkpoint_pointnet_k80",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_k80/epoch_0075.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_k80\\epoch_0075.pt",
+      "size_bytes": 20244707,
+      "sha256": "c159d945259f4c87f36ea7c64b3f389e9f850b7050f429d98d15c0c4605c1102"
+    },
+    {
+      "category": "checkpoint_pointnet_k80",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_k80/epoch_0080.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_k80\\epoch_0080.pt",
+      "size_bytes": 20244707,
+      "sha256": "76ba3554d8ef31eb66b4bb24dcc36a94e43279f44aa222a2ba02e1f13350a88f"
+    },
+    {
+      "category": "checkpoint_pointnet_k80",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_k80/eval_history.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_k80\\eval_history.json",
+      "size_bytes": 24814,
+      "sha256": "234b0f49b687a41fcefdc438ad8b0a26596ca2459ba49f80abb38a165852e524"
+    },
+    {
+      "category": "checkpoint_pointnet_sphere",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_sphere/best.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_sphere\\best.pt",
+      "size_bytes": 20267747,
+      "sha256": "5cb6e261b903e2b6093b64d357098f26370a5ac3350209943c9bccb892950d48"
+    },
+    {
+      "category": "checkpoint_pointnet_sphere",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_sphere/epoch_0005.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_sphere\\epoch_0005.pt",
+      "size_bytes": 20267747,
+      "sha256": "00606b386f14ed818aa310f4f68dd0fb0ed84ec1174faf329643dde84c33a391"
+    },
+    {
+      "category": "checkpoint_pointnet_sphere",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_sphere/epoch_0010.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_sphere\\epoch_0010.pt",
+      "size_bytes": 20267747,
+      "sha256": "fb17b6c8aa83ffecbd4e095c0bc0044a55b8f2b5e15f31d94a9f5a467c1d965e"
+    },
+    {
+      "category": "checkpoint_pointnet_sphere",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_sphere/epoch_0015.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_sphere\\epoch_0015.pt",
+      "size_bytes": 20267747,
+      "sha256": "1ed3a74332390887ac7f8ab970361e3a558fbdea1e21716fd5323e8549c61528"
+    },
+    {
+      "category": "checkpoint_pointnet_sphere",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_sphere/epoch_0020.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_sphere\\epoch_0020.pt",
+      "size_bytes": 20267747,
+      "sha256": "d1d5b1a433adf407506c84f768321cf624ae41415d85bb83669278352f9582cb"
+    },
+    {
+      "category": "checkpoint_pointnet_sphere",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_sphere/epoch_0025.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_sphere\\epoch_0025.pt",
+      "size_bytes": 20267747,
+      "sha256": "d9ef10b9175b49000ae1b71bdc6bee8b0386673bc1d7411d3c6945813d6c83ff"
+    },
+    {
+      "category": "checkpoint_pointnet_sphere",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_sphere/epoch_0030.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_sphere\\epoch_0030.pt",
+      "size_bytes": 20267747,
+      "sha256": "66294ffa1f72acf70a4403779e00694781304f4cab299dfb16bfe4ac99cac160"
+    },
+    {
+      "category": "checkpoint_pointnet_sphere",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_sphere/epoch_0035.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_sphere\\epoch_0035.pt",
+      "size_bytes": 20267747,
+      "sha256": "08dd051fefb114378648614430b4dc591e8bb0f23a11315377bbb826ecd81d91"
+    },
+    {
+      "category": "checkpoint_pointnet_sphere",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_sphere/epoch_0040.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_sphere\\epoch_0040.pt",
+      "size_bytes": 20267747,
+      "sha256": "f6e66b03c0fd959b638e00ff26c42ff7b62f17f853d1f49d380ab75037076107"
+    },
+    {
+      "category": "checkpoint_pointnet_sphere",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_sphere/epoch_0045.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_sphere\\epoch_0045.pt",
+      "size_bytes": 20267747,
+      "sha256": "1aefeadae1e36cdea32feec30c7fdf7aaa32cd8456335af270bd3f87159ff299"
+    },
+    {
+      "category": "checkpoint_pointnet_sphere",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_sphere/epoch_0050.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_sphere\\epoch_0050.pt",
+      "size_bytes": 20267747,
+      "sha256": "575f8195d317945de1faad0f04c11cee7c7b06504428457fa03c9ae5b7f4278e"
+    },
+    {
+      "category": "checkpoint_pointnet_sphere",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_sphere/epoch_0055.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_sphere\\epoch_0055.pt",
+      "size_bytes": 20267747,
+      "sha256": "9ac5a5fd130a220a5be25b64c648f93d5070bd28528655a5a033a333103f6003"
+    },
+    {
+      "category": "checkpoint_pointnet_sphere",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_sphere/epoch_0060.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_sphere\\epoch_0060.pt",
+      "size_bytes": 20267747,
+      "sha256": "020561f14a0a306bf74042b4c6f80143497be16352383e0864dbd279c7de3a0a"
+    },
+    {
+      "category": "checkpoint_pointnet_sphere",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_sphere/epoch_0065.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_sphere\\epoch_0065.pt",
+      "size_bytes": 20267747,
+      "sha256": "c99088c7a3f276aadede50a54a855f17648ff9b6cd446a83c2e586b95c57b94f"
+    },
+    {
+      "category": "checkpoint_pointnet_sphere",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_sphere/epoch_0070.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_sphere\\epoch_0070.pt",
+      "size_bytes": 20267747,
+      "sha256": "93f944a111bf06902308096c7fce2ce27977a7f3bca4096a7d59416899615cbb"
+    },
+    {
+      "category": "checkpoint_pointnet_sphere",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_sphere/epoch_0075.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_sphere\\epoch_0075.pt",
+      "size_bytes": 20267747,
+      "sha256": "87585363b4cc6bd50f8d5480aa2b54dc6167cd2a1e81047a37d6247ae6356806"
+    },
+    {
+      "category": "checkpoint_pointnet_sphere",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_sphere/epoch_0080.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_sphere\\epoch_0080.pt",
+      "size_bytes": 20267747,
+      "sha256": "8a492d605064610e015345acb748ac8d80e81023b9a4165b81b0828d25de7c4a"
+    },
+    {
+      "category": "checkpoint_pointnet_sphere",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_sphere/epoch_0085.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_sphere\\epoch_0085.pt",
+      "size_bytes": 20267747,
+      "sha256": "ff10f5e9adcab1672e38e058a4215257ca1546afd28e3fceadb34c8a20d05633"
+    },
+    {
+      "category": "checkpoint_pointnet_sphere",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_sphere/epoch_0090.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_sphere\\epoch_0090.pt",
+      "size_bytes": 20267747,
+      "sha256": "d2ae99b7a9f05f50b89329b7d01440710b95d0d74cf85fa77fa1d313ea360752"
+    },
+    {
+      "category": "checkpoint_pointnet_sphere",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_sphere/epoch_0095.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_sphere\\epoch_0095.pt",
+      "size_bytes": 20267747,
+      "sha256": "5cb6e261b903e2b6093b64d357098f26370a5ac3350209943c9bccb892950d48"
+    },
+    {
+      "category": "checkpoint_pointnet_sphere",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_sphere/epoch_0100.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_sphere\\epoch_0100.pt",
+      "size_bytes": 20267747,
+      "sha256": "c14eb263de1bfab6e1307c5013a2d539bea192a336cc9373be0d12c58b350910"
+    },
+    {
+      "category": "checkpoint_pointnet_sphere",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_sphere/eval_history.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_sphere\\eval_history.json",
+      "size_bytes": 27275,
+      "sha256": "f7434459d4871e4252c4fd3ef00c6a6f3bf92212e955c50ddf69ecc27d96d551"
+    },
+    {
+      "category": "checkpoint_pointnet_v4",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_v4/best.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_v4\\best.pt",
+      "size_bytes": 20267939,
+      "sha256": "a817c02a1449b20f7e0b4360e43b5d416fc4393e7bc6fda5251bc8b0d203bc4e"
+    },
+    {
+      "category": "checkpoint_pointnet_v4",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_v4/epoch_0010.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_v4\\epoch_0010.pt",
+      "size_bytes": 20267939,
+      "sha256": "9246edf1777e371b6329d716f8de7c88e26ced50a6218aec99faf729369cc714"
+    },
+    {
+      "category": "checkpoint_pointnet_v4",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_v4/epoch_0020.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_v4\\epoch_0020.pt",
+      "size_bytes": 20267939,
+      "sha256": "53f341ca9a10c4046528845642d6a5948ed54376ba7498444e78031f06af67b0"
+    },
+    {
+      "category": "checkpoint_pointnet_v4",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_v4/epoch_0030.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_v4\\epoch_0030.pt",
+      "size_bytes": 20267939,
+      "sha256": "1714354abfd1422dc0b23964b8a409e377bd2d0c25194f63b64c401c73969771"
+    },
+    {
+      "category": "checkpoint_pointnet_v4",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_v4/epoch_0040.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_v4\\epoch_0040.pt",
+      "size_bytes": 20267939,
+      "sha256": "4aecdf726e813b94bfac42472ddfafbda898fcf79e8345b72c80ecedee868c44"
+    },
+    {
+      "category": "checkpoint_pointnet_v4",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_v4/epoch_0050.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_v4\\epoch_0050.pt",
+      "size_bytes": 20267939,
+      "sha256": "02ea1951cc1f7a3d2eefb7105afd612681612ec2547ad26f07189dacfa02a404"
+    },
+    {
+      "category": "checkpoint_pointnet_v4",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_v4/epoch_0060.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_v4\\epoch_0060.pt",
+      "size_bytes": 20267939,
+      "sha256": "2320f8acb352fc0e01af8b821aa8ea7d5699608cdcb29f7371435559ec8dbc57"
+    },
+    {
+      "category": "checkpoint_pointnet_v4",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_v4/epoch_0070.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_v4\\epoch_0070.pt",
+      "size_bytes": 20267939,
+      "sha256": "09452cb970a1e401305fa245ef024980044501e8d3d66ad82b8f497088bbe361"
+    },
+    {
+      "category": "checkpoint_pointnet_v4",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_v4/epoch_0080.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_v4\\epoch_0080.pt",
+      "size_bytes": 20267939,
+      "sha256": "82c7d52c35d51d8211560030cfb436141b73f10b3ef056ec3461af66c29d88f6"
+    },
+    {
+      "category": "checkpoint_pointnet_v4",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_v4/epoch_0090.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_v4\\epoch_0090.pt",
+      "size_bytes": 20267939,
+      "sha256": "5a0274ed9e18920e90cac3ada6405ff7dc0545e0035ab07d0ac6688ddb1d47d0"
+    },
+    {
+      "category": "checkpoint_pointnet_v4",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_v4/epoch_0100.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_v4\\epoch_0100.pt",
+      "size_bytes": 20267939,
+      "sha256": "4342b98726e356ed814d4ea6222dbc4179f6a54a9c18117abf02ad7320258825"
+    },
+    {
+      "category": "checkpoint_pointnet_v4",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_v4/epoch_0110.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_v4\\epoch_0110.pt",
+      "size_bytes": 20267939,
+      "sha256": "c4a847132aa4e7f1f03e977775e313ec48b15e49f9b70ec841f264b2e2916975"
+    },
+    {
+      "category": "checkpoint_pointnet_v4",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_v4/epoch_0120.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_v4\\epoch_0120.pt",
+      "size_bytes": 20267939,
+      "sha256": "b62cd219daa55d8e1da9b479b19b141e3f459a7a65c30af74a71a6748ad13812"
+    },
+    {
+      "category": "checkpoint_pointnet_v4",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_v4/epoch_0130.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_v4\\epoch_0130.pt",
+      "size_bytes": 20267939,
+      "sha256": "b4e88ffdc13012a515e520c355f24a163fe2e748ce3d2b0ce6c03057a7e93bc9"
+    },
+    {
+      "category": "checkpoint_pointnet_v4",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_v4/epoch_0140.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_v4\\epoch_0140.pt",
+      "size_bytes": 20267939,
+      "sha256": "3a563580ea899d534ab1a58117a998240041e5aab52ed1a4729000e066ac3ab0"
+    },
+    {
+      "category": "checkpoint_pointnet_v4",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_v4/epoch_0150.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_v4\\epoch_0150.pt",
+      "size_bytes": 20267939,
+      "sha256": "a4dadc9212267fe8e7e29a9cfd25499acc2d546f5ef5332ce3ac0c7397042b08"
+    },
+    {
+      "category": "checkpoint_pointnet_v4",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_v4/epoch_0160.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_v4\\epoch_0160.pt",
+      "size_bytes": 20267939,
+      "sha256": "b4a0fd3003889af6b968b71e36e997931ec5ad5e032ae6c191f063347ce464a9"
+    },
+    {
+      "category": "checkpoint_pointnet_v4",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_v4/epoch_0170.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_v4\\epoch_0170.pt",
+      "size_bytes": 20267939,
+      "sha256": "dc5133541b981f2128edff4230b9226685f35cbea7c1b8b726e592b45c5343b8"
+    },
+    {
+      "category": "checkpoint_pointnet_v4",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_v4/epoch_0180.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_v4\\epoch_0180.pt",
+      "size_bytes": 20267939,
+      "sha256": "b5688f08ca867227925d884c42e5f89e4ee6e9686d399f3fe96f033ba7207229"
+    },
+    {
+      "category": "checkpoint_pointnet_v4",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_v4/epoch_0190.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_v4\\epoch_0190.pt",
+      "size_bytes": 20267939,
+      "sha256": "5bd6bd99edbbce7fdbe85c6b8f0e30639f0a0ff041f8f0a27f3b2541870c3fac"
+    },
+    {
+      "category": "checkpoint_pointnet_v4",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_v4/epoch_0200.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_v4\\epoch_0200.pt",
+      "size_bytes": 20267939,
+      "sha256": "a817c02a1449b20f7e0b4360e43b5d416fc4393e7bc6fda5251bc8b0d203bc4e"
+    },
+    {
+      "category": "checkpoint_pointnet_v4",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/pointnet_v4/eval_history.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\pointnet_v4\\eval_history.json",
+      "size_bytes": 30582,
+      "sha256": "f945ccff74979857eb185e8f9f03d88498ad90d81f5d5596a0f5bb3fcffe9fb4"
+    },
+    {
+      "category": "checkpoint_step4_cellparity_diag",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/step4_cellparity_diag/best.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\step4_cellparity_diag\\best.pt",
+      "size_bytes": 3095573,
+      "sha256": "4272d30b9b782717d03599eefd2007ef2809ca8f4e6451dfa1356b73f56bb986"
+    },
+    {
+      "category": "checkpoint_step4_cellparity_diag",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/step4_cellparity_diag/epoch_0001.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\step4_cellparity_diag\\epoch_0001.pt",
+      "size_bytes": 3095573,
+      "sha256": "83b76a630abd6f7d2b155260f07c53815c5b484992af216987c7503cd68b28b0"
+    },
+    {
+      "category": "checkpoint_step4_cellparity_diag",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/step4_cellparity_diag/epoch_0002.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\step4_cellparity_diag\\epoch_0002.pt",
+      "size_bytes": 3095573,
+      "sha256": "4272d30b9b782717d03599eefd2007ef2809ca8f4e6451dfa1356b73f56bb986"
+    },
+    {
+      "category": "checkpoint_step4_cellparity_diag",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/step4_cellparity_diag/epoch_0003.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\step4_cellparity_diag\\epoch_0003.pt",
+      "size_bytes": 3095573,
+      "sha256": "d495b840990cc8b919e476eca2c2f84c9ab10f550525ce5d1a70a10c639e5153"
+    },
+    {
+      "category": "checkpoint_step4_cellparity_diag",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/step4_cellparity_diag/eval_history.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\step4_cellparity_diag\\eval_history.json",
+      "size_bytes": 2817,
+      "sha256": "03bcd66680c9ceb1a867388872e09e8b19175b3f73941083318493ea61810648"
+    },
+    {
+      "category": "checkpoint_step4_spatial_v2",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/step4_spatial_v2/best.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\step4_spatial_v2\\best.pt",
+      "size_bytes": 3095573,
+      "sha256": "ef00d87ca6117dec3fc90ef7a055f8f1414ea382219c2e2c509d6420308f8554"
+    },
+    {
+      "category": "checkpoint_step4_spatial_v2",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/step4_spatial_v2/epoch_0001.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\step4_spatial_v2\\epoch_0001.pt",
+      "size_bytes": 3095573,
+      "sha256": "ef00d87ca6117dec3fc90ef7a055f8f1414ea382219c2e2c509d6420308f8554"
+    },
+    {
+      "category": "checkpoint_step4_spatial_v2",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/step4_spatial_v2/epoch_0002.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\step4_spatial_v2\\epoch_0002.pt",
+      "size_bytes": 3095573,
+      "sha256": "319f65fab8b5a76c6624cd7a655bfb9297cecb4564e2ec0ba4da5f21bf7334d4"
+    },
+    {
+      "category": "checkpoint_step4_spatial_v2",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/step4_spatial_v2/epoch_0003.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\step4_spatial_v2\\epoch_0003.pt",
+      "size_bytes": 3095573,
+      "sha256": "5fa71aed01c25e20c8e684ac8b038466082f7fb1835cbc3baebd903738b981cf"
+    },
+    {
+      "category": "checkpoint_step4_spatial_v2",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/step4_spatial_v2/epoch_0004.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\step4_spatial_v2\\epoch_0004.pt",
+      "size_bytes": 3095573,
+      "sha256": "4cb98c1257adf7f383a72bf4a0a4fb27b06a332bf79b31b5c80154ff37cd1dc6"
+    },
+    {
+      "category": "checkpoint_step4_spatial_v2",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/step4_spatial_v2/epoch_0005.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\step4_spatial_v2\\epoch_0005.pt",
+      "size_bytes": 3095573,
+      "sha256": "2596b9f16f39a9cba5d03709fd3d2cc2e3b5cba8b63794e1b2a0939f07656e19"
+    },
+    {
+      "category": "checkpoint_step4_spatial_v2",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/step4_spatial_v2/epoch_0006.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\step4_spatial_v2\\epoch_0006.pt",
+      "size_bytes": 3095573,
+      "sha256": "21f2bda08d2485e3b7e389666cc3b6937c3bc51e20358d584d93c43939a05211"
+    },
+    {
+      "category": "checkpoint_step4_spatial_v2",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/step4_spatial_v2/epoch_0007.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\step4_spatial_v2\\epoch_0007.pt",
+      "size_bytes": 3095573,
+      "sha256": "6ab96368898dd60705de56c130e4d1500424a9d56e4e047bea8628af6eabc8b9"
+    },
+    {
+      "category": "checkpoint_step4_spatial_v2",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/step4_spatial_v2/epoch_0008.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\step4_spatial_v2\\epoch_0008.pt",
+      "size_bytes": 3095573,
+      "sha256": "04273e1a987072a969eaee9862d3db0eac77a49ed7cbf844cafcab35c76925eb"
+    },
+    {
+      "category": "checkpoint_step4_spatial_v2",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/step4_spatial_v2/epoch_0009.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\step4_spatial_v2\\epoch_0009.pt",
+      "size_bytes": 3095573,
+      "sha256": "a3312b786b4b17350ee1ae48bf95512b66e4a30372508f05126f0f327cda6933"
+    },
+    {
+      "category": "checkpoint_step4_spatial_v2",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/step4_spatial_v2/epoch_0010.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\step4_spatial_v2\\epoch_0010.pt",
+      "size_bytes": 3095573,
+      "sha256": "e51bd5ab9efb48c136ad2848b959961c5c346d9a6e570231b7f4ead941d78b0a"
+    },
+    {
+      "category": "checkpoint_step4_spatial_v2",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/step4_spatial_v2/epoch_0011.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\step4_spatial_v2\\epoch_0011.pt",
+      "size_bytes": 3095573,
+      "sha256": "903c597030b014da7bd5da743ef558273c4889cdce3524a2f281d84938e0532f"
+    },
+    {
+      "category": "checkpoint_step4_spatial_v2",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/step4_spatial_v2/epoch_0012.pt",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\step4_spatial_v2\\epoch_0012.pt",
+      "size_bytes": 3095573,
+      "sha256": "b81c47b237d8425e34eb023d79c0b39437eff278c951c0b61e109217596e2a2e"
+    },
+    {
+      "category": "checkpoint_step4_spatial_v2",
+      "remote_path": "/home/saptarsi/deepsegregation/checkpoints/step4_spatial_v2/eval_history.json",
+      "local_path": "d:\\gitfork\\deepsegregation.worktrees\\greeting-response\\checkpoints\\step4_spatial_v2\\eval_history.json",
+      "size_bytes": 11567,
+      "sha256": "0c9e2a672d1ef5723821a51cad146e43caa42b18afadbaa99c0acaa294a4f45a"
+    }
+  ]
+}

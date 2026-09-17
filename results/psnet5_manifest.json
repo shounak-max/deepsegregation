@@ -1,0 +1,27 @@
+{
+  "root": "data/PSNet/PSNet5",
+  "areas": [
+    "Area_1",
+    "Area_2",
+    "Area_3",
+    "Area_4"
+  ],
+  "missing_areas": [],
+  "annotation_files": 18,
+  "class_file_counts": {
+    "ibeam": 4,
+    "pipe": 4,
+    "pump": 4,
+    "rectangularbeam": 4,
+    "tank": 2
+  },
+  "area_file_counts": {
+    "Area_1": 4,
+    "Area_2": 5,
+    "Area_3": 5,
+    "Area_4": 4
+  },
+  "total_annotation_bytes": 2479051319,
+  "unexpected_class_prefixes": [],
+  "ready_for_preprocessing": true
+}

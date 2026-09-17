@@ -1,0 +1,34 @@
+{
+  "checkpoint": "checkpoints/binary_pointnet2_miouselect/epoch_0008.pt",
+  "cache": "data/PSNet/real_val.npz",
+  "cell_size": 0.5,
+  "device": "cuda:0",
+  "metrics": {
+    "accuracy": 0.6092617271248995,
+    "mIoU": 0.3693019929381355,
+    "per_class_recall": [
+      0.7254007673977594,
+      0.2846173198467196
+    ],
+    "per_class_iou": [
+      0.5775839505941296,
+      0.16102003528214132
+    ],
+    "macro_f1": 0.5048077328493104,
+    "confusion_matrix": [
+      [
+        6190029,
+        2343225
+      ],
+      [
+        2183853,
+        868853
+      ]
+    ],
+    "point_count": 11585960,
+    "pipe_prevalence": 0.26348321589233864,
+    "pipe_precision": 0.2704956106296298,
+    "pipe_recall": 0.2846173198467196,
+    "pipe_f1": 0.27737684172351357
+  }
+}
